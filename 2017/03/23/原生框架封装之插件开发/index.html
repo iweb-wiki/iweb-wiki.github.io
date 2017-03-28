@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>原生框架封装之插件开发 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="原生框架封装,js，jquery">
+    <meta name="description" content="cookie
+历史背景
+
+http https: 都是一种无状态、无连接的协议
+tcp/ip 是一种长连接协议
+无论什么用户都可以访问网址页面，在实际开发中，有些页面需要先验证身份才可以访问的，此时就需要http记录用户的状态，（登录状态），
+但是http协议是无状态的，因此就诞生了session和cookie
+
+
+应用场景
+
+登录功能：记录登录状态，以及一些用户基本信息。
+用户基本信息：昵">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生框架封装之插件开发">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="cookie
+历史背景
+
+http https: 都是一种无状态、无连接的协议
+tcp/ip 是一种长连接协议
+无论什么用户都可以访问网址页面，在实际开发中，有些页面需要先验证身份才可以访问的，此时就需要http记录用户的状态，（登录状态），
+但是http协议是无状态的，因此就诞生了session和cookie
+
+
+应用场景
+
+登录功能：记录登录状态，以及一些用户基本信息。
+用户基本信息：昵">
+<meta property="og:updated_time" content="2017-03-23T03:45:47.505Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生框架封装之插件开发">
+<meta name="twitter:description" content="cookie
+历史背景
+
+http https: 都是一种无状态、无连接的协议
+tcp/ip 是一种长连接协议
+无论什么用户都可以访问网址页面，在实际开发中，有些页面需要先验证身份才可以访问的，此时就需要http记录用户的状态，（登录状态），
+但是http协议是无状态的，因此就诞生了session和cookie
+
+
+应用场景
+
+登录功能：记录登录状态，以及一些用户基本信息。
+用户基本信息：昵">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">原生框架封装之插件开发</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">原生框架封装之插件开发</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-23T01:25:49.000Z" itemprop="datePublished" class="page-time">
+  2017-03-23
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#cookie"><span class="post-toc-number">1.</span> <span class="post-toc-text">cookie</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#原生js操作cookie"><span class="post-toc-number">2.</span> <span class="post-toc-text">原生js操作cookie</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-原生框架封装之插件开发"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">原生框架封装之插件开发</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月23日 9:25" datetime="2017-03-23T01:25:49.000Z"  itemprop="datePublished">2017-03-23</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><ol>
+<li><p>历史背景</p>
+<ul>
+<li>http https: 都是一种无状态、无连接的协议</li>
+<li>tcp/ip 是一种长连接协议</li>
+<li>无论什么用户都可以访问网址页面，在实际开发中，有些页面需要先验证身份才可以访问的，此时就需要http记录用户的状态，（登录状态），</li>
+<li>但是http协议是无状态的，因此就诞生了session和cookie</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>登录功能：记录登录状态，以及一些用户基本信息。</li>
+<li>用户基本信息：昵称、头像地址、加密后的密码（记住密码）、用户名</li>
+</ul>
+</li>
+<li><p>做cookie插件的目的</p>
+</li>
+</ol>
+<ul>
+<li>方便前端人员操作cookie</li>
+</ul>
+<h2 id="原生js操作cookie"><a href="#原生js操作cookie" class="headerlink" title="原生js操作cookie"></a>原生js操作cookie</h2><ol>
+<li><p>获取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie</div></pre></td></tr></table></figure>
+</li>
+<li><p>操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie = <span class="string">"username=guoguo"</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置有效期</p>
+<ul>
+<li><p>默认如果没有设置cookie有效期，它就是一个会话的cookie，也就是说，当浏览器关闭时，该cookie的信息会被清除掉</p>
+</li>
+<li><p>在设置cookie有效期时，单位是天，在原生设置cookie有效期时，要给expiries赋值为截止日期；</p>
+</li>
+</ul>
+</li>
+<li><p>设置域名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">domain=<span class="string">"xxx.com"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>设置路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">path=<span class="string">"/"</span></div></pre></td></tr></table></figure></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-23T03:45:47.505Z" itemprop="dateUpdated">2017年3月23日 11:45</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/23/原生框架封装之插件开发/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js，jquery/">js，jquery</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原生框架封装/">原生框架封装</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/&title=《原生框架封装之插件开发》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/&title=《原生框架封装之插件开发》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生框架封装之插件开发》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/26/数组方法梳理/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">数组方法梳理</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/22/框架封装之Ajax/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">框架封装之Ajax</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="原生框架封装之插件开发" data-title="原生框架封装之插件开发" data-url="http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/&title=《原生框架封装之插件开发》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/&title=《原生框架封装之插件开发》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生框架封装之插件开发》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACrElEQVR42u3aQW7cMBAEwPz/0wmQk4FESvcMaTtA6STsaiUWDyK3Z378iI+fv4+P5x+P9vqnb/NPDh94eHh4o6Eng/jz/B3W8vZT9pff4uHh4V3jbRaDhJSD35eHfMx4eHh434E3wyT3bK/Hw8PD+1947Wb6/bf5pODh4eF9T14btu5D3jxcaK/Hw8PDu82bFcC+9vx6fQ8PDw9vVFXPi2HJt3lc2xbSHp+Ch4eHd4H3fqM8bkgGlMcKyQb9fVqjYeHh4eGtefuyVv5yb5+bwB6peHh4eEd5eTg720DvWwSSiX6k4uHh4V3gtbdrA4J9RNsuHnh4eHifyWsL8O0GOqlPte1cqzIYHh4e3po3iw82D24bp4ZTgIeHh3eUt2n6nG242437KuzAw8PD+3ReDkgWm315rJ4gPDw8vAu8zfY6H2L7is+f0sYfeHh4eHverLCURAZ5sT/frK+WATw8PLxDvHz7O8Pny0abPedjxsPDwzvLSyLU/EWcT027+c6pj1kLHh4e3gVeXvravL43gWxbMMPDw8O7wcv//O9jgtslsaiBAA8PD2/Na6OBfFLyTzYNB/9Y0vDw8PAu8GYxwb5dYNZ80GazeHh4eDd4swLV+0D32+5261x3RuDh4eEd4rXDOnu3WQtCHUbg4eHhHeW1y0YSUtTBQT705Ho8PDy8C7zZVjh5Zeek9g713wA8PDy8o7zZz5KQ4lQAkS9FxRqFh4eHd5TXDu7UAnOjFQwPDw/vBq9tsZqVqfJWgHzQbXEODw8P7yxvthhs2g5mr+9hQIyHh4d3jde2Aswe305NW3J7DHPx8PDwvoiXP6DFt/e8sjDg4eHhXeO1TQCn2hHysGO1MODh4eHFvCSMyAPZ/dZ503yAh4eHd5u3KYDtqfvmqiEJDw8Pb8L7BZee2k+/A3yVAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

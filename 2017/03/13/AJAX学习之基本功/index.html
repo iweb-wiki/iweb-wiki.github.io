@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>AJAX应用之基本功 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="ajax,基本功">
+    <meta name="description" content="静态资源和动态资源
+我们把开发好的html css js部署到服务器上，然后就可以访问了，我们称这些服务器上的文件为资源。
+####我们把资源分为两类：
+-实际上，我们开发都是在开发资源，开发好了部署到服务器上，然后客户端就可访问我的资源了。
+-资源分为两类
+1.静态资源
+
+
+
+可以通过浏览器直接打开，直接解析的我们称为静态资源。-html,js,css.inage 我们可以理解为静态资源
+2.动">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AJAX应用之基本功">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="静态资源和动态资源
+我们把开发好的html css js部署到服务器上，然后就可以访问了，我们称这些服务器上的文件为资源。
+####我们把资源分为两类：
+-实际上，我们开发都是在开发资源，开发好了部署到服务器上，然后客户端就可访问我的资源了。
+-资源分为两类
+1.静态资源
+
+
+
+可以通过浏览器直接打开，直接解析的我们称为静态资源。-html,js,css.inage 我们可以理解为静态资源
+2.动">
+<meta property="og:updated_time" content="2017-03-22T01:30:04.859Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AJAX应用之基本功">
+<meta name="twitter:description" content="静态资源和动态资源
+我们把开发好的html css js部署到服务器上，然后就可以访问了，我们称这些服务器上的文件为资源。
+####我们把资源分为两类：
+-实际上，我们开发都是在开发资源，开发好了部署到服务器上，然后客户端就可访问我的资源了。
+-资源分为两类
+1.静态资源
+
+
+
+可以通过浏览器直接打开，直接解析的我们称为静态资源。-html,js,css.inage 我们可以理解为静态资源
+2.动">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AJAX应用之基本功</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">AJAX应用之基本功</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-13T13:10:23.000Z" itemprop="datePublished" class="page-time">
+  2017-03-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态资源和动态资源"><span class="post-toc-number">1.</span> <span class="post-toc-text">静态资源和动态资源</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#客户端发送请求有几种方式："><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">客户端发送请求有几种方式：</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-AJAX学习之基本功"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AJAX应用之基本功</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月13日 21:10" datetime="2017-03-13T13:10:23.000Z"  itemprop="datePublished">2017-03-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="静态资源和动态资源"><a href="#静态资源和动态资源" class="headerlink" title="静态资源和动态资源"></a>静态资源和动态资源</h2><ul>
+<li><p>我们把开发好的html css js部署到服务器上，然后就可以访问了，我们称这些服务器上的文件为资源。</p>
+<p>####我们把资源分为两类：</p>
+<p>-实际上，我们开发都是在开发资源，开发好了部署到服务器上，然后客户端就可访问我的资源了。</p>
+<p>-资源分为两类</p>
+<p>1.静态资源</p>
+</li>
+</ul>
+<ul>
+<li><p>可以通过浏览器直接打开，直接解析的我们称为静态资源。<br>-html,js,css.inage 我们可以理解为静态资源</p>
+<p>2.动态资源</p>
+</li>
+<li><p>php，jsp，asp 我们可以理解为动态资源</p>
+<p>####动态资源和静态资源的区别</p>
+<p>-浏览器只认识静态资源。</p>
+<p>-我的浏览器通过输入地址区访问呢服务器，实际上是去访问服务器上的资源。</p>
+<p>-服务器上有静态资源，也有动态资源。<br>-如果我的浏览器访问的是服务器上的动态资源，服务器会把动态资源转换称静态资源，然后在传给客户端浏览器。<br>-如果我的浏览器访问的是服务器上的静态资源，那么服务器会直接把静态资源传送给浏览器解析。<br>-动态资源是在服务端运行的，静态资源是在客户端运行的。</p>
+</li>
+</ul>
+<ul>
+<li><p>php 就是在服务端运行的，用来处理服务端逻辑的。</p>
+<p>##客户端与服务端进行交互</p>
+</li>
+</ul>
+<h4 id="客户端发送请求有几种方式："><a href="#客户端发送请求有几种方式：" class="headerlink" title="客户端发送请求有几种方式："></a>客户端发送请求有几种方式：</h4><ol>
+<li><p>在地址栏输入地址发送请求</p>
+<p>2.点击一个超链接，发送请求</p>
+<p>3.表单提交也是属于发送请求</p>
+<p>-发送请求是给服务器端进行提交，提交数据到服务器<br>-提交有两种常见的方式，一个是get，一个是post</p>
+<p>1.什么是get提交</p>
+</li>
+</ol>
+<ul>
+<li><p>在地址栏输入地址发送请求，点击超链接也属于get提交<br>-表单提交，<code>&lt;form action=&quot;&quot; method=&quot;get&quot;&gt;&lt;/form&gt;</code>默认是get方式提交。<br>-?paraName=value&amp;paraName=value&amp;paraName=value</p>
+<p>2.什么是post提交呢？</p>
+</li>
+<li><p>表单提交，可以设置称post方式提交，<br>-会自动把数据发送到服务器</p>
+<p>3.服务端</p>
+<ol>
+<li>接收请求<br>$_GET $POST这两个变量得到的值是一个关联数组，<br>客户端的数据放在关联数组里面，需要根据key去获取里边的值<br>2.处理请求<br>连接数据库，增删改查<br>3.响应数据<br>echo根据处理请求的逻辑，给客户端不同的响应结果</li>
+</ol>
+<p>####服务端接收到客户端的请求，一般要做那些处理？</p>
+<p>1.用户登录</p>
+<ol>
+<li>登录页面，表单，用户名，密码，登录按钮<br>2.处理登录请求的php</li>
+<li>接收请求，接收用户名以及密码<br>2.对接收到的用户名密码进行判断，<br>-如果正确，则进行连接数据<br>-如果不正确就提示错误</li>
+</ol>
+<p>2.文件上传</p>
+</li>
+<li><p>客户端：</p>
+<ol>
+<li>必须是表单提交的<br>2.表单提交里面必须有一个 input type=“file”<br>3.必须是post方式提交的<br>4.必须给表单设置一个属性，<code>enctype=&quot;multipart/form-data&quot;</code></li>
+</ol>
+<p>-服务端</p>
+<ol>
+<li>要接收客户端的数据， $_GET, $_POST ,不能接收文件上传的数据，文件上传的数据，我们应该用$_FILES 的变量去接收，接收的数据也是一个关联数组<br>2.接收到这个数据之后，需要把这些数据保存到服务端硬盘上面。</li>
+</ol>
+<p>3.动态输出</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?php if(true) &#123;?&gt;</div><div class="line"></div><div class="line">&lt;?php &#125; ?&gt;</div><div class="line"></div><div class="line">&lt;?php for($i=0;$i&lt;=1000;$i++)&#123; ?&gt;</div><div class="line"></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span>&lt;?php echo $i; ?&gt;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">&lt;?php &#125; ?&gt;</div></pre></td></tr></table></figure></li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-22T01:30:04.859Z" itemprop="dateUpdated">2017年3月22日 9:30</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/13/AJAX学习之基本功/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ajax/">ajax</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/基本功/">基本功</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/&title=《AJAX应用之基本功》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/&title=《AJAX应用之基本功》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AJAX应用之基本功》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/14/markdown基本语法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">markdown基本语法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/13/git应用之git常用操作/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git应用之git常用操作</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="AJAX学习之基本功" data-title="AJAX应用之基本功" data-url="http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/&title=《AJAX应用之基本功》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/&title=《AJAX应用之基本功》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AJAX应用之基本功》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACF0lEQVR42u3aS27DMAwFwNz/0u4JqjySagFLo1XQqLYmC4G/zydezy8r2Z88ufpfzYWBgfFaxrNcPUZyxPXz87NhYGDcw0gOsb5Sf9uz3p/w1mfDwMDAqO6pwvLPGBgYGD1GnujmQR4GBgbGJIldF8XWye36uHn4uCEXx8DAeCEjr7r//+c/6W9gYGC8ivEU118c8RkvDAyMsxm9BLW3Mw/vmm/BwMA4mtEbd0jKYb2BjN5zMDAwTmWsv+41IKsFtQ0lPwwMjKMZvUuzmpRW25x5mwEDA+MexuSIeUE/DzeTyx0DA+NORu/qzF+5qyNZ6LViYGAcykiKbtUQMEmJ85/gyxWPgYFxKCM/+iTs6zUAyuU2DAyM4xjVluHkek32Nwt5GBgYRzPy1LEXFFbHvyaDYhgYGKcy5qX8+aBY0sjcNjOCgYHxckav0NZrBuwKMaPfGwMD4+WM+cVXbT1OAsdCmIiBgXEco9ztHJfyd+3BwMC4jVEdjKj+vfeE5rAFBgbGNYxeWS1PlXclvRgYGDczqnWtBNDsr+ZJLAYGxnGMp7jyR1eHX3upLAYGxg2MXmcwCtQGIWZ52AIDA+MCxjxl7YV9eZuz3IPFwMA4lJGnoPNBikmo9yXOxcDAwIjT1F3BX+ESx8DAwIiHVufIZjkPAwPjAkaSxE5Gxyatgs3lNgwMjBcyRqlj/Jp5W3RDIxMDA+N9jB9tduTzbVdsOgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

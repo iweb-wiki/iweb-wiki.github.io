@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>git应用之git常用操作 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git,常用命令操作">
+    <meta name="description" content="这篇主要介绍的是如何配置git和相关操作命令，方便交流学习和以后查阅。
+
+1.    配置用户
+git安装完成之后，我们需要配置个人信息，配置方式如下。
+
+git config [option] 
+
+–global 全局配置，当前用户下的所有仓库都共享同一个用户的配置信息
+–system 系统配置，该电脑下的所有仓库都共享一个用户的配置信息
+–local     本地配置，该仓库下使用当前配置的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git应用之git常用操作">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="这篇主要介绍的是如何配置git和相关操作命令，方便交流学习和以后查阅。
+
+1.    配置用户
+git安装完成之后，我们需要配置个人信息，配置方式如下。
+
+git config [option] 
+
+–global 全局配置，当前用户下的所有仓库都共享同一个用户的配置信息
+–system 系统配置，该电脑下的所有仓库都共享一个用户的配置信息
+–local     本地配置，该仓库下使用当前配置的">
+<meta property="og:updated_time" content="2017-03-15T06:59:55.305Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git应用之git常用操作">
+<meta name="twitter:description" content="这篇主要介绍的是如何配置git和相关操作命令，方便交流学习和以后查阅。
+
+1.    配置用户
+git安装完成之后，我们需要配置个人信息，配置方式如下。
+
+git config [option] 
+
+–global 全局配置，当前用户下的所有仓库都共享同一个用户的配置信息
+–system 系统配置，该电脑下的所有仓库都共享一个用户的配置信息
+–local     本地配置，该仓库下使用当前配置的">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git应用之git常用操作</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git应用之git常用操作</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-13T05:59:09.000Z" itemprop="datePublished" class="page-time">
+  2017-03-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1-配置用户"><span class="post-toc-number">1.</span> <span class="post-toc-text">1.    配置用户</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2-仓库初始化"><span class="post-toc-number">2.</span> <span class="post-toc-text">2.    仓库初始化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3-查看文件状态"><span class="post-toc-number">3.</span> <span class="post-toc-text">3.    查看文件状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4-添加到暂存区"><span class="post-toc-number">4.</span> <span class="post-toc-text">4.    添加到暂存区</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#5-撤销更改"><span class="post-toc-number">5.</span> <span class="post-toc-text">5.    撤销更改</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#6-提交"><span class="post-toc-number">6.</span> <span class="post-toc-text">6.    提交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#7-查看提交日志"><span class="post-toc-number">7.</span> <span class="post-toc-text">7.    查看提交日志</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#8-恢复之前提交的状态"><span class="post-toc-number">8.</span> <span class="post-toc-text">8.    恢复之前提交的状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#9-git分支"><span class="post-toc-number">9.</span> <span class="post-toc-text">9.    git分支</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git分支策略"><span class="post-toc-number">9.0.1.</span> <span class="post-toc-text">git分支策略</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-git应用之git常用操作"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git应用之git常用操作</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月13日 13:59" datetime="2017-03-13T05:59:09.000Z"  itemprop="datePublished">2017-03-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>这篇主要介绍的是如何配置git和相关操作命令，方便交流学习和以后查阅。</li>
+</ul>
+<h2 id="1-配置用户"><a href="#1-配置用户" class="headerlink" title="1.    配置用户"></a>1.    配置用户</h2><ul>
+<li><p>git安装完成之后，我们需要配置个人信息，配置方式如下。</p>
+</li>
+<li><p>git config [option] </p>
+<ul>
+<li>–global 全局配置，当前用户下的所有仓库都共享同一个用户的配置信息</li>
+<li>–system 系统配置，该电脑下的所有仓库都共享一个用户的配置信息</li>
+<li>–local     本地配置，该仓库下使用当前配置的用户信息。</li>
+</ul>
+</li>
+<li>配置用户名：git config –global user.name  “wangpansheng”</li>
+<li>配置邮箱：    git config –global user.email  “wps@qq.com”</li>
+<li>获取信息：    git config –get user.name || –get user.email</li>
+<li>配置信息存放在用户文件夹中的.gitconfig中存放着。</li>
+<li>可以通过重复配置信息，覆盖之前配置的信息</li>
+</ul>
+<h2 id="2-仓库初始化"><a href="#2-仓库初始化" class="headerlink" title="2.    仓库初始化"></a>2.    仓库初始化</h2><ul>
+<li><p>使用git管理代码之前需要首先在工作目录下，输入该命令，初始化一个仓库。</p>
+</li>
+<li><p>git init</p>
+</li>
+</ul>
+<h2 id="3-查看文件状态"><a href="#3-查看文件状态" class="headerlink" title="3.    查看文件状态"></a>3.    查看文件状态</h2><ul>
+<li>查看当前工作目录文件的状态，</li>
+<li>如果下边文件名是红色的就是没有被追踪的，或者是暂存之后又被修改的文件。</li>
+<li>如果绿色的就是已经add暂存了的文件。</li>
+<li><p>会忽略空文件夹</p>
+</li>
+<li><p>medified 表示是跟踪到修改的文件</p>
+</li>
+<li><p>git status</p>
+</li>
+</ul>
+<h2 id="4-添加到暂存区"><a href="#4-添加到暂存区" class="headerlink" title="4.    添加到暂存区"></a>4.    添加到暂存区</h2><ul>
+<li><p>如果要把本地工作目录的文件添加到暂存区，也就是想要让git追踪文件的变化，就需要使用git add命令。然后使用git status查看文件状态是否被追踪。</p>
+</li>
+<li><p>git add [option]</p>
+</li>
+<li><p>*| -A    暂存所有文件</p>
+</li>
+<li>文件名，暂存指定文件</li>
+</ul>
+<h2 id="5-撤销更改"><a href="#5-撤销更改" class="headerlink" title="5.    撤销更改"></a>5.    撤销更改</h2><ul>
+<li>有时候，我们可能会想要把代码恢复到以前的版本，这是就需要用到checkout了。</li>
+<li>在撤销更该的时候，如果暂存区有备份，就恢复暂存区文件到工作目录，</li>
+<li><p>如果暂存区没有就去版本库去恢复。</p>
+</li>
+<li><p>git checkout filename</p>
+</li>
+</ul>
+<h2 id="6-提交"><a href="#6-提交" class="headerlink" title="6.    提交"></a>6.    提交</h2><ul>
+<li><p>git commit [option] -m “当前版本备注信息”</p>
+</li>
+<li><p>提交单个文件时，option输入文件名即可，</p>
+</li>
+<li><p>在做版本回退时，需要根据版本备注信息选择回退的版本。</p>
+</li>
+<li><p>没提交一次都会有一个版本号，一般称为SHA值，</p>
+</li>
+</ul>
+<h2 id="7-查看提交日志"><a href="#7-查看提交日志" class="headerlink" title="7.    查看提交日志"></a>7.    查看提交日志</h2><ul>
+<li><p>有时候我们需要查看提交的历史纪录，可以通过git log查看提交的历史记录</p>
+</li>
+<li><p>git log            不包含回退之后的版本</p>
+</li>
+<li>git log –oneline    简略显示日志</li>
+<li>git reflog    查看所有历史版本，</li>
+</ul>
+<h2 id="8-恢复之前提交的状态"><a href="#8-恢复之前提交的状态" class="headerlink" title="8.    恢复之前提交的状态"></a>8.    恢复之前提交的状态</h2><ul>
+<li><p>回退到指定的版本</p>
+</li>
+<li><p>git reset [option] 版本id</p>
+</li>
+<li><p>将指定版本内的文件替换掉工作目录内的文件，实现版本回退，</p>
+</li>
+<li><p>如果传了 –hard 会同时更改暂存区文件</p>
+</li>
+<li><p>git reset HEAD^ 回退到前一次提交的版本，</p>
+</li>
+<li><p>git reset HEAD^^|| HEAD~2回退到前两次的版本</p>
+</li>
+<li><p>reset命令有3中方式：</p>
+<ul>
+<li>git reset  –mixed    <ul>
+<li>默认方式，不带任何参数的git reset，</li>
+<li>版本区和暂存区变化，工作区不变化</li>
+</ul>
+</li>
+<li>git reset –soft    <ul>
+<li>回退到某个版本，只回退了commit的信息，不会恢复暂存区，</li>
+<li>如果还要提交，直接commit即可</li>
+</ul>
+</li>
+<li>git reset –hard<ul>
+<li>彻底回退到某个版本，本地的源码也会变为上一个版本的内容。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-git分支"><a href="#9-git分支" class="headerlink" title="9.    git分支"></a>9.    git分支</h2><ul>
+<li><p>在初始化一个本地仓库时，默认是没有主分支的，必须至少提交一次版本之后，git才会创建master主分支。</p>
+</li>
+<li><p>git在创建分支时，必须保证有master主分支。</p>
+</li>
+</ul>
+<ol>
+<li><p>创建分支</p>
+<ul>
+<li><p>git branch name    创建分支</p>
+</li>
+<li><p>git checkout -b branchName  创建分支并切换到该分支</p>
+</li>
+</ul>
+</li>
+<li><p>查看分支</p>
+<ul>
+<li>git branch</li>
+</ul>
+<ul>
+<li>有星号*标记的分支，就是当前工作目录所在的分支，</li>
+</ul>
+</li>
+<li><p>切换分支</p>
+<ul>
+<li><p>git checkout branchName</p>
+</li>
+<li><p>切换到指定分支</p>
+</li>
+</ul>
+</li>
+<li><p>分支的合并</p>
+<ul>
+<li><p>git merge branchName</p>
+</li>
+<li><p>将指定分支合并到当前分支</p>
+</li>
+</ul>
+</li>
+<li><p>删除分支</p>
+<ul>
+<li><p>git branch -d branchName</p>
+</li>
+<li><p>删除指定的分支</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="git分支策略"><a href="#git分支策略" class="headerlink" title="git分支策略"></a>git分支策略</h4><ul>
+<li>在实际开发中，虽然git分支很强大，但是也不是随便用的，通常我们需要按照一定的策略使用分支，提高开发效率。</li>
+</ul>
+<ol>
+<li><p>保证主分支的的稳定性，也就是说要保证主分支的代码，无bug，功能完整，不能在主分支上直接进行开发。</p>
+</li>
+<li><p>如果需要开发新功能时，那么就创建一个该功能的分支，然后在该分支上进行代码编写。当功能开发完毕，并且测试无bug，将该分支上的代码合并到主分支上。</p>
+<ul>
+<li>该分支命名一般规范：所有的开发分支都以”dev-“+相关功能描述的单词。</li>
+<li>eg： 要开发登录功能时， 此时可以考虑创建一个开发分支，名字为dev-login</li>
+</ul>
+</li>
+<li><p>如果开发时遇到协同开发，就要创建协同开发分支，在该分支上去编写代码。</p>
+<ul>
+<li>当代码合并时，可能会出现，代码冲突，一旦出现冲突，git无法解决，需要我们认为手动去处理。</li>
+<li>该分支一般的命名规范为：<ul>
+<li>所有的开发分支都以”feature-“+相关描述词；</li>
+<li>eg：开发主页功能时，可以考虑创建一个分支，名字为feature-index</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果在开发时，接到一个临时修改的bug的任务时，此时不要在主分支或当前未完成的分支上去修改，此时，创建一个bug分支，在该分支上去修改出现bug的代码，修改完成之后，将其合并到主分支，</p>
+<ul>
+<li>该分支命名规范：</li>
+<li>所有的开发分支都以”bug”+相关描述词；</li>
+<li>eg: 要修改登录超时问题，此时可以考虑创建一个bug分支，名字为bug-loginTimeout</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>如果出现冲突，必须手动解决冲突，然后重新提交版本，</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-15T06:59:55.305Z" itemprop="dateUpdated">2017年3月15日 14:59</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/13/git应用之git常用操作/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/常用命令操作/">常用命令操作</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/&title=《git应用之git常用操作》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/&title=《git应用之git常用操作》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之git常用操作》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/13/AJAX学习之基本功/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AJAX应用之基本功</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/13/git应用之git工作原理/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git应用之git基本工作流程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="git应用之git常用操作" data-title="git应用之git常用操作" data-url="http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/&title=《git应用之git常用操作》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/&title=《git应用之git常用操作》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之git常用操作》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACoElEQVR42u3aW47aAAwFUPa/abqAKcz1i1Lp5GuEkuCTkWJj+/GIj+eL4+c51WufxeNxceDh4eEthf4+iFf3+Xl+75zJQ8HDw8P7DC8JNw+xHETwEF/F8IsFDw8P72t4vfI3CfF9bYyHh4f3P/ImXz9JOXh4eHjfxkt+/L+6Ki+I31/Va2Ss9Vrw8PDwDqZI3/P3yXwPDw8PbzxVrzZVq8Ot6gitHC0eHh7eAa/aaMiDTsKqvu6rceLh4eHd8aqB5l+Zj/+rKSH5HA8PD++CV30p9xq+83K5mTDw8PDwDnh5ENWFqqQQr64LzBMVHh4e3i6vV0z3VqOixkGxcI/+b3h4eHhj3mRBqlpkz9ezyqkLDw8P74CXvD+TIVZyfrV1Oy/N8fDw8O541c5nXohXF7BycP7Q8fDw8K55vSI7KZ3nk6m1NICHh4c35vWG+r02a/VVPi/c8fDw8HZ5vcF8Dq42I5aHZHh4eHhnvPzWvbFW73FMGr54eHh417wkSWxtePVK6mp6+EtJjYeHh7fKm5TReYncK6CTVFQoqfHw8PCWeEkQvUK5t0BQntq9SiF4eHh4B7zeC7fazK2G2Gvm4uHh4X2Gl7did9u7ybW9dgYeHh7eNa9XRicrUPkdEmRevuPh4eH9K95o1WnQOMgXEfLWMB4eHt7neb0Fgq0SeWElCw8PD++YlyeAvDjurWetNYLx8PDwVnnP4pFT8xFa76rooeDh4eEd8Cbtg3mquGg95G0UPDw8vAlvkgzyoVdvrJW3mH9p4+Lh4eEd8CYv9OoywVq+arZf8PDw8D7N2x2G9cCFdQc8PDy8L+NVV13zFnBSspeXrvDw8PBWeflNq6VzNdzqymy0GYGHh4e3yqteVi1z8/bubrcBDw8P74D3B92FnHHbMKc4AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

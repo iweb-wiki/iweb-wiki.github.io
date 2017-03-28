@@ -1,0 +1,1718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>onepansheng</title>
+  <subtitle>不积跬步，无以至千里！</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://www.wangpansheng.cn/"/>
+  <updated>2017-03-27T23:42:08.591Z</updated>
+  <id>http://www.wangpansheng.cn/</id>
+  
+  <author>
+    <name>Pansheng</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数组方法梳理</title>
+    <link href="http://www.wangpansheng.cn/2017/03/26/%E6%95%B0%E7%BB%84%E6%96%B9%E6%B3%95%E6%A2%B3%E7%90%86/"/>
+    <id>http://www.wangpansheng.cn/2017/03/26/数组方法梳理/</id>
+    <published>2017-03-26T00:55:03.000Z</published>
+    <updated>2017-03-27T23:42:08.591Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+<blockquote>
+<p>  由于发现对数组和字符串原生的方法有点记不太清了，所以打算梳理一下，把这写方法整理一下，加强自己的记忆。</p>
+<p>  以下数组演示都以数组 数组arr=[1,2,3]为原始值；</p>
+</blockquote>
+<h3 id="length"><a href="#length" class="headerlink" title="length"></a>length</h3><ul>
+<li><p>返回数组的长度</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.length;<span class="comment">//返回值是3</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="concat"><a href="#concat" class="headerlink" title="concat()"></a>concat()</h3><ul>
+<li><p>连接两个或更多数组，并返回新数组，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.concat([<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>]);</div><div class="line"><span class="comment">//返回是数组[1,2,3,8,9,0]</span></div><div class="line"><span class="comment">//不会修改原数组</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h3><ul>
+<li><p>把数组的所有元素放进一个新的字符串，元素根据指定的字符串分割</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.join(<span class="string">""</span>);</div><div class="line"><span class="comment">//返回值是字符串123</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="pop"><a href="#pop" class="headerlink" title="pop()"></a>pop()</h3><ul>
+<li><p>删除并返回最后一个元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr.pop();</div><div class="line"><span class="comment">//从数组中删除最后一个元素</span></div><div class="line"><span class="comment">//返回值是删除的元素，</span></div><div class="line"><span class="comment">//原数组被更改</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="push"><a href="#push" class="headerlink" title="push()"></a>push()</h3><ul>
+<li>向数组最后添加一个或多个元素，并返回添加之后数组的长度<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">arr.push(<span class="number">3</span>);</div><div class="line"><span class="comment">//返回值是新数组长度</span></div><div class="line"><span class="comment">//原数组被更改</span></div><div class="line">arr.push([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]);</div><div class="line"><span class="comment">//这样调用，会把传入的数组当作数组一个元素</span></div><div class="line">arr.push(<span class="number">1</span>,<span class="number">2</span>,<span class="number">4</span>);</div><div class="line"><span class="comment">//会把传入的值按照先后顺序放在数组的最后</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse()"></a>reverse()</h3><ul>
+<li><p>颠倒数组中元素的排序</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">arr.reverse();</div><div class="line"><span class="comment">//返回值和原数组都是反转之后的数组</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="shift"><a href="#shift" class="headerlink" title="shift()"></a>shift()</h3><ul>
+<li><p>删除并返回数组的第一个元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">arr.shift();</div><div class="line"><span class="comment">//返回被删除的元素</span></div><div class="line"><span class="comment">//会修改原数组</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="unshift"><a href="#unshift" class="headerlink" title="unshift()"></a>unshift()</h3><ul>
+<li>在数组最前添加一个或多个元素，返回新长度<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">arr.unshift([<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]);</div><div class="line">arr.unshift(<span class="number">2</span>,<span class="number">4</span>,<span class="number">4</span>);</div><div class="line"><span class="comment">//如果传入多个元素，传入的第一个元素会在数组的索引0上，第二个会在1上，以此类推，</span></div><div class="line"><span class="comment">//简单理解，传入多个元素，直接把传入的内容直接放在最前边；</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="slice"><a href="#slice" class="headerlink" title="slice()"></a>slice()</h3><ul>
+<li><p>选取并返回数组中指定的元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">arr.slice(start,end);</div><div class="line"><span class="comment">//strat是开始索引值，end是结束索引值，不包含end索引的值</span></div><div class="line"><span class="comment">//如果索引值是负数，-1就是最后一个元素，以此类推</span></div><div class="line"><span class="comment">//如果没有第二个值，那么从start开始截取到数组结束</span></div><div class="line"><span class="comment">//不会修改原元素</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><ul>
+<li><p>对数组的元素进行排序,直接对原数组进行排序，返回值也是排序后的新数组,如果不传参数，则是按照元素首字母排序，如果需要按照指定的规则排序，需要传入指定的函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">arr.sort();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice()"></a>splice()</h3><ul>
+<li><p>从数组中添加删除元素，返回被删除的元素</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">arr.splice(index,howmany,item1...itemx); </div><div class="line"><span class="comment">//index 添加或删除元素的索引位置</span></div><div class="line"><span class="comment">//howmany 要删除元素的个数，不删除可以设置为0</span></div><div class="line"><span class="comment">//item 要添加的元素</span></div><div class="line"><span class="comment">//返回值是删除的元素</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="toSource"><a href="#toSource" class="headerlink" title="toSource()"></a>toSource()</h3><ul>
+<li>返回对象的源代码,只有火狐支持</li>
+</ul>
+<h3 id="toString-NaN"><a href="#toString-NaN" class="headerlink" title="toString()"></a>toString()</h3><ul>
+<li>把数组转换为字符串，并返回结果</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=0&amp;id=
+    
+    </summary>
+    
+    
+      <category term="数组，js基础" scheme="http://www.wangpansheng.cn/tags/%E6%95%B0%E7%BB%84%EF%BC%8Cjs%E5%9F%BA%E7%A1%80/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原生框架封装之插件开发</title>
+    <link href="http://www.wangpansheng.cn/2017/03/23/%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85%E4%B9%8B%E6%8F%92%E4%BB%B6%E5%BC%80%E5%8F%91/"/>
+    <id>http://www.wangpansheng.cn/2017/03/23/原生框架封装之插件开发/</id>
+    <published>2017-03-23T01:25:49.000Z</published>
+    <updated>2017-03-23T03:45:47.505Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><ol>
+<li><p>历史背景</p>
+<ul>
+<li>http https: 都是一种无状态、无连接的协议</li>
+<li>tcp/ip 是一种长连接协议</li>
+<li>无论什么用户都可以访问网址页面，在实际开发中，有些页面需要先验证身份才可以访问的，此时就需要http记录用户的状态，（登录状态），</li>
+<li>但是http协议是无状态的，因此就诞生了session和cookie</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>登录功能：记录登录状态，以及一些用户基本信息。</li>
+<li>用户基本信息：昵称、头像地址、加密后的密码（记住密码）、用户名</li>
+</ul>
+</li>
+<li><p>做cookie插件的目的</p>
+</li>
+</ol>
+<ul>
+<li>方便前端人员操作cookie</li>
+</ul>
+<h2 id="原生js操作cookie"><a href="#原生js操作cookie" class="headerlink" title="原生js操作cookie"></a>原生js操作cookie</h2><ol>
+<li><p>获取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie</div></pre></td></tr></table></figure>
+</li>
+<li><p>操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.cookie = <span class="string">"username=guoguo"</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>设置有效期</p>
+<ul>
+<li><p>默认如果没有设置cookie有效期，它就是一个会话的cookie，也就是说，当浏览器关闭时，该cookie的信息会被清除掉</p>
+</li>
+<li><p>在设置cookie有效期时，单位是天，在原生设置cookie有效期时，要给expiries赋值为截止日期；</p>
+</li>
+</ul>
+</li>
+<li><p>设置域名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">domain=<span class="string">"xxx.com"</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>设置路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">path=<span class="string">"/"</span></div></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=0&amp;id=
+    
+    </summary>
+    
+    
+      <category term="原生框架封装" scheme="http://www.wangpansheng.cn/tags/%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85/"/>
+    
+      <category term="js，jquery" scheme="http://www.wangpansheng.cn/tags/js%EF%BC%8Cjquery/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>框架封装之Ajax</title>
+    <link href="http://www.wangpansheng.cn/2017/03/22/%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85%E4%B9%8BAjax/"/>
+    <id>http://www.wangpansheng.cn/2017/03/22/框架封装之Ajax/</id>
+    <published>2017-03-22T01:31:26.000Z</published>
+    <updated>2017-03-22T11:41:11.000Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+<h2 id="ajax请求步骤"><a href="#ajax请求步骤" class="headerlink" title="ajax请求步骤"></a>ajax请求步骤</h2><ol>
+<li>创建请求对象</li>
+<li>格式化数据</li>
+<li>与服务器建立连接</li>
+<li>监听请求状态</li>
+<li>发送请求</li>
+</ol>
+<h2 id="创建请求对象"><a href="#创建请求对象" class="headerlink" title="创建请求对象"></a>创建请求对象</h2><ol>
+<li><p>原生方法</p>
+<ul>
+<li>w3c:XMLHttpRequest</li>
+<li>IE：ActiveXObject</li>
+</ul>
+</li>
+<li><p>兼容处理</p>
+</li>
+</ol>
+<h2 id="封装Ajax模块"><a href="#封装Ajax模块" class="headerlink" title="封装Ajax模块"></a>封装Ajax模块</h2><ol>
+<li><p>确定Ajax配置的默认值</p>
+<ul>
+<li>url =&gt; “”</li>
+<li>type =&gt; “get”</li>
+<li>data =&gt; {}</li>
+<li>success =&gt; null</li>
+<li>fail =&gt; null</li>
+<li>async =&gt; true</li>
+<li>dataType =&gt; “json”</li>
+<li>contentType =&gt; “application/x-www-form-ulencoded”</li>
+</ul>
+</li>
+<li><p>ajax默认配置放在哪？</p>
+<ul>
+<li>要用一个对象来存储上述Ajax配置信息，像jQuery一样，将其放到工厂函数上；<br>放在工厂函数jq上</li>
+</ul>
+</li>
+</ol>
+<h3 id="改造extend方法"><a href="#改造extend方法" class="headerlink" title="改造extend方法"></a>改造extend方法</h3><ol>
+<li>如果只传入一个参数，给this扩展成员，</li>
+<li>或者传入两个以上，就是给第一个参数扩展成员，，</li>
+</ol>
+<h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域"></a>跨域</h2><ol>
+<li><p>jsonp跨域的一种方式，缺点：只能发送跨域get请求</p>
+</li>
+<li><p>本质：利用script标签的src属性可以跨域的特性</p>
+</li>
+<li><p>实现流程：</p>
+<ul>
+<li>创建script标签，添加到head下</li>
+<li>常见一个全局函数，用来处理服务器响应的数据</li>
+<li>指定script标签src的属性值，同时将全局函数发送到服务区</li>
+<li>要与后台人员沟通，将发送全局函数的参数名告诉后台人员</li>
+<li></li>
+</ul>
+</li>
+<li>实现步骤：<ul>
+<li>常见请求对象，script标签</li>
+<li>格式化数据</li>
+<li>创建一个全局函数，将函数添加到data内，</li>
+<li>监听请求的状态-》使用timeout来做请求状态的监听，如果在超过时间内，表示成功，否则就报超时，</li>
+<li>发送请求，-》给script标签指定src属性值</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=0&amp;id=
+    
+    </summary>
+    
+    
+      <category term="框架封装，ajax" scheme="http://www.wangpansheng.cn/tags/%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85%EF%BC%8Cajax/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>框架封装练习3</title>
+    <link href="http://www.wangpansheng.cn/2017/03/18/%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85%E7%BB%83%E4%B9%A03/"/>
+    <id>http://www.wangpansheng.cn/2017/03/18/框架封装练习3/</id>
+    <published>2017-03-18T03:23:09.000Z</published>
+    <updated>2017-03-18T07:41:16.827Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+<h2 id="DOM操作模块"><a href="#DOM操作模块" class="headerlink" title="DOM操作模块"></a>DOM操作模块</h2><h3 id="appendTO方法"><a href="#appendTO方法" class="headerlink" title="appendTO方法"></a>appendTO方法</h3><ol>
+<li><p>语法：实例对象.appendTo(target);</p>
+</li>
+<li><p>功能：将调用者上的所有DOM元素，分别追加到目标元素上</p>
+</li>
+<li><p>target参数类型：</p>
+<ul>
+<li>选择器</li>
+<li>DOM元素</li>
+<li>DOM数组，伪数组</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>为了更方便处理不同的类型，在实现时，首先统一target的参数类型，方便发i吗逻辑的处理</p>
+</li>
+<li><p>将target统一成itcast的对象，参数一致，便于处理，同时由于是itcast对象，就可以直接调用each方法进行遍历元素</p>
+</li>
+</ul>
+<ol>
+<li>实现思路</li>
+</ol>
+<ul>
+<li>统一target类型，</li>
+<li>遍历target，再遍历调用者</li>
+<li>判断，当目标元素是不是第一个元素，如果是，不需要拷贝源节点，否则就要深拷贝源节点，</li>
+<li>将上述得到的新节点，缓存起来到数组中，</li>
+<li>再将新节点追加到dom元素中</li>
+<li>将缓存的数组转换成itcast对象，作为appendTo的返回值，来实现链式编程。</li>
+</ul>
+<h3 id="append方法"><a href="#append方法" class="headerlink" title="append方法"></a>append方法</h3><ol>
+<li><p>功能：    将传入参数追加给调用者。</p>
+</li>
+<li><p>思路：</p>
+<ul>
+<li>将传入实参转换成itcast对象</li>
+<li>用传入的实参调用appendTo方法，将this作为目标元素传入appendTo方法</li>
+<li>实现链式编程</li>
+</ul>
+</li>
+</ol>
+<h3 id="next方法"><a href="#next方法" class="headerlink" title="next方法"></a>next方法</h3><ol>
+<li></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=0&amp;id=
+    
+    </summary>
+    
+    
+      <category term="原生框架" scheme="http://www.wangpansheng.cn/tags/%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6/"/>
+    
+      <category term="JavaScript" scheme="http://www.wangpansheng.cn/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ECMAScript发展史</title>
+    <link href="http://www.wangpansheng.cn/2017/03/18/ECMAScript%E5%8F%91%E5%B1%95%E5%8F%B2/"/>
+    <id>http://www.wangpansheng.cn/2017/03/18/ECMAScript发展史/</id>
+    <published>2017-03-18T01:59:57.000Z</published>
+    <updated>2017-03-24T17:33:06.000Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+<ul>
+<li>ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会）通过ECMA-262标准化的脚本程序设计语言。这种语言在万维网上应用广泛，它往往被称为JavaScript或JScript，但实际上后两者是ECMA-262标准的实现和扩展。<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3></li>
+</ul>
+<ol>
+<li>历史</li>
+<li>版本</li>
+<li>方言</li>
+<li>对应版本</li>
+<li>参考文献</li>
+<li>参见</li>
+<li>外部链接<h3 id="1-历史"><a href="#1-历史" class="headerlink" title="1.    历史"></a>1.    历史</h3></li>
+</ol>
+<p>1995年12月，升阳公司与网景公司公司一起引入了JavaScript[1]。1996年3月，网景公司发表了支持JavaScript的网景导航者 2.0。由于JavaScript作为网页的客户端脚本语言非常成功，微软于1996年8月引入了Internet Explorer 3.0，这个软件支持一个“约”与JavaScript相容的JScript[2]。<br>1996年11月，网景公司将JavaScript提交给欧洲计算机制造商协会进行标准化。ECMA-262的第一个版本于1997年6月被Ecma组织采纳。<br>ECMAScript是由ECMA-262标准化的脚本语言的名称。JavaScript和JScript与ECMAScript相容，但包含超出ECMAScript的功能。</p>
+<h3 id="3-版本"><a href="#3-版本" class="headerlink" title="3.    版本"></a>3.    版本</h3><ul>
+<li>至今为止有七个ECMA-262版本发表。</li>
+</ul>
+<ul>
+<li>1    |    1997年6月        |    首版            |</li>
+<li>2    |    1998年6月        |    格式修正，以使得其形式与ISO/IEC16262国际标准一致|</li>
+<li>3    |    1999年12月    |    强大的正则表达式，更好的词法作用域链处理，新的控制指令，异常处理，错误定义更加明确，数据输出的格式化及其它改变|</li>
+<li>4    |    放弃            |    由于关于语言的复杂性出现分歧,第4版本被放弃,其中的部分成为了第5版本及Harmony的基础。|</li>
+<li>5    |    2009年12月[4]    |    新增“严格模式（strict mode）”，一个子集用作提供更彻底的错误检查,以避免结构出错。澄清了许多第3版本的模糊规范,and accommodates behaviour of real-world implementations that differed consistently from that specification。增加了部分新功能,如getters及setters,支持JSON以及在物件属性上更完整的反射。|</li>
+<li>6    |    2015年6月        |    多个新的概念和语言特性。ECMAScript Harmony将会以“ECMAScript 6”发布。|</li>
+<li>7    |    2016年6月[9]    |    多个新的概念和语言特性<br>|        |                  |      2004年6月Ecma组织发表了ECMA-357标准，它是ECMAScript的一个扩延，也被称为E4X（ECMAScript for XML）。|</li>
+</ul>
+<p><div id="hot-news-wrap"></div></p>
+<script>var yunModuleEnv = true;</script>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+  var yunTieProductKey = "1d7b018cd67b43f08d9e457cf1acf4b5";  
+  var yunHotNewsWrap = "hot-news-wrap";   //放置的DOM节点ID 或 样式类
+  Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vZXh0ZW5kL2hvdF9uZXdzX3NjcmlwdC5odG1s", true);
+</script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=0&amp;id=
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>原生框架封装练习02</title>
+    <link href="http://www.wangpansheng.cn/2017/03/17/%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85%E7%BB%83%E4%B9%A02/"/>
+    <id>http://www.wangpansheng.cn/2017/03/17/原生框架封装练习2/</id>
+    <published>2017-03-17T01:26:35.000Z</published>
+    <updated>2017-03-17T11:06:39.792Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+<h2 id="工具类方法与功能类方法"><a href="#工具类方法与功能类方法" class="headerlink" title="工具类方法与功能类方法"></a>工具类方法与功能类方法</h2><ol>
+<li><p>工具类方法：</p>
+<ul>
+<li>可以在内部使用，也可以给使用者使用，不需要常见实例就可以调用的</li>
+</ul>
+</li>
+<li><p>功能类方法：</p>
+<ul>
+<li>框架内部的对象的方法，必须使用该对象去调用，操作dom元素的方法</li>
+</ul>
+</li>
+</ol>
+<h2 id="类型判断方法"><a href="#类型判断方法" class="headerlink" title="类型判断方法"></a>类型判断方法</h2><ol>
+<li><p>isString方法：判断指定 参数是不是字符串类型，</p>
+</li>
+<li><p>isHTML：判断指定参数是不是html字符串</p>
+<ul>
+<li>以&lt;开头，以&gt;结尾，长度不小于3的字符串</li>
+</ul>
+</li>
+<li><p>isDOM：判断指定的参数是不是dom对象</p>
+<ul>
+<li>如果参数不为null或undefined，并且具有nodetype属性，那么类型就是dom对象</li>
+</ul>
+</li>
+<li><p>isArrayLink：判断指定参数是不是数组或伪数组</p>
+<ul>
+<li>如果对象的length属性是number类型</li>
+</ul>
+</li>
+<li><p>isFunction：</p>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><p>iswindow：判断指定参数是不是window</p>
+<ul>
+<li>如果参数值不是null undefined，并具有window属性指向自己，那么该对象就是window</li>
+</ul>
+</li>
+</ol>
+<h2 id="工具类方法"><a href="#工具类方法" class="headerlink" title="工具类方法"></a>工具类方法</h2><ol>
+<li><p>type方法：</p>
+</li>
+<li><p>ParseHTML方法：将html字符串转换为对应的元素节点</p>
+</li>
+</ol>
+<h2 id="selector参数类型与逻辑"><a href="#selector参数类型与逻辑" class="headerlink" title="selector参数类型与逻辑"></a>selector参数类型与逻辑</h2><h2 id="保持itcast对象是伪数组"><a href="#保持itcast对象是伪数组" class="headerlink" title="保持itcast对象是伪数组"></a>保持itcast对象是伪数组</h2><ul>
+<li>在itcast的原型上添加length=0；表示itcast对象默认的属相为0；</li>
+</ul>
+<h2 id="功能类方法toArray"><a href="#功能类方法toArray" class="headerlink" title="功能类方法toArray"></a>功能类方法toArray</h2><ol>
+<li></li>
+<li><p>功能：将itcast对象，转换成真数组</p>
+</li>
+<li><p>实现思路：借调数组的slice方法，</p>
+</li>
+</ol>
+<h2 id="功能类get方法"><a href="#功能类get方法" class="headerlink" title="功能类get方法"></a>功能类get方法</h2><ol>
+<li><p>语法：<code>itcast对象.get( index )</code></p>
+</li>
+<li><p>功能：根据索引获取指定的dom元素</p>
+</li>
+<li><p>实现思路：</p>
+<ul>
+<li>判断index是不是null undefined值，如果是就返回一个数组，存储itcast对象所有的dom元素</li>
+<li>判断index是否小于0，是 就index+this.length转换成自然数索引值，</li>
+<li>返回this[index]</li>
+</ul>
+</li>
+</ol>
+<h2 id="鸭子类型Ducking-Type"><a href="#鸭子类型Ducking-Type" class="headerlink" title="鸭子类型Ducking Type"></a>鸭子类型Ducking Type</h2><ul>
+<li><p>如果一个东西，走路像鸭子，声音像鸭子，那么它就是鸭子。</p>
+</li>
+<li><p>实现伪数组对象，在控制台显示时是以数组形式显示</p>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=&quot;298&quot; height=&quot;52&quot; src=&quot;//music.163.com/outchain/player?type=0&amp;id=
+    
+    </summary>
+    
+    
+      <category term="原生框架封装" scheme="http://www.wangpansheng.cn/tags/%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85/"/>
+    
+      <category term="原生js实现jq" scheme="http://www.wangpansheng.cn/tags/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%8E%B0jq/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的项目</title>
+    <link href="http://www.wangpansheng.cn/2017/03/15/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/"/>
+    <id>http://www.wangpansheng.cn/2017/03/15/我的项目/</id>
+    <published>2017-03-15T15:33:24.000Z</published>
+    <updated>2017-03-15T15:37:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://wangpansheng.github.io/demo_ac/" target="_blank" rel="external">仿腾讯动漫首页</a><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/demo-ac.png" alt="仿腾讯动漫首页" title="">
+                </div>
+                <div class="image-caption">仿腾讯动漫首页</div>
+            </figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;a href=&quot;https://wangpansheng.github.io/demo_ac/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;仿腾讯动漫首页&lt;/a&gt;&lt;br&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+           
+    
+    </summary>
+    
+    
+      <category term="我的项目" scheme="http://www.wangpansheng.cn/tags/%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于js中的静态方法和实例方法</title>
+    <link href="http://www.wangpansheng.cn/2017/03/15/%E5%85%B3%E4%BA%8Ejs%E4%B8%AD%E7%9A%84%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/"/>
+    <id>http://www.wangpansheng.cn/2017/03/15/关于js中的静态方法和实例方法/</id>
+    <published>2017-03-15T14:29:16.000Z</published>
+    <updated>2017-03-15T14:46:20.242Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>最近关于什么静态方法和实例方法不是太清除，所以自己百度了一些资料，整理了以下，希望能够对各位有所帮助。</p>
+</li>
+<li><p>什么是静态方法：<br>静态方法是指不需要声明类的实例就可以使用的方法。</p>
+</li>
+</ul>
+<p>代码演示<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span> (<span class="params"></span>) </span>&#123;&#125;;</div><div class="line"><span class="comment">//在foo上直接添加静态方法</span></div><div class="line">foo.say = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">	<span class="built_in">console</span>.log(<span class="string">"我是静态方法，不需要实例化，可以直接用函数调用!"</span>);</div><div class="line">&#125;;</div><div class="line">foo.say();<span class="comment">//函数直接调用方法say，打印hello</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>什么是实例方法<br>实例方法是指必须要先使用”new”关键字声明一个类的实例, 然后才可以通过此实例访问的方法。</li>
+</ul>
+<p>代码演示：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Fn</span> (<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="keyword">this</span>.say: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">		<span class="built_in">console</span>.log(<span class="string">"我是实例化之后才可以调用的方法！"</span>)</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> Fn();<span class="comment">//需要首先实例化</span></div><div class="line">obj.say();<span class="comment">//才可以调用</span></div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;最近关于什么静态方法和实例方法不是太清除，所以自己百度了一些资料，整理了以下，希望能够对各位有所帮助。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;什么是静态方法：&lt;br&gt;静态方法是指不需要声明类的实例就可以使用的方法。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;代码演
+    
+    </summary>
+    
+    
+      <category term="函数" scheme="http://www.wangpansheng.cn/tags/%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="js" scheme="http://www.wangpansheng.cn/tags/js/"/>
+    
+      <category term="静态方法" scheme="http://www.wangpansheng.cn/tags/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/"/>
+    
+      <category term="实例方法" scheme="http://www.wangpansheng.cn/tags/%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>原生框架封装练习01</title>
+    <link href="http://www.wangpansheng.cn/2017/03/15/%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85%E7%BB%83%E4%B9%A001/"/>
+    <id>http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/</id>
+    <published>2017-03-15T07:07:04.000Z</published>
+    <updated>2017-03-17T01:27:49.297Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><p>我们通过原生的js实现一些jq的功能，通过练习，锻炼我们的分析问题的能力。锻炼编程的思维能力。</p>
+</li>
+<li><p>查询DOM方法</p>
+</li>
+<li>操作DOM方法<ul>
+<li>appendTo</li>
+<li>append</li>
+<li>prependTo</li>
+<li>prepend</li>
+<li>next/prev</li>
+<li>nextAll/prevAll</li>
+<li>before</li>
+<li>after</li>
+<li>parent /parents</li>
+<li>nextSibling</li>
+<li>attr</li>
+<li>prop</li>
+<li>val</li>
+<li>html</li>
+<li>text</li>
+<li>css</li>
+<li>addClass</li>
+<li>hasClass</li>
+<li>removeClass</li>
+<li>toggleClass</li>
+<li>on</li>
+<li>off</li>
+<li>click /dbclick/keydown</li>
+<li>$.ajax</li>
+</ul>
+</li>
+</ul>
+<h2 id="jQuery框架结构"><a href="#jQuery框架结构" class="headerlink" title="jQuery框架结构"></a>jQuery框架结构</h2><ol>
+<li>为了防止对变量和全局对象的污染，使用沙箱模式</li>
+<li>jq的功能是查询DOM和操作DOM，<ul>
+<li>在查询时，通过选择器来查询。因此要使用函数去实现Dom元素的查询。在实现时，要先定义一个函数init，</li>
+<li>查询到DOM后，要对这些DOM进行操作，此时，要使用面向对象编程的方式来实现，创建一个对象，然后通过该对象的方法来实现操作查询到的DOM元素。</li>
+</ul>
+</li>
+<li>由于框架的结构在完成之后，不允许任何使用者随意改动，所以用户如果想要扩展方法，就必须向其能拿到的对象上扩展，$-&gt;createinit，也就是工厂函数以及其原型。最终要实现init对象继承自createinit函数的原型。</li>
+</ol>
+<h2 id="jQuery对象的本质"><a href="#jQuery对象的本质" class="headerlink" title="jQuery对象的本质"></a>jQuery对象的本质</h2><pre><code>是一个伪数组对象，在自然数的索引上存储的是查询到的DOM元素，本质是jQuery原型上的init构造函数的实例。
+</code></pre><h2 id="init构造函数的参数类型"><a href="#init构造函数的参数类型" class="headerlink" title="init构造函数的参数类型"></a>init构造函数的参数类型</h2><ul>
+<li>构造函数中传入参数的类型有很多，所以我们需要对传入的参数进行判断，根据传入参数的不同，实现不同的功能。</li>
+</ul>
+<ol>
+<li><p>string</p>
+<ul>
+<li>html字符串：创建对应的html元素</li>
+<li>选择器：在DOM树上查询元素</li>
+</ul>
+</li>
+<li><p>dom元素</p>
+<ul>
+<li>将其转换成init对象</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>dom数组和伪数组</p>
+<ul>
+<li>转换成init对象</li>
+</ul>
+</li>
+<li><p>函数</p>
+<ul>
+<li>其实就是入口函数</li>
+<li>监听dom树是否加载完毕，如果加载完毕就执行函数</li>
+</ul>
+</li>
+<li><p>非法值 null undefined</p>
+</li>
+</ol>
+<ul>
+<li>返回空的init对象</li>
+</ul>
+<h2 id="添加类型判断方法"><a href="#添加类型判断方法" class="headerlink" title="添加类型判断方法"></a>添加类型判断方法</h2><ul>
+<li>根据上面的类型需要做出判断，添加对应的怕段方法</li>
+</ul>
+<ol>
+<li><p>isString方法：判断是否为字符串</p>
+</li>
+<li><p>isHTML方法：判断是否为html字符串</p>
+</li>
+<li><p>isDOM方法：判断是否是dom节点</p>
+</li>
+<li><p>isArrayLike方法：判断是否为数组或伪数组对象</p>
+</li>
+<li><p>isFunction方法：判断是否为函数类型</p>
+</li>
+<li><p>isWindow方法：判断是否为window对象</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;我们通过原生的js实现一些jq的功能，通过练习，锻炼我们的分析问题的能力。锻炼编程的思维能力。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;查询DOM方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;操作DOM方法&lt;ul&gt;
+&lt;li&gt;appendTo&lt;/li&gt;
+&lt;li&gt;append&lt;
+    
+    </summary>
+    
+    
+      <category term="js" scheme="http://www.wangpansheng.cn/tags/js/"/>
+    
+      <category term="原生js实现jq，原生框架封装" scheme="http://www.wangpansheng.cn/tags/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%8E%B0jq%EF%BC%8C%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git应用之git和github</title>
+    <link href="http://www.wangpansheng.cn/2017/03/15/git%E5%BA%94%E7%94%A8%E4%B9%8Bgit%E5%92%8Cgithub/"/>
+    <id>http://www.wangpansheng.cn/2017/03/15/git应用之git和github/</id>
+    <published>2017-03-15T02:26:02.000Z</published>
+    <updated>2017-03-15T06:42:05.699Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="git和github的区别"><a href="#git和github的区别" class="headerlink" title="git和github的区别"></a>git和github的区别</h2><ul>
+<li><p>git是一个软件，是一种版本控制工具，通过git命令提供的指令，方便管理源码，在实际开发时，可以将更多的经理集中在开发上，而不是要分出精力去管理代码的合并和版本控制问题。</p>
+</li>
+<li><p>github是一个网站，提供远程仓库，方便开发人员的交流学习。</p>
+</li>
+<li>github可以为git提供一些服务，比如 远程共享仓库，以及开发人员的交流平台。</li>
+</ul>
+<h2 id="配置SSH免密码下载"><a href="#配置SSH免密码下载" class="headerlink" title="配置SSH免密码下载"></a>配置SSH免密码下载</h2><ul>
+<li>ssh-keygen -t rsa</li>
+</ul>
+<h2 id="git指令"><a href="#git指令" class="headerlink" title="git指令"></a>git指令</h2><ol>
+<li><p>从远程服务器上获取指定仓库的分支，并且与工作目录的分支进行合并操作，如果出现问题，需要手动解决就好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull [remote url] branchName</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果本地开发完成，要将本地仓库的版本提交到远程仓库，实现共享与项目合并，此时就是用这个指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push [remote url] branchName</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取远程仓库，但是不合并本地仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch [remote url] branchName</div></pre></td></tr></table></figure>
+</li>
+<li><p>把远程仓库的地址存在变量name中，方便以后拉取远程仓库文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add name remoteURL</div></pre></td></tr></table></figure>
+<ul>
+<li>如果是拉取远程仓库中的子分支上的文件时，需要在本地首先创建一个同名的子分支 ，否则会把远程仓库子分支中的文件拉取到本地主分支上</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;git和github的区别&quot;&gt;&lt;a href=&quot;#git和github的区别&quot; class=&quot;headerlink&quot; title=&quot;git和github的区别&quot;&gt;&lt;/a&gt;git和github的区别&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;git是一个软件，是一种版本控制工
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PHP简单入门</title>
+    <link href="http://www.wangpansheng.cn/2017/03/14/PHP%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/"/>
+    <id>http://www.wangpansheng.cn/2017/03/14/PHP简单入门/</id>
+    <published>2017-03-14T11:52:11.000Z</published>
+    <updated>2017-03-16T19:15:27.000Z</updated>
+    
+    <content type="html"><![CDATA[<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+<h2 id="php基础"><a href="#php基础" class="headerlink" title="php基础"></a>php基础</h2><ul>
+<li><p>定义变量</p>
+<ul>
+<li>变量使用$开头，不能以数字开头，</li>
+<li>大小写敏感(区分大小写)</li>
+</ul>
+</li>
+<li><p>php代码必须写在<code>&lt;?php 代码  ?&gt;</code>,</p>
+</li>
+<li><p>在第一行加上下面这行代码可以防止中文乱码问题</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">"Content-Type:text/html;charset=utf-8"</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>php变量的类型：    字符串，整型，浮点型，布尔类型，数组</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>函数    </p>
+<ul>
+<li>与js基本一致</li>
+<li>函数的形参可以设置一个默认值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo($username = &quot;zs&quot;) &#123;</div><div class="line">	echo &quot;你好&quot;.$username;</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li>php里面有两种类型的数组，普通数组和关联数组</li>
+</ul>
+<ol>
+<li><p>普通数组</p>
+<ul>
+<li><p>定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$arr1 = array(&quot;zs&quot;,&quot;ls&quot;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组没有length属性，</p>
+</li>
+<li>遍历数组,使用for循环，可以得到数组的长度</li>
+<li>php有一个函数可以获取数组的长度，count($arr);</li>
+</ul>
+</li>
+<li><p>关联数组</p>
+<ul>
+<li>以键值对的方式进行存储的数组，我们叫做关联数组，<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$array = <span class="keyword">array</span>(<span class="string">"key"</span> =&gt; <span class="string">"value"</span>);</div><div class="line">$array[<span class="string">"key];</span></div><div class="line">//通过key可以获取值</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>二维数组</p>
+<ul>
+<li>数组里边还有数组</li>
+</ul>
+</li>
+</ol>
+<h2 id="输出打印"><a href="#输出打印" class="headerlink" title="输出打印"></a>输出打印</h2><ul>
+<li>php提供了三个用来输出的方法</li>
+</ul>
+<ol>
+<li><p>echo “”;     用来输出字符串的</p>
+</li>
+<li><p>print_r();    用来输出数组或者对象的。</p>
+</li>
+<li><p>var_dump();    这个也是用来输出数组里面的详细信息</p>
+</li>
+</ol>
+<h2 id="php常见函数方法"><a href="#php常见函数方法" class="headerlink" title="php常见函数方法"></a>php常见函数方法</h2><ol>
+<li><p>count();    得到数组长度</p>
+</li>
+<li><p>in_array();    </p>
+<ul>
+<li>判断数组中是否存在某个元素，这个是用在普通数组当中的</li>
+</ul>
+</li>
+<li><p>array_key_exists();    </p>
+<ul>
+<li>检测数组中是否存在某个key，这个用在关联数组中</li>
+</ul>
+</li>
+<li><p>file_get_contents();    </p>
+<ul>
+<li>读取文件里边的内容，读取出来的是字符串，</li>
+</ul>
+</li>
+<li><p>move_upload_file();    移动上传的文件</p>
+</li>
+</ol>
+<h2 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h2><ul>
+<li><p>name属性 是用来提供给服务端接收数据而设置的</p>
+</li>
+<li><p>action属性 设置接收数据的处理程序</p>
+</li>
+<li><p>method属性    设置发送数据的方式</p>
+</li>
+<li><p>当上传文件时，必须设置 <code>enctype=&quot;multipart/form-data&quot;</code>,且只能使用post方式</p>
+</li>
+<li><p>$_GET    接收get传来的数据</p>
+</li>
+<li><p>$_POST    接收post传来数据</p>
+</li>
+<li><p>$_FILES    接收上传的文件</p>
+</li>
+</ul>
+<h2 id="get和post提交"><a href="#get和post提交" class="headerlink" title="get和post提交"></a>get和post提交</h2><ol>
+<li><p>get</p>
+<ul>
+<li><p>点击超链接，表单提交默认方式就是get，地址栏输入地址，</p>
+</li>
+<li><p>传递到服务端的都是参数，参数值，可以传递多个参数参数值</p>
+</li>
+<li>第一个必须是？ 参数名=参数值</li>
+<li>可以发送多个参数到服务器</li>
+<li>假设我要发送多个数据，</li>
+<li><p>第二个参数之前添加&amp;字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;01.php?username=zs&amp;age=12&quot;&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在php要对请求进行处理，处理我们分为三个步骤，</p>
+</li>
+</ul>
+<ol>
+<li>接收请求，接收客户端传递到服务端的数据，<ul>
+<li>如果客户端是get方式提交，用$_GET去接收数据，对应的值是一个数组，是一个关联数组。</li>
+</ul>
+</li>
+<li>处理请求：    接收到数据之后具体做什么，就是要使用php去操作了。</li>
+<li>响应处理，给客户端一个响应</li>
+</ol>
+</li>
+<li><p>post提交</p>
+<ul>
+<li><p>表单提交一般都是使用post</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!--post 提交，我需要表单提交，设置成post--&gt;</div><div class="line">   &lt;form action=&quot;02post.php&quot; method=&quot;post&quot;&gt;</div><div class="line">       用户名:&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</div><div class="line">       &lt;input type=&quot;submit&quot; value=&quot;post 提交&quot;&gt;</div><div class="line">   &lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>服务端处理</p>
+</li>
+</ul>
+<ol>
+<li><p>接收请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$username = $_POST[&quot;username&quot;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>处理请求</p>
+</li>
+</ol>
+<ul>
+<li>php后端处理数据</li>
+</ul>
+<ol>
+<li>完成响应</li>
+</ol>
+<ul>
+<li>返回信息到客户端</li>
+</ul>
+</li>
+</ol>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><h4 id="前端页面"><a href="#前端页面" class="headerlink" title="前端页面"></a>前端页面</h4><ul>
+<li>必须满足以下条件才可以上传文件</li>
+</ul>
+<ol>
+<li><p>必须是表单提交</p>
+</li>
+<li><p>表单里面必须有 input type=”file”</p>
+</li>
+<li><p>必须是post方式提交</p>
+</li>
+<li><p>必须设置 <code>enctype=&quot;multipart/form-data&quot;</code>属性</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=298 height=52 src=&quot;//music.163.com/outchain/player?type=0&amp;id=611811413&amp;auto=1&amp;height=32&quot;&gt;&lt;/iframe&gt;
+
+&lt;h2 id=&quot;php基础&quot;&gt;&lt;a href=&quot;#php基础&quot; class=&quot;headerlink&quot; title=&quot;php基础&quot;&gt;&lt;/a&gt;php基础&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;定义变量&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;变量使用$开头，不能以数字开头，&lt;/li&gt;
+&lt;li&gt;大小写敏感(区分大小写)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;php代码必须写在&lt;code&gt;&amp;lt;?php 代码  ?&amp;gt;&lt;/code&gt;,&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;在第一行加上下面这行代码可以防止中文乱码问题&lt;/p&gt;
+&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;header(&lt;span class=&quot;string&quot;&gt;&quot;Content-Type:text/html;charset=utf-8&quot;&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;php变量的类型：    字符串，整型，浮点型，布尔类型，数组&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>AJAX应用之HTTP</title>
+    <link href="http://www.wangpansheng.cn/2017/03/14/AJAX%E5%BA%94%E7%94%A8%E4%B9%8BHTTP/"/>
+    <id>http://www.wangpansheng.cn/2017/03/14/AJAX应用之HTTP/</id>
+    <published>2017-03-14T11:42:23.000Z</published>
+    <updated>2017-03-15T07:11:02.773Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="我们要学习的一个叫做http-协议。"><a href="#我们要学习的一个叫做http-协议。" class="headerlink" title="我们要学习的一个叫做http 协议。"></a>我们要学习的一个叫做http 协议。</h2><ul>
+<li>协议就是约束，那么这个是约束谁的，谁制定的。</li>
+<li><p>http 协议 是w3c 制定的，用来约束客户端浏览器与web服务器进行通讯的数据格式</p>
+</li>
+<li><p>http 协议是基于请求，响应的协议。</p>
+</li>
+<li><p>客户端浏览器给服务器发送一个请求，服务器给客户端一个响应</p>
+</li>
+</ul>
+<h4 id="http协议的数据格式分为两部分"><a href="#http协议的数据格式分为两部分" class="headerlink" title="http协议的数据格式分为两部分"></a>http协议的数据格式分为两部分</h4><ul>
+<li>客户端发送到服务器的请求，称为请求的数据格式。</li>
+<li><p>服务器响应给客户端的数据，为响应的数据格式.</p>
+</li>
+<li><p>我们要了解客户端与服务器端进行传递的协议，其实就是传递的数据格式.</p>
+</li>
+<li><p>我们要拦截客户端浏览器与服务器端进行通讯的数据格式，这个时候我们需要安装一个抓包工具。charles</p>
+</li>
+<li><p>请求的数据格式，是客户端发送给服务器的，分为四个部分</p>
+<ol>
+<li>请求首行</li>
+<li>请求头</li>
+<li>请求空行</li>
+<li>请求体</li>
+</ol>
+</li>
+</ul>
+<h5 id="1-get请求数据格式"><a href="#1-get请求数据格式" class="headerlink" title="1.    get请求数据格式"></a>1.    get请求数据格式</h5><ul>
+<li><p>请求首行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">GET /day08/code/01http/01get.html HTTP/1.1</div><div class="line">[GET 告诉服务器提交方式]</div><div class="line">[/day08/code/01http/01get.html 告诉服务器，我要去请求的资源的地址]</div><div class="line">[HTTP/1.1 协议的版本] 有两个版本，</div><div class="line">1.0</div><div class="line">1.1</div></pre></td></tr></table></figure>
+</li>
+<li><p>请求头 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">Host	127.0.0.1	【请求头的名称，请求头的值】</div><div class="line"></div><div class="line">Cache-Control	max-age=0	这个做缓存控制的.</div><div class="line"></div><div class="line">Upgrade-Insecure-Requests	1   没有用过.</div><div class="line"></div><div class="line">User-Agent	Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36 	这个是告诉服务器，我客户端浏览器的版本，操作系统的版本</div><div class="line"></div><div class="line">Accept	text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8	接收，告诉服务器，我客户端可以接收那些数据格式.</div><div class="line"></div><div class="line">Referer	http://127.0.0.1/day08/code/01http/</div><div class="line"></div><div class="line">Accept-Encoding	gzip, deflate, sdch   接收的压缩格式. gzip</div><div class="line"></div><div class="line">Accept-Language	zh-CN,zh;q=0.8		接收的语言</div><div class="line">If-None-Match	&quot;7700000000217a-96-548afe60e947a&quot;</div><div class="line">If-Modified-Since	Fri, 17 Feb 2017 01:33:19 GMT</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2-post-请求的数据格式的介绍"><a href="#2-post-请求的数据格式的介绍" class="headerlink" title="2.    post 请求的数据格式的介绍"></a>2.    post 请求的数据格式的介绍</h5><ul>
+<li><p>请求首行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">POST /day08/code/01http/02post.php HTTP/1.1</div></pre></td></tr></table></figure>
+</li>
+<li><p>请求头<br>```<br>Host: 127.0.0.1<br>内容长度，指的 请求体的长度<br>Content-Length: 21<br>缓存的<br>Cache-Control: max-age=0<br>请求的站点的主域名<br>Origin: <a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a><br>Upgrade-Insecure-Requests: 1<br>告诉服务器客户端浏览器的版本，操作系统的版本.<br>User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36<br>//这个是post 提交独有第一个请求头，如果发送到服务器的数据有中文，会吧中文进行编码<br>在发送给服务器，服务器得到数据会自动解码.<br>Content-Type: application/x-www-form-urlencoded<br>//接收的数据格式<br>Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,<em>/</em>;q=0.8<br>告诉服务器，请求来自于那个页面<br>Referer: <a href="http://127.0.0.1/day08/code/01http/02post.html" target="_blank" rel="external">http://127.0.0.1/day08/code/01http/02post.html</a><br>接收压缩格式<br>Accept-Encoding: gzip, deflate<br>接收的语言<br>Accept-Language: zh-CN,zh;q=0.8<br>请求空行 [用来将请求头跟请求体进行一个区分，方便服务器解析数据]</p>
+</li>
+</ul>
+<p>请求体[客户端发送到服务器的数据.]<br>username=dasfadsfdafs</p>
+<p>get  跟post 的区别：<br>1：get 提交请求的数据都在地址栏中，相对来不安全。<br>2：get 请求的数据都请求地址的后面，对请求的数据的大小由限制，限制大概1kb<br>3: get 没有请求体<br>4：post 请求的数据在请求体当中，相对来说安全<br>5：post 请求的数据大小没有限制。文件上传，这个必须是post 方式提交<br>6：post 提交有一个特殊的请求头:Content-Type:application/x-www-form-urlencoded<br>可以对请求的数据包含中文的数据进行编码.<br>7:get 的请求没有没有请求体，也会少一些请求头，所以它传递到服务端的数据要少一些。<br>性能要高一些。</p>
+<p>服务器响应给客户端的数据也分为四个部分<br>响应首行<br>响应头<br>响应空行<br>响应体</p>
+<p>响应首行</p>
+<p>协议的版本<br>200 状态吗 代表ok<br>HTTP/1.1 200 OK<br>实际上我们开发的过程当中还有很多的状态吗<br>404 代表请求的资源没有找到，以后假设出现404<br>500 代表服务器内部错误<br>405 代表请求的方式不支持,如果我的一个php接收post 方式的数据 $_POST<br>然后你以get 方式去请求，就会出现405<br>304 请求的资源没有发生改变. 这个是用来做缓存用的.<br>当我第一次访问<a href="http://127.0.0.1/day08/code/01http/01get.html" target="_blank" rel="external">http://127.0.0.1/day08/code/01http/01get.html</a><br>这个页面，服务器会给我一个响应头.<br>Last-Modified:Fri, 17 Feb 2017 01:33:19 GMT<br>告诉客户端浏览器，这个文件的最后修改时间.</p>
+<p>当我再次去访问<a href="http://127.0.0.1/day08/code/01http/01get.html" target="_blank" rel="external">http://127.0.0.1/day08/code/01http/01get.html</a><br>会给服务器协议这样的一个请求头<br>If-Modified-Since:Fri, 17 Feb 2017 01:33:19 GMT<br>这个时候服务器就会给客户端一个304 的状态吗，你请求的这个资源<br><a href="http://127.0.0.1/day08/code/01http/01get.html" target="_blank" rel="external">http://127.0.0.1/day08/code/01http/01get.html</a> 没有做任何的修改<br>客户端浏览器得到是304，它就会从本地去读取页面</p>
+<p>响应头 告诉客户端服务器端的时间.<br>Date: Fri, 17 Feb 2017 01:35:58 GMT<br>告诉客户端服务器的版本<br>Server: Apache/2.2.21 (Win32) PHP/5.3.10<br>文件的最后修改时间<br>Last-Modified: Fri, 17 Feb 2017 01:33:19 GMT</p>
+<p>ETag: “7700000000217a-96-548afe60e947a”<br>Accept-Ranges: bytes<br>内容的长度<br>Content-Length: 150<br>//内容类型，告诉客户端浏览器，我给你返回的是一个文本，html 格式的文本,<br>客户端浏览器得到这个，就会以html 的方式去解析.<br>Content-Type: text/html;<br>header(“Content-Type:text/html;charset=utf-8”)<br>响应空行<br>响应体<br>&lt;!DOCTYPE html&gt;</p>
+<html lang="en"><br><head><br>    <meta charset="UTF-8"><br>    <title>Title</title><br></head><br><body><br>       中文<br></body><br></html>
+
+<p>客户端发送到服务器的时候有一个请求头叫做<br>User-Agent:告诉服务器客户端浏览器的版本，操作系统的版本.</p>
+<p>响应的头，Refresh 的响应头<br>服务器给客户端，如果客户端得到这个响应头，它会自动跳转页面.</p>
+<p>Referer 的头，告诉服务器，请求来自于那个页面.<br>    1:广告流量统计，统计到我的网站在那个网站上面打的广告更加有效果。</p>
+<pre><code>2：防盗链，bs 架构，我们可以看到后台的链接，一个连接对应一个资源。
+</code></pre><p> 互联网上创业，有些软件做功能，有些软件做内容。<br>     一个连接对应一个资源 ，视频行业，最砸钱，谁有视频的资源。视频的资源<br> 现在都要买版权，都要收费。</p>
+<pre><code>www.kuaibo.com ，进入到快播的一个页面，
+</code></pre><p> 快播视频播放，我就可以引入优酷上面的一个视频资源。<br>    这个时候会给优酷发送一个请求，就会优酷携带一个请求头<br>    Referer:www.kuaibo.com<br>    我在优酷的后台我就可以判断，如果你请求的Referer 的值不是来自于优酷自己的站点<br>我让你跳转优酷的首页，看看广告.</p>
+<pre><code>http 协议 里面面试的时候一些重点的东西：
+        1:get 跟post 的区别
+        2:请求的数据格式，
+                特殊的请求头
+                post 提交有一个特殊的请求头
+                Content-Type:&quot;application/-w-form-data&quot;
+        3:响应的数据格式。
+                你知道哪些常见的状态吗
+                200
+                404
+                405
+                500
+                304   请求的资源没有发生任何改变，浏览器从缓存里面去找
+                302   请求重定向
+
+                http://www.tieba.com
+
+                这个地址会给我一个302 的状态吗
+                它还会给以location 的地址
+
+                302
+                Location:http://tieba.baidu.com  //响应头：地址
+
+ 你在请求开发的过程当成碰到什么乱码问题没有
+        1：客户端的数据发送到服务器，
+               1:如果说有中文，我们一般使用post 方式提交
+
+                //使用js 对魔兽.exe 进行编码. utf-8
+                //服务器根据这个去进行解码. 以utf-8 去解码
+               2:&lt;a href=&quot;adsfadsf.php?fileName=&quot;魔兽.exe&quot;&gt;问价下载 &lt;/a&gt;
+        2：服务器的数据响应给客户端。
+
+              1： 当前文件采用的是什么编码
+              2:  然后 给客户端一个响应头 Content-Type:text/html;charset=当前文件的编码
+</code></pre><p>ajax 什么是ajax<br>1：同步交互<br>   客户端请求服务器，服务器接收到请求，处理请求，然后给客户端一个响应，<br>响应的数据会把原来的页面给覆盖。我们把这种交互成为同步交互.<br>2：异步交互<br>    客户端请求服务器,服务器接收到请求，处理请求，然后给客户端一个响应，<br>响应的数据不会把原来的页面给覆盖。我们把这种交互成为异步交互.</p>
+<p>异步交互实际上就是页面不刷新，就可以动态的去获取服务端的数据</p>
+<p>它是怎么做到的，为什么能够去获取到服务端的数据，它的原理是什么.<br>通过XMLHttpRequest 对象去发送http 请求.</p>
+<p>XMLHttpRequest 交互的几个步骤</p>
+<p>1: 创建这样的一个对象<br>2：我要跟服务端建立一个连接<br>3: 我要在连接上面发送数据<br>4: 接收服务端返回的数据</p>
+<p>页面不刷新，就完成了跟服务器端的数据交互.<br>聊天机器人，网页版本的聊天.</p>
+<hr>
+<p>我假设以后我们做登录是同步交互，还是做异步交互.<br>如果我是做同步登录</p>
+<p><form action="login.php"><br>    昵称：<input type="text" name="username" id="username"><br>    <span id="message"></span><br>    <br><br><br>    密码：<input type="password" name="password"><br><br><br>    <input type="submit" value="登录"><br></form><br>肯定是服务器得到我的请求，决定给我输出什么样的数据。<br>如果是做异步登录</p>
+<p><form action=""><br>    昵称：<input type="text" name="username" id="username"><br>    <span id="message"></span><br>    <br><br><br>    密码：<input type="password" name="password"><br><br><br>    <input type="button" value="登录"><br></form><br>给登录按钮添加点击事件，然后获取到用户名，以及密码<br>然后通过XMLHttpRequest 对象发送请求给服务器，服务器返回数据<br>返回了数据之后，然后接收到数据，<br>我肯定是登陆成功，还是失败，然后由客户端来完成跳转<br>window.location.href=””;</p>
+<p>我们做ajax 开发，客户端发送一个请求给服务器，服务器返回数据。<br>返回了数据之后，我通过js 得到数据，得到了数据之后，我把这个数据渲染到页面上面.</p>
+<p>我刚刚跟服务端已经进行了数据交互，检测用户名是否存在，比如聊天的消息。<br>但是这些消息，或者传递这些数据的都非常的少。实际开发过程当中，我们有可能传递很多的数据。</p>
+<p>如果跟服务器进行交互，如果传递的数据格式非常大，非常多的情况下，我们一般给传递是数据规定一个格式.</p>
+<p>这个格式有两种，目前市场上面，一种是xml 的数据格式，还有一种是json 的数据格式.<br>xml 跟这个json 都是数据格式。<br>xml<br>    1: xml 到底是什么样的数据格式<br>         xml 是 【课扩展的标记语言】<br>         标记语言，html 超文本标记语言<br>         xml 可扩展的标记语言<br>         html 超文本标记语言<br>       都是由标记，标签组成，<br>         xml 它里面的标签是自定义的，<person></person><br>         html 里面的标记 是w3c 指定的 你得按照w3c 指定的规范去编写<br>       xml<br>          主要是用来做软件的配置文件，用来做数据的传输，xml 一般自己写解析.<br>       html<br>          主要是用来做界面显示的，浏览器解析.<br>       一般每一门语言对xml，以及json 都有解决方案</p>
+<pre><code>   xml 里面的标记的语法：
+   第一：第一行必须是文档申明  &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+   第二：必须有且仅有一个根元素
+   第三：标签可以嵌套，不能交叉嵌套   &lt;persons&gt;&lt;person&gt;&lt;/person&gt;&lt;/persons&gt;
+
+2：我怎么去表示复杂的数据
+3：服务端的xml 格式的数据到了客户端，客户端怎么解析然后放在页面上面.
+</code></pre><p>json</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;我们要学习的一个叫做http-协议。&quot;&gt;&lt;a href=&quot;#我们要学习的一个叫做http-协议。&quot; class=&quot;headerlink&quot; title=&quot;我们要学习的一个叫做http 协议。&quot;&gt;&lt;/a&gt;我们要学习的一个叫做http 协议。&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+    
+    </summary>
+    
+    
+      <category term="ajax" scheme="http://www.wangpansheng.cn/tags/ajax/"/>
+    
+      <category term="http" scheme="http://www.wangpansheng.cn/tags/http/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>markdown基本语法</title>
+    <link href="http://www.wangpansheng.cn/2017/03/14/markdown%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/"/>
+    <id>http://www.wangpansheng.cn/2017/03/14/markdown基本语法/</id>
+    <published>2017-03-14T00:56:31.000Z</published>
+    <updated>2017-03-14T11:26:23.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="标题"><a href="#标题" class="headerlink" title="标题"></a>标题</h2><ul>
+<li>标题是每篇文章都需要也是最常用的格式，在 Markdown 中，如果一段文字被定义为标题，只要在这段文字前加 # 号即可。</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"># 一级标题</div><div class="line"></div><div class="line">## 二级标题</div><div class="line"></div><div class="line">### 三级标题</div></pre></td></tr></table></figure>
+<p>以此类推，总共六级标题，建议在井号后加一个空格，这是最标准的 Markdown 语法。</p>
+<ul>
+<li>在Markdown当中设置标题，还有第二种方式：<br>通过在文字下方添加“=”和“-”，他们分别表示一级标题和二级标题。</li>
+</ul>
+<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>熟悉 HTML 的同学肯定知道有序列表与无序列表的区别，在 Markdown 下，列表的显示只需要在文字前加上 - 或 * 即可变为无序列表，有序列表则直接在文字前加1. 2. 3. 符号要和文字之间加上一个字符的空格。</p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><ul>
+<li><p>如果你需要引用一小段别处的句子，那么就要用引用的格式。</p>
+</li>
+<li><p>只需要在文本前加入 &gt; 这种尖括号（大于号）即可</p>
+</li>
+</ul>
+<h2 id="图片与链接"><a href="#图片与链接" class="headerlink" title="图片与链接"></a>图片与链接</h2><ul>
+<li>插入链接与插入图片的语法很像，区别在一个 !号</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">图片为：![]()&#123;ImgCap&#125;&#123;/ImgCap&#125;</div><div class="line"></div><div class="line">链接为：[]()</div></pre></td></tr></table></figure>
+<h2 id="粗体与斜体"><a href="#粗体与斜体" class="headerlink" title="粗体与斜体"></a>粗体与斜体</h2><ul>
+<li>Markdown 的粗体和斜体也非常简单，用两个 <em> 包含一段文本就是粗体的语法，用一个 </em> 包含一段文本就是斜体的语法。</li>
+</ul>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><ul>
+<li>表格是我觉得 Markdown 比较累人的地方，例子如下：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">| Tables        | Are           | Cool  |</div><div class="line">| ------------- |:-------------:| -----:|</div><div class="line">| col 3 is      | right-aligned | $1600 |</div><div class="line">| col 2 is      | centered      |   $12 |</div><div class="line">| zebra stripes | are neat      |    $1 |</div></pre></td></tr></table></figure>
+<p>这种语法生成的表格如下：<br>| Tables        | Are           | Cool  |<br>| ————- |:————-:| —–:|<br>| col 3 is      | right-aligned | $1600 |<br>| col 2 is      | centered      |   $12 |<br>| zebra stripes | are neat      |    $1 |</p>
+<h2 id="代码框"><a href="#代码框" class="headerlink" title="代码框"></a>代码框</h2><p>如果你是个程序猿，需要在文章里优雅的引用代码框，在 Markdown下实现也非常简单，只需要用两个 ` 把中间的代码包裹起来。图例：</p>
+<p>使用 tab 键即可缩进。</p>
+<h2 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h2><p>分割线的语法只需要三个 * 号，例如：</p>
+<p>到这里，Markdown 的基本语法在日常的使用中基本就没什么大问题了，只要多加练习，配合好用的工具，写起东西来肯定会行云流水。更多的语法规则，其实 Mou 的 Help 文档栗子很好，当你第一次使用 Mou 时，就会显示该文档。可以用来对用的查找和学习。</p>
+<h2 id="相关推荐"><a href="#相关推荐" class="headerlink" title="相关推荐:"></a>相关推荐:</h2><p>工具</p>
+<p>图床工具用来上传图片获取 URL 地址</p>
+<p>Droplr<br>Cloudapp<br>ezShare for Mac<br>围脖图床修复计划<br>在线好用的Markdown工具，为印象笔记而生</p>
+<p>马克飞象，专为印象笔记打造的Markdown编辑器，非常推荐<br>相关文章阅读：</p>
+<p>为什么作家应该用 Markdown 保存自己的文稿</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;标题&quot;&gt;&lt;a href=&quot;#标题&quot; class=&quot;headerlink&quot; title=&quot;标题&quot;&gt;&lt;/a&gt;标题&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;标题是每篇文章都需要也是最常用的格式，在 Markdown 中，如果一段文字被定义为标题，只要在这段文字前加 # 号即可。&lt;/l
+    
+    </summary>
+    
+    
+      <category term="markdown" scheme="http://www.wangpansheng.cn/tags/markdown/"/>
+    
+      <category term="语法" scheme="http://www.wangpansheng.cn/tags/%E8%AF%AD%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AJAX应用之基本功</title>
+    <link href="http://www.wangpansheng.cn/2017/03/13/AJAX%E5%AD%A6%E4%B9%A0%E4%B9%8B%E5%9F%BA%E6%9C%AC%E5%8A%9F/"/>
+    <id>http://www.wangpansheng.cn/2017/03/13/AJAX学习之基本功/</id>
+    <published>2017-03-13T13:10:23.000Z</published>
+    <updated>2017-03-22T01:30:04.859Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="静态资源和动态资源"><a href="#静态资源和动态资源" class="headerlink" title="静态资源和动态资源"></a>静态资源和动态资源</h2><ul>
+<li><p>我们把开发好的html css js部署到服务器上，然后就可以访问了，我们称这些服务器上的文件为资源。</p>
+<p>####我们把资源分为两类：</p>
+<p>-实际上，我们开发都是在开发资源，开发好了部署到服务器上，然后客户端就可访问我的资源了。</p>
+<p>-资源分为两类</p>
+<p>1.静态资源</p>
+</li>
+</ul>
+<ul>
+<li><p>可以通过浏览器直接打开，直接解析的我们称为静态资源。<br>-html,js,css.inage 我们可以理解为静态资源</p>
+<p>2.动态资源</p>
+</li>
+<li><p>php，jsp，asp 我们可以理解为动态资源</p>
+<p>####动态资源和静态资源的区别</p>
+<p>-浏览器只认识静态资源。</p>
+<p>-我的浏览器通过输入地址区访问呢服务器，实际上是去访问服务器上的资源。</p>
+<p>-服务器上有静态资源，也有动态资源。<br>-如果我的浏览器访问的是服务器上的动态资源，服务器会把动态资源转换称静态资源，然后在传给客户端浏览器。<br>-如果我的浏览器访问的是服务器上的静态资源，那么服务器会直接把静态资源传送给浏览器解析。<br>-动态资源是在服务端运行的，静态资源是在客户端运行的。</p>
+</li>
+</ul>
+<ul>
+<li><p>php 就是在服务端运行的，用来处理服务端逻辑的。</p>
+<p>##客户端与服务端进行交互</p>
+</li>
+</ul>
+<h4 id="客户端发送请求有几种方式："><a href="#客户端发送请求有几种方式：" class="headerlink" title="客户端发送请求有几种方式："></a>客户端发送请求有几种方式：</h4><ol>
+<li><p>在地址栏输入地址发送请求</p>
+<p>2.点击一个超链接，发送请求</p>
+<p>3.表单提交也是属于发送请求</p>
+<p>-发送请求是给服务器端进行提交，提交数据到服务器<br>-提交有两种常见的方式，一个是get，一个是post</p>
+<p>1.什么是get提交</p>
+</li>
+</ol>
+<ul>
+<li><p>在地址栏输入地址发送请求，点击超链接也属于get提交<br>-表单提交，<code>&lt;form action=&quot;&quot; method=&quot;get&quot;&gt;&lt;/form&gt;</code>默认是get方式提交。<br>-?paraName=value&amp;paraName=value&amp;paraName=value</p>
+<p>2.什么是post提交呢？</p>
+</li>
+<li><p>表单提交，可以设置称post方式提交，<br>-会自动把数据发送到服务器</p>
+<p>3.服务端</p>
+<ol>
+<li>接收请求<br>$_GET $POST这两个变量得到的值是一个关联数组，<br>客户端的数据放在关联数组里面，需要根据key去获取里边的值<br>2.处理请求<br>连接数据库，增删改查<br>3.响应数据<br>echo根据处理请求的逻辑，给客户端不同的响应结果</li>
+</ol>
+<p>####服务端接收到客户端的请求，一般要做那些处理？</p>
+<p>1.用户登录</p>
+<ol>
+<li>登录页面，表单，用户名，密码，登录按钮<br>2.处理登录请求的php</li>
+<li>接收请求，接收用户名以及密码<br>2.对接收到的用户名密码进行判断，<br>-如果正确，则进行连接数据<br>-如果不正确就提示错误</li>
+</ol>
+<p>2.文件上传</p>
+</li>
+<li><p>客户端：</p>
+<ol>
+<li>必须是表单提交的<br>2.表单提交里面必须有一个 input type=“file”<br>3.必须是post方式提交的<br>4.必须给表单设置一个属性，<code>enctype=&quot;multipart/form-data&quot;</code></li>
+</ol>
+<p>-服务端</p>
+<ol>
+<li>要接收客户端的数据， $_GET, $_POST ,不能接收文件上传的数据，文件上传的数据，我们应该用$_FILES 的变量去接收，接收的数据也是一个关联数组<br>2.接收到这个数据之后，需要把这些数据保存到服务端硬盘上面。</li>
+</ol>
+<p>3.动态输出</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?php if(true) &#123;?&gt;</div><div class="line"></div><div class="line">&lt;?php &#125; ?&gt;</div><div class="line"></div><div class="line">&lt;?php for($i=0;$i&lt;=1000;$i++)&#123; ?&gt;</div><div class="line"></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span>&lt;?php echo $i; ?&gt;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"></div><div class="line">&lt;?php &#125; ?&gt;</div></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;静态资源和动态资源&quot;&gt;&lt;a href=&quot;#静态资源和动态资源&quot; class=&quot;headerlink&quot; title=&quot;静态资源和动态资源&quot;&gt;&lt;/a&gt;静态资源和动态资源&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;我们把开发好的html css js部署到服务器上，然后就可以访问
+    
+    </summary>
+    
+    
+      <category term="ajax" scheme="http://www.wangpansheng.cn/tags/ajax/"/>
+    
+      <category term="基本功" scheme="http://www.wangpansheng.cn/tags/%E5%9F%BA%E6%9C%AC%E5%8A%9F/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git应用之git常用操作</title>
+    <link href="http://www.wangpansheng.cn/2017/03/13/git%E5%BA%94%E7%94%A8%E4%B9%8Bgit%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/"/>
+    <id>http://www.wangpansheng.cn/2017/03/13/git应用之git常用操作/</id>
+    <published>2017-03-13T05:59:09.000Z</published>
+    <updated>2017-03-15T06:59:55.305Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>这篇主要介绍的是如何配置git和相关操作命令，方便交流学习和以后查阅。</li>
+</ul>
+<h2 id="1-配置用户"><a href="#1-配置用户" class="headerlink" title="1.    配置用户"></a>1.    配置用户</h2><ul>
+<li><p>git安装完成之后，我们需要配置个人信息，配置方式如下。</p>
+</li>
+<li><p>git config [option] </p>
+<ul>
+<li>–global 全局配置，当前用户下的所有仓库都共享同一个用户的配置信息</li>
+<li>–system 系统配置，该电脑下的所有仓库都共享一个用户的配置信息</li>
+<li>–local     本地配置，该仓库下使用当前配置的用户信息。</li>
+</ul>
+</li>
+<li>配置用户名：git config –global user.name  “wangpansheng”</li>
+<li>配置邮箱：    git config –global user.email  “wps@qq.com”</li>
+<li>获取信息：    git config –get user.name || –get user.email</li>
+<li>配置信息存放在用户文件夹中的.gitconfig中存放着。</li>
+<li>可以通过重复配置信息，覆盖之前配置的信息</li>
+</ul>
+<h2 id="2-仓库初始化"><a href="#2-仓库初始化" class="headerlink" title="2.    仓库初始化"></a>2.    仓库初始化</h2><ul>
+<li><p>使用git管理代码之前需要首先在工作目录下，输入该命令，初始化一个仓库。</p>
+</li>
+<li><p>git init</p>
+</li>
+</ul>
+<h2 id="3-查看文件状态"><a href="#3-查看文件状态" class="headerlink" title="3.    查看文件状态"></a>3.    查看文件状态</h2><ul>
+<li>查看当前工作目录文件的状态，</li>
+<li>如果下边文件名是红色的就是没有被追踪的，或者是暂存之后又被修改的文件。</li>
+<li>如果绿色的就是已经add暂存了的文件。</li>
+<li><p>会忽略空文件夹</p>
+</li>
+<li><p>medified 表示是跟踪到修改的文件</p>
+</li>
+<li><p>git status</p>
+</li>
+</ul>
+<h2 id="4-添加到暂存区"><a href="#4-添加到暂存区" class="headerlink" title="4.    添加到暂存区"></a>4.    添加到暂存区</h2><ul>
+<li><p>如果要把本地工作目录的文件添加到暂存区，也就是想要让git追踪文件的变化，就需要使用git add命令。然后使用git status查看文件状态是否被追踪。</p>
+</li>
+<li><p>git add [option]</p>
+</li>
+<li><p>*| -A    暂存所有文件</p>
+</li>
+<li>文件名，暂存指定文件</li>
+</ul>
+<h2 id="5-撤销更改"><a href="#5-撤销更改" class="headerlink" title="5.    撤销更改"></a>5.    撤销更改</h2><ul>
+<li>有时候，我们可能会想要把代码恢复到以前的版本，这是就需要用到checkout了。</li>
+<li>在撤销更该的时候，如果暂存区有备份，就恢复暂存区文件到工作目录，</li>
+<li><p>如果暂存区没有就去版本库去恢复。</p>
+</li>
+<li><p>git checkout filename</p>
+</li>
+</ul>
+<h2 id="6-提交"><a href="#6-提交" class="headerlink" title="6.    提交"></a>6.    提交</h2><ul>
+<li><p>git commit [option] -m “当前版本备注信息”</p>
+</li>
+<li><p>提交单个文件时，option输入文件名即可，</p>
+</li>
+<li><p>在做版本回退时，需要根据版本备注信息选择回退的版本。</p>
+</li>
+<li><p>没提交一次都会有一个版本号，一般称为SHA值，</p>
+</li>
+</ul>
+<h2 id="7-查看提交日志"><a href="#7-查看提交日志" class="headerlink" title="7.    查看提交日志"></a>7.    查看提交日志</h2><ul>
+<li><p>有时候我们需要查看提交的历史纪录，可以通过git log查看提交的历史记录</p>
+</li>
+<li><p>git log            不包含回退之后的版本</p>
+</li>
+<li>git log –oneline    简略显示日志</li>
+<li>git reflog    查看所有历史版本，</li>
+</ul>
+<h2 id="8-恢复之前提交的状态"><a href="#8-恢复之前提交的状态" class="headerlink" title="8.    恢复之前提交的状态"></a>8.    恢复之前提交的状态</h2><ul>
+<li><p>回退到指定的版本</p>
+</li>
+<li><p>git reset [option] 版本id</p>
+</li>
+<li><p>将指定版本内的文件替换掉工作目录内的文件，实现版本回退，</p>
+</li>
+<li><p>如果传了 –hard 会同时更改暂存区文件</p>
+</li>
+<li><p>git reset HEAD^ 回退到前一次提交的版本，</p>
+</li>
+<li><p>git reset HEAD^^|| HEAD~2回退到前两次的版本</p>
+</li>
+<li><p>reset命令有3中方式：</p>
+<ul>
+<li>git reset  –mixed    <ul>
+<li>默认方式，不带任何参数的git reset，</li>
+<li>版本区和暂存区变化，工作区不变化</li>
+</ul>
+</li>
+<li>git reset –soft    <ul>
+<li>回退到某个版本，只回退了commit的信息，不会恢复暂存区，</li>
+<li>如果还要提交，直接commit即可</li>
+</ul>
+</li>
+<li>git reset –hard<ul>
+<li>彻底回退到某个版本，本地的源码也会变为上一个版本的内容。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="9-git分支"><a href="#9-git分支" class="headerlink" title="9.    git分支"></a>9.    git分支</h2><ul>
+<li><p>在初始化一个本地仓库时，默认是没有主分支的，必须至少提交一次版本之后，git才会创建master主分支。</p>
+</li>
+<li><p>git在创建分支时，必须保证有master主分支。</p>
+</li>
+</ul>
+<ol>
+<li><p>创建分支</p>
+<ul>
+<li><p>git branch name    创建分支</p>
+</li>
+<li><p>git checkout -b branchName  创建分支并切换到该分支</p>
+</li>
+</ul>
+</li>
+<li><p>查看分支</p>
+<ul>
+<li>git branch</li>
+</ul>
+<ul>
+<li>有星号*标记的分支，就是当前工作目录所在的分支，</li>
+</ul>
+</li>
+<li><p>切换分支</p>
+<ul>
+<li><p>git checkout branchName</p>
+</li>
+<li><p>切换到指定分支</p>
+</li>
+</ul>
+</li>
+<li><p>分支的合并</p>
+<ul>
+<li><p>git merge branchName</p>
+</li>
+<li><p>将指定分支合并到当前分支</p>
+</li>
+</ul>
+</li>
+<li><p>删除分支</p>
+<ul>
+<li><p>git branch -d branchName</p>
+</li>
+<li><p>删除指定的分支</p>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="git分支策略"><a href="#git分支策略" class="headerlink" title="git分支策略"></a>git分支策略</h4><ul>
+<li>在实际开发中，虽然git分支很强大，但是也不是随便用的，通常我们需要按照一定的策略使用分支，提高开发效率。</li>
+</ul>
+<ol>
+<li><p>保证主分支的的稳定性，也就是说要保证主分支的代码，无bug，功能完整，不能在主分支上直接进行开发。</p>
+</li>
+<li><p>如果需要开发新功能时，那么就创建一个该功能的分支，然后在该分支上进行代码编写。当功能开发完毕，并且测试无bug，将该分支上的代码合并到主分支上。</p>
+<ul>
+<li>该分支命名一般规范：所有的开发分支都以”dev-“+相关功能描述的单词。</li>
+<li>eg： 要开发登录功能时， 此时可以考虑创建一个开发分支，名字为dev-login</li>
+</ul>
+</li>
+<li><p>如果开发时遇到协同开发，就要创建协同开发分支，在该分支上去编写代码。</p>
+<ul>
+<li>当代码合并时，可能会出现，代码冲突，一旦出现冲突，git无法解决，需要我们认为手动去处理。</li>
+<li>该分支一般的命名规范为：<ul>
+<li>所有的开发分支都以”feature-“+相关描述词；</li>
+<li>eg：开发主页功能时，可以考虑创建一个分支，名字为feature-index</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果在开发时，接到一个临时修改的bug的任务时，此时不要在主分支或当前未完成的分支上去修改，此时，创建一个bug分支，在该分支上去修改出现bug的代码，修改完成之后，将其合并到主分支，</p>
+<ul>
+<li>该分支命名规范：</li>
+<li>所有的开发分支都以”bug”+相关描述词；</li>
+<li>eg: 要修改登录超时问题，此时可以考虑创建一个bug分支，名字为bug-loginTimeout</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>如果出现冲突，必须手动解决冲突，然后重新提交版本，</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;这篇主要介绍的是如何配置git和相关操作命令，方便交流学习和以后查阅。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;1-配置用户&quot;&gt;&lt;a href=&quot;#1-配置用户&quot; class=&quot;headerlink&quot; title=&quot;1.    配置用户&quot;&gt;&lt;/a&gt;1.    配置
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://www.wangpansheng.cn/tags/git/"/>
+    
+      <category term="常用命令操作" scheme="http://www.wangpansheng.cn/tags/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E6%93%8D%E4%BD%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git应用之git基本工作流程</title>
+    <link href="http://www.wangpansheng.cn/2017/03/13/git%E5%BA%94%E7%94%A8%E4%B9%8Bgit%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86/"/>
+    <id>http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/</id>
+    <published>2017-03-13T05:58:24.000Z</published>
+    <updated>2017-03-14T09:03:05.537Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h2><ul>
+<li><p>git init</p>
+</li>
+<li><p>如果我们想让git去管理某个目录下的文件，首先需要在该目录下初始化仓库。</p>
+</li>
+</ul>
+<h2 id="三种状态"><a href="#三种状态" class="headerlink" title="三种状态"></a>三种状态</h2><ul>
+<li><p>学习git之前，我们需要首先了解git管理的3种状态，分别是<strong>已提交</strong>，<strong>已修改</strong>，<strong>已暂存</strong>。</p>
+</li>
+<li><p>这三种状态分别对应三种目录空间，</p>
+</li>
+</ul>
+<ul>
+<li>已修改 -&gt;  工作目录</li>
+<li>已暂存 -&gt;    本地仓库暂存区 通常存放在git目录中的HEAD或INDEX文件中</li>
+<li>已提交 -&gt;  本地仓库的版本库</li>
+</ul>
+<h2 id="git基本工作流程"><a href="#git基本工作流程" class="headerlink" title="git基本工作流程"></a>git基本工作流程</h2><ul>
+<li>git的工作流程大概分成三个步骤：</li>
+</ul>
+<ol>
+<li><p>在工作区域修改文件。</p>
+</li>
+<li><p>将工作目录的文件提交到暂存区域，</p>
+</li>
+<li><p>最后再将暂存区文件提交的本地版本库，形成一个版本保存起来</p>
+</li>
+</ol>
+<ul>
+<li>每一次从暂存区提交到版本库，都会形成一个新的版本库。</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;初始化本地仓库&quot;&gt;&lt;a href=&quot;#初始化本地仓库&quot; class=&quot;headerlink&quot; title=&quot;初始化本地仓库&quot;&gt;&lt;/a&gt;初始化本地仓库&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;git init&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果我们想让git去管理某个目
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://www.wangpansheng.cn/tags/git/"/>
+    
+      <category term="版本控制" scheme="http://www.wangpansheng.cn/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+    
+      <category term="工具" scheme="http://www.wangpansheng.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>把markdown文件转换为html文件</title>
+    <link href="http://www.wangpansheng.cn/2017/03/13/markdown2html/"/>
+    <id>http://www.wangpansheng.cn/2017/03/13/markdown2html/</id>
+    <published>2017-03-13T05:57:39.000Z</published>
+    <updated>2017-03-13T06:16:17.409Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="MarkDown自动转换html页面"><a href="#MarkDown自动转换html页面" class="headerlink" title="MarkDown自动转换html页面"></a>MarkDown自动转换html页面</h1><ul>
+<li>因为markdown语法的方便，平常我经常用markdown来做一些笔记，但有时候需要把md文件转换成html页面，所以现在就把转换方法简单记录下，方便大家学习。不过肯定有别的更好的方法，如果你看到了，觉得你有更好的方法，希望你能不吝赐教，交流学习！</li>
+</ul>
+<h2 id="插件安装"><a href="#插件安装" class="headerlink" title="插件安装"></a>插件安装</h2><ul>
+<li>首先第一步肯定是安装转换工具了，我现在用的是i5ting_toc这个工具，这个工具是依赖node的，所以需要先安装node的，node的详细安装方法，这里就不细说了，如果不会的，可以去问问老李（百度），</li>
+<li><p>然后在npm中执行以下命令，npm会自动安装，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install -g i5ting_toc</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="文件转换"><a href="#文件转换" class="headerlink" title="文件转换"></a>文件转换</h2><ul>
+<li><p>安装完成之后，就开始准备转换了，那么我们在你要转换的markdown文件的文件夹，按住shift键右键点击文件夹空白地方，会弹出右键菜单，然后选择“打开命令行窗口”选项，接着在命令行输入以下命令，系统就会自动输出html文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">i5ting_toc -f note.md -o</div><div class="line">//note.md 为需要转换的文件名</div><div class="line">//-o 在转换完成之后会自动打开html页面</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>完毕，至此，我们的文件已经转换完成了，至于更换模板什么的，我现在还不知道怎么弄，望知道的大神指点一二。不胜感激！</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;MarkDown自动转换html页面&quot;&gt;&lt;a href=&quot;#MarkDown自动转换html页面&quot; class=&quot;headerlink&quot; title=&quot;MarkDown自动转换html页面&quot;&gt;&lt;/a&gt;MarkDown自动转换html页面&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;
+    
+    </summary>
+    
+    
+      <category term="markdown" scheme="http://www.wangpansheng.cn/tags/markdown/"/>
+    
+      <category term="转换，html" scheme="http://www.wangpansheng.cn/tags/%E8%BD%AC%E6%8D%A2%EF%BC%8Chtml/"/>
+    
+      <category term="i5ting_toc" scheme="http://www.wangpansheng.cn/tags/i5ting-toc/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git应用之版本控制工具</title>
+    <link href="http://www.wangpansheng.cn/2017/03/13/git%E5%BA%94%E7%94%A8%E4%B9%8B%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+    <id>http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/</id>
+    <published>2017-03-13T05:57:39.000Z</published>
+    <updated>2017-03-14T01:02:05.314Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="版本控制工具"><a href="#版本控制工具" class="headerlink" title="版本控制工具"></a>版本控制工具</h2><h4 id="版本控制工具可以解决的问题"><a href="#版本控制工具可以解决的问题" class="headerlink" title="版本控制工具可以解决的问题"></a>版本控制工具可以解决的问题</h4><ol>
+<li><p>代码合并</p>
+</li>
+<li><p>协同开发</p>
+</li>
+<li><p>提供效率</p>
+</li>
+<li><p>回退版本</p>
+</li>
+<li><p>数据丢失</p>
+</li>
+<li><p>分支管理-多任务处理</p>
+</li>
+</ol>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ol>
+<li><p>集中式版本控制管理工具：</p>
+<ul>
+<li><p>如：svn</p>
+</li>
+<li><p>在集中式版本控制工具中，都会有一个中央服务器，所有的协同开发者都需要来连接到这个服务器，将所有源代码都放在中央服务器上，</p>
+</li>
+<li><p>开发中，首先需要从中央服务器种下载代码（或者更新代码），然后在本地开发，</p>
+</li>
+<li><p>如果开发完毕，需要通过网络把开发完成的代码提交到中央服务器上。</p>
+</li>
+<li><p>这种方式解决了多人协同开发的问题，由于过渡依赖于网络和中央服务器，</p>
+</li>
+<li><p>如果中央服务器出现故障，将会严重导致数据版本丢失的风险，</p>
+</li>
+<li><p>另外，如果网路出现问题，也就没有办法更新，同步代码。</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>分布式</p>
+<ul>
+<li><p>这种方式不需要中央服务器，每一个协同开发者，都是有一个完整的版本库，这样一来，任何协同开发者出现问题，事后都可以通过其它协同开发者进行恢复。</p>
+</li>
+<li><p>由于版本库在本地计算机，也就不再受网络影响，如果要将本地修改的代码推送给其它协同开发者，还需要一台 共享服务器，所有开发者通过这台服务器进行同步和更新。</p>
+</li>
+<li><p>分布式版本控制系统弥补了集中式版本控制工具的缺陷，成为了版本控制的首选，现在用的最多的就是Git。</p>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;版本控制工具&quot;&gt;&lt;a href=&quot;#版本控制工具&quot; class=&quot;headerlink&quot; title=&quot;版本控制工具&quot;&gt;&lt;/a&gt;版本控制工具&lt;/h2&gt;&lt;h4 id=&quot;版本控制工具可以解决的问题&quot;&gt;&lt;a href=&quot;#版本控制工具可以解决的问题&quot; class=&quot;he
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://www.wangpansheng.cn/tags/git/"/>
+    
+      <category term="版本控制" scheme="http://www.wangpansheng.cn/tags/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/"/>
+    
+      <category term="工具" scheme="http://www.wangpansheng.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git应用之认识SSH</title>
+    <link href="http://www.wangpansheng.cn/2017/03/13/git%E5%BA%94%E7%94%A8%E4%B9%8B%E8%AE%A4%E8%AF%86SSH/"/>
+    <id>http://www.wangpansheng.cn/2017/03/13/git应用之认识SSH/</id>
+    <published>2017-03-13T04:02:43.000Z</published>
+    <updated>2017-03-13T08:05:04.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是SSH"><a href="#什么是SSH" class="headerlink" title="什么是SSH"></a>什么是SSH</h2><ul>
+<li><p>SSH是一种网络协议，用于计算机之间的加密登录。</p>
+</li>
+<li><p>SSH只是一种协议，存在多种实现，既有商业实现，也有开源实现。我们主要针对OpenSSH，它是自由软件，应用非常广泛。</p>
+</li>
+<li><p>如果要 在widows种使用SSH，会使用到一种软件PuTTY，我们用的git客户端也集成了SSH。</p>
+</li>
+<li><p>格式：ssh user@host</p>
+</li>
+<li>user 代表用户，host代表要登录的远程计算机</li>
+</ul>
+<h3 id="常见的两种加密方式"><a href="#常见的两种加密方式" class="headerlink" title="常见的两种加密方式"></a>常见的两种加密方式</h3><ul>
+<li><p>常见的两种加密技术，分别是对称性加密和非对称性加密，SSH属于后者。</p>
+</li>
+<li><p>对称性加密算法，在加密和解密时，使用的是同一个密钥；</p>
+</li>
+<li><p>而非对称性加密算法需要两个密钥来进行加密和解密。这两个密钥分别是公开密钥(public key,公钥)和私有密钥(private key,私钥)。</p>
+</li>
+</ul>
+<h5 id="非对称性加密的工作原理"><a href="#非对称性加密的工作原理" class="headerlink" title="非对称性加密的工作原理"></a>非对称性加密的工作原理</h5><ul>
+<li>公钥和私钥是成对出现，可以通过ssh-keygen -t rsa来创建，既可以通过密钥加密数据，也可以过通过私钥来加密数据，如果是以公钥进行的数据加密，只有通过与之对应的私钥才可解密，相反，如果以私钥进行的数据加密，则只能通过与之对应的公钥才可将数据解密，这样就可以提高信息传递的安全性，</li>
+</ul>
+<h5 id="免密码登录"><a href="#免密码登录" class="headerlink" title="免密码登录"></a>免密码登录</h5><ul>
+<li>我们可以将本地机器上的公钥保存到特定的远程计算机上，这样当我们再次登录访问这台远程计算机时就可以实现免密码登录了。</li>
+</ul>
+<ol>
+<li><p>ssh-keygen -t rsa 会创建公钥和密钥（默认在用户目录/.ssh中）</p>
+</li>
+<li><p>ssh-copy-id user@host    添加到对应远程主机的用户目录/.ssh目录下</p>
+</li>
+<li><p>也可以登录远程主机，进入到用户目录/.ssh目录下手动创建authorized keys文件，并将自己的公钥粘贴到该文件。</p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;什么是SSH&quot;&gt;&lt;a href=&quot;#什么是SSH&quot; class=&quot;headerlink&quot; title=&quot;什么是SSH&quot;&gt;&lt;/a&gt;什么是SSH&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;SSH是一种网络协议，用于计算机之间的加密登录。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;SSH
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://www.wangpansheng.cn/tags/git/"/>
+    
+      <category term="工具" scheme="http://www.wangpansheng.cn/tags/%E5%B7%A5%E5%85%B7/"/>
+    
+      <category term="SSH" scheme="http://www.wangpansheng.cn/tags/SSH/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git应用之vi编辑器</title>
+    <link href="http://www.wangpansheng.cn/2017/03/13/git%E5%BA%94%E7%94%A8%E4%B9%8Bvi%E7%BC%96%E8%BE%91%E5%99%A8/"/>
+    <id>http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/</id>
+    <published>2017-03-13T04:02:20.000Z</published>
+    <updated>2017-03-13T07:22:57.616Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="认识vi"><a href="#认识vi" class="headerlink" title="认识vi"></a>认识vi</h2><ul>
+<li><p>vi编辑器是Linux下的标配，通过它我们可以创建，编辑文件，它是一个系统自带的文本编辑器，</p>
+</li>
+<li><p>在bash命令行输入 vi 文件名，即可打开文件，进入vi编辑模式。</p>
+<h2 id="三种模式"><a href="#三种模式" class="headerlink" title="三种模式"></a>三种模式</h2></li>
+<li><p>vi编辑器提供了3种模式，分别是命令模式,插入模式，末行模式，每种模式下用户所能进行的操作是不一样的。</p>
+</li>
+<li><p>3种模式的切换如下图：</p>
+<p>  <img src="/images/vi.png" alt="vi3种模式的切换"></p>
+</li>
+<li><p>通过上图我们发现，输入模式是不能直接切换到末行模式的，必须要先切换到命令模式。</p>
+</li>
+</ul>
+<h2 id="VI编辑器快捷键"><a href="#VI编辑器快捷键" class="headerlink" title="VI编辑器快捷键"></a>VI编辑器快捷键</h2><h4 id="末行模式："><a href="#末行模式：" class="headerlink" title="末行模式："></a>末行模式：</h4><ol>
+<li><p>:w(小写) 保存；</p>
+</li>
+<li><p>:w filename    另存为；</p>
+</li>
+<li><p>:q    退出</p>
+</li>
+<li><p>:wq    保存并退出</p>
+</li>
+<li><p>:e!    撤销更改</p>
+</li>
+<li><p>:q!    不保存强制退出</p>
+</li>
+<li><p>:set nu    设置行号</p>
+</li>
+</ol>
+<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><ol>
+<li><p>ZZ(大写)    保存并退出</p>
+</li>
+<li><p>u    撤销操作，可多次使用</p>
+</li>
+<li><p>dd    删除当前行</p>
+</li>
+<li><p>yy    复制当前行</p>
+</li>
+<li><p>p    粘贴内容</p>
+</li>
+<li><p>ctrl+f    向前翻页</p>
+</li>
+<li><p>ctrl+b    向后翻页</p>
+</li>
+<li><p>i    进入编辑模式，在当前光标插入</p>
+</li>
+<li><p>a    进入编辑模式，在当前光标后插入</p>
+</li>
+<li><p>A    进入编辑模式，光标移动到行尾</p>
+</li>
+<li><p>o    进入编辑模式，当前行下面插入新一行</p>
+</li>
+<li><p>O    进入编辑模式，当前行上面插入一行</p>
+</li>
+</ol>
+<h4 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h4><ul>
+<li>编辑模式下，操作和正常widows编辑器操作类似</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;认识vi&quot;&gt;&lt;a href=&quot;#认识vi&quot; class=&quot;headerlink&quot; title=&quot;认识vi&quot;&gt;&lt;/a&gt;认识vi&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;vi编辑器是Linux下的标配，通过它我们可以创建，编辑文件，它是一个系统自带的文本编辑器，&lt;/p&gt;
+&lt;/
+    
+    </summary>
+    
+    
+      <category term="git" scheme="http://www.wangpansheng.cn/tags/git/"/>
+    
+      <category term="vi" scheme="http://www.wangpansheng.cn/tags/vi/"/>
+    
+      <category term="vim" scheme="http://www.wangpansheng.cn/tags/vim/"/>
+    
+  </entry>
+  
+</feed>

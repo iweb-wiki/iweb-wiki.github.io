@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>git应用之git基本工作流程 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git,版本控制,工具">
+    <meta name="description" content="初始化本地仓库
+git init
+
+如果我们想让git去管理某个目录下的文件，首先需要在该目录下初始化仓库。
+
+
+三种状态
+学习git之前，我们需要首先了解git管理的3种状态，分别是已提交，已修改，已暂存。
+
+这三种状态分别对应三种目录空间，
+
+
+
+已修改 -&amp;gt;  工作目录
+已暂存 -&amp;gt;    本地仓库暂存区 通常存放在git目录中的HEAD或INDEX文件中
+已提交 -&amp;gt;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git应用之git基本工作流程">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="初始化本地仓库
+git init
+
+如果我们想让git去管理某个目录下的文件，首先需要在该目录下初始化仓库。
+
+
+三种状态
+学习git之前，我们需要首先了解git管理的3种状态，分别是已提交，已修改，已暂存。
+
+这三种状态分别对应三种目录空间，
+
+
+
+已修改 -&amp;gt;  工作目录
+已暂存 -&amp;gt;    本地仓库暂存区 通常存放在git目录中的HEAD或INDEX文件中
+已提交 -&amp;gt;">
+<meta property="og:updated_time" content="2017-03-14T09:03:05.537Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git应用之git基本工作流程">
+<meta name="twitter:description" content="初始化本地仓库
+git init
+
+如果我们想让git去管理某个目录下的文件，首先需要在该目录下初始化仓库。
+
+
+三种状态
+学习git之前，我们需要首先了解git管理的3种状态，分别是已提交，已修改，已暂存。
+
+这三种状态分别对应三种目录空间，
+
+
+
+已修改 -&amp;gt;  工作目录
+已暂存 -&amp;gt;    本地仓库暂存区 通常存放在git目录中的HEAD或INDEX文件中
+已提交 -&amp;gt;">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git应用之git基本工作流程</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git应用之git基本工作流程</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-13T05:58:24.000Z" itemprop="datePublished" class="page-time">
+  2017-03-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#初始化本地仓库"><span class="post-toc-number">1.</span> <span class="post-toc-text">初始化本地仓库</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三种状态"><span class="post-toc-number">2.</span> <span class="post-toc-text">三种状态</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git基本工作流程"><span class="post-toc-number">3.</span> <span class="post-toc-text">git基本工作流程</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-git应用之git工作原理"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git应用之git基本工作流程</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月13日 13:58" datetime="2017-03-13T05:58:24.000Z"  itemprop="datePublished">2017-03-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="初始化本地仓库"><a href="#初始化本地仓库" class="headerlink" title="初始化本地仓库"></a>初始化本地仓库</h2><ul>
+<li><p>git init</p>
+</li>
+<li><p>如果我们想让git去管理某个目录下的文件，首先需要在该目录下初始化仓库。</p>
+</li>
+</ul>
+<h2 id="三种状态"><a href="#三种状态" class="headerlink" title="三种状态"></a>三种状态</h2><ul>
+<li><p>学习git之前，我们需要首先了解git管理的3种状态，分别是<strong>已提交</strong>，<strong>已修改</strong>，<strong>已暂存</strong>。</p>
+</li>
+<li><p>这三种状态分别对应三种目录空间，</p>
+</li>
+</ul>
+<ul>
+<li>已修改 -&gt;  工作目录</li>
+<li>已暂存 -&gt;    本地仓库暂存区 通常存放在git目录中的HEAD或INDEX文件中</li>
+<li>已提交 -&gt;  本地仓库的版本库</li>
+</ul>
+<h2 id="git基本工作流程"><a href="#git基本工作流程" class="headerlink" title="git基本工作流程"></a>git基本工作流程</h2><ul>
+<li>git的工作流程大概分成三个步骤：</li>
+</ul>
+<ol>
+<li><p>在工作区域修改文件。</p>
+</li>
+<li><p>将工作目录的文件提交到暂存区域，</p>
+</li>
+<li><p>最后再将暂存区文件提交的本地版本库，形成一个版本保存起来</p>
+</li>
+</ol>
+<ul>
+<li>每一次从暂存区提交到版本库，都会形成一个新的版本库。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-14T09:03:05.537Z" itemprop="dateUpdated">2017年3月14日 17:03</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/13/git应用之git工作原理/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版本控制/">版本控制</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/&title=《git应用之git基本工作流程》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/&title=《git应用之git基本工作流程》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之git基本工作流程》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/13/git应用之git常用操作/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git应用之git常用操作</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/13/markdown2html/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">把markdown文件转换为html文件</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="git应用之git工作原理" data-title="git应用之git基本工作流程" data-url="http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/&title=《git应用之git基本工作流程》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/&title=《git应用之git基本工作流程》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之git基本工作流程》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git应用之git工作原理/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsElEQVR42u3aQW7cQAwEQP//0w6QU4JkN93kjOwApZPglUZTOog0yY+P+Pj8efx6/ueR3NU+5dWvhw88PDy80dbfbzpf+gY7f8V/WQ0PDw/vGi/fxCt8Hjxm58lLwcPDw/tuvPdXJtfPNoqHh4f3//LykkGeNL9PiPPn4uHh4T3PS5Lg9+GhLRm0IeF6rQUPDw+vW7MuoX7t+fX+Hh4eHt6oq55/fJOEOEl/85JHtEM8PDy8C7xk0bxoe2oQISlJFAEDDw8P7xqvxSRlglmrLL83EuHh4eEd5e0fkxd2k4S7LR//Y894eHh4F3h5oTZPo5O0eN/oattyeHh4eGd5bUKcj0ydelmzdfDw8PDu8doBqdkQ1axJ1ibow8kyPDw8vAWvTYLb9tipokbbQsPDw8O7x5u1+dtBqDz5boNHkVLj4eHhjXh5+7/dXHvlvryLh4eH9wyvLdTe2NC+PVbsFg8PD2/Nm922Kem2o1R56KrjHh4eHt6Cl48R7DGbwnE97IWHh4d3jZd/dtvm/axJ1hZ5X1rw8PDwHufl1FkTK0cOx7bw8PDwrvGSz/qsVNGufGoI7LfAgIeHh3eUlw9O5U2yFjBL64sXgYeHh/c4b1bSzZHRsFRcBMHDw8N7hpc3+JNQkV+fpOltJysPJ3h4eHh73uyRs/JB3h5LAtJHcuDh4eEd5bUN/vwj3v5lM+z1ko2Hh4f3OC8PDJvxrFl5ooh4eHh4eId4n+Vxaov7QkNU/sDDw8O7wNsEjzZRTl5N3kLbBy08PDy8DW/T+J+1uzZttrqnh4eHh3eNlyS+eaEhLyscSIjfPwUPDw/vG/DaEYG86bVJ6F+ug4eHh/elvCTNbYvCs1+LxB0PDw/vGm820tSWVvfIfEABDw8P7x6v/Ve/fdh+u5uAgYeHh3eU9wM49fk+PjKWgAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

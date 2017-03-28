@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>PHP简单入门 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="php基础
+定义变量
+
+变量使用$开头，不能以数字开头，
+大小写敏感(区分大小写)
+
+
+php代码必须写在&amp;lt;?php 代码  ?&amp;gt;,
+
+在第一行加上下面这行代码可以防止中文乱码问题
+1header(&quot;Content-Type:text/html;charset=utf-8&quot;);
+
+php变量的类型：    字符串，整型，浮点型，布尔类型，数组">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP简单入门">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/14/PHP简单入门/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="php基础
+定义变量
+
+变量使用$开头，不能以数字开头，
+大小写敏感(区分大小写)
+
+
+php代码必须写在&amp;lt;?php 代码  ?&amp;gt;,
+
+在第一行加上下面这行代码可以防止中文乱码问题
+1header(&quot;Content-Type:text/html;charset=utf-8&quot;);
+
+php变量的类型：    字符串，整型，浮点型，布尔类型，数组">
+<meta property="og:updated_time" content="2017-03-16T19:15:27.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP简单入门">
+<meta name="twitter:description" content="php基础
+定义变量
+
+变量使用$开头，不能以数字开头，
+大小写敏感(区分大小写)
+
+
+php代码必须写在&amp;lt;?php 代码  ?&amp;gt;,
+
+在第一行加上下面这行代码可以防止中文乱码问题
+1header(&quot;Content-Type:text/html;charset=utf-8&quot;);
+
+php变量的类型：    字符串，整型，浮点型，布尔类型，数组">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">PHP简单入门</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">PHP简单入门</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-14T11:52:11.000Z" itemprop="datePublished" class="page-time">
+  2017-03-14
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#php基础"><span class="post-toc-number">1.</span> <span class="post-toc-text">php基础</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#数组"><span class="post-toc-number">2.</span> <span class="post-toc-text">数组</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出打印"><span class="post-toc-number">3.</span> <span class="post-toc-text">输出打印</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#php常见函数方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">php常见函数方法</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#表单处理"><span class="post-toc-number">5.</span> <span class="post-toc-text">表单处理</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#get和post提交"><span class="post-toc-number">6.</span> <span class="post-toc-text">get和post提交</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#文件上传"><span class="post-toc-number">7.</span> <span class="post-toc-text">文件上传</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#前端页面"><span class="post-toc-number">7.0.1.</span> <span class="post-toc-text">前端页面</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-PHP简单入门"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">PHP简单入门</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月14日 19:52" datetime="2017-03-14T11:52:11.000Z"  itemprop="datePublished">2017-03-14</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+<h2 id="php基础"><a href="#php基础" class="headerlink" title="php基础"></a>php基础</h2><ul>
+<li><p>定义变量</p>
+<ul>
+<li>变量使用$开头，不能以数字开头，</li>
+<li>大小写敏感(区分大小写)</li>
+</ul>
+</li>
+<li><p>php代码必须写在<code>&lt;?php 代码  ?&gt;</code>,</p>
+</li>
+<li><p>在第一行加上下面这行代码可以防止中文乱码问题</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">header(<span class="string">"Content-Type:text/html;charset=utf-8"</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>php变量的类型：    字符串，整型，浮点型，布尔类型，数组</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>函数    </p>
+<ul>
+<li>与js基本一致</li>
+<li>函数的形参可以设置一个默认值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">function foo($username = &quot;zs&quot;) &#123;</div><div class="line">	echo &quot;你好&quot;.$username;</div><div class="line">&#125;</div><div class="line">foo();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li></li>
+</ul>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li>php里面有两种类型的数组，普通数组和关联数组</li>
+</ul>
+<ol>
+<li><p>普通数组</p>
+<ul>
+<li><p>定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$arr1 = array(&quot;zs&quot;,&quot;ls&quot;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>数组没有length属性，</p>
+</li>
+<li>遍历数组,使用for循环，可以得到数组的长度</li>
+<li>php有一个函数可以获取数组的长度，count($arr);</li>
+</ul>
+</li>
+<li><p>关联数组</p>
+<ul>
+<li>以键值对的方式进行存储的数组，我们叫做关联数组，<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$array = <span class="keyword">array</span>(<span class="string">"key"</span> =&gt; <span class="string">"value"</span>);</div><div class="line">$array[<span class="string">"key];</span></div><div class="line">//通过key可以获取值</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>二维数组</p>
+<ul>
+<li>数组里边还有数组</li>
+</ul>
+</li>
+</ol>
+<h2 id="输出打印"><a href="#输出打印" class="headerlink" title="输出打印"></a>输出打印</h2><ul>
+<li>php提供了三个用来输出的方法</li>
+</ul>
+<ol>
+<li><p>echo “”;     用来输出字符串的</p>
+</li>
+<li><p>print_r();    用来输出数组或者对象的。</p>
+</li>
+<li><p>var_dump();    这个也是用来输出数组里面的详细信息</p>
+</li>
+</ol>
+<h2 id="php常见函数方法"><a href="#php常见函数方法" class="headerlink" title="php常见函数方法"></a>php常见函数方法</h2><ol>
+<li><p>count();    得到数组长度</p>
+</li>
+<li><p>in_array();    </p>
+<ul>
+<li>判断数组中是否存在某个元素，这个是用在普通数组当中的</li>
+</ul>
+</li>
+<li><p>array_key_exists();    </p>
+<ul>
+<li>检测数组中是否存在某个key，这个用在关联数组中</li>
+</ul>
+</li>
+<li><p>file_get_contents();    </p>
+<ul>
+<li>读取文件里边的内容，读取出来的是字符串，</li>
+</ul>
+</li>
+<li><p>move_upload_file();    移动上传的文件</p>
+</li>
+</ol>
+<h2 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h2><ul>
+<li><p>name属性 是用来提供给服务端接收数据而设置的</p>
+</li>
+<li><p>action属性 设置接收数据的处理程序</p>
+</li>
+<li><p>method属性    设置发送数据的方式</p>
+</li>
+<li><p>当上传文件时，必须设置 <code>enctype=&quot;multipart/form-data&quot;</code>,且只能使用post方式</p>
+</li>
+<li><p>$_GET    接收get传来的数据</p>
+</li>
+<li><p>$_POST    接收post传来数据</p>
+</li>
+<li><p>$_FILES    接收上传的文件</p>
+</li>
+</ul>
+<h2 id="get和post提交"><a href="#get和post提交" class="headerlink" title="get和post提交"></a>get和post提交</h2><ol>
+<li><p>get</p>
+<ul>
+<li><p>点击超链接，表单提交默认方式就是get，地址栏输入地址，</p>
+</li>
+<li><p>传递到服务端的都是参数，参数值，可以传递多个参数参数值</p>
+</li>
+<li>第一个必须是？ 参数名=参数值</li>
+<li>可以发送多个参数到服务器</li>
+<li>假设我要发送多个数据，</li>
+<li><p>第二个参数之前添加&amp;字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;a href=&quot;01.php?username=zs&amp;age=12&quot;&gt;&lt;/a&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在php要对请求进行处理，处理我们分为三个步骤，</p>
+</li>
+</ul>
+<ol>
+<li>接收请求，接收客户端传递到服务端的数据，<ul>
+<li>如果客户端是get方式提交，用$_GET去接收数据，对应的值是一个数组，是一个关联数组。</li>
+</ul>
+</li>
+<li>处理请求：    接收到数据之后具体做什么，就是要使用php去操作了。</li>
+<li>响应处理，给客户端一个响应</li>
+</ol>
+</li>
+<li><p>post提交</p>
+<ul>
+<li><p>表单提交一般都是使用post</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;!--post 提交，我需要表单提交，设置成post--&gt;</div><div class="line">   &lt;form action=&quot;02post.php&quot; method=&quot;post&quot;&gt;</div><div class="line">       用户名:&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</div><div class="line">       &lt;input type=&quot;submit&quot; value=&quot;post 提交&quot;&gt;</div><div class="line">   &lt;/form&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>服务端处理</p>
+</li>
+</ul>
+<ol>
+<li><p>接收请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$username = $_POST[&quot;username&quot;];</div></pre></td></tr></table></figure>
+</li>
+<li><p>处理请求</p>
+</li>
+</ol>
+<ul>
+<li>php后端处理数据</li>
+</ul>
+<ol>
+<li>完成响应</li>
+</ol>
+<ul>
+<li>返回信息到客户端</li>
+</ul>
+</li>
+</ol>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><h4 id="前端页面"><a href="#前端页面" class="headerlink" title="前端页面"></a>前端页面</h4><ul>
+<li>必须满足以下条件才可以上传文件</li>
+</ul>
+<ol>
+<li><p>必须是表单提交</p>
+</li>
+<li><p>表单里面必须有 input type=”file”</p>
+</li>
+<li><p>必须是post方式提交</p>
+</li>
+<li><p>必须设置 <code>enctype=&quot;multipart/form-data&quot;</code>属性</p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-16T19:15:27.000Z" itemprop="dateUpdated">2017年3月17日 3:15</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/14/PHP简单入门/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/14/PHP简单入门/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/&title=《PHP简单入门》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/&title=《PHP简单入门》 — onepansheng&source=
+
+php基础
+定义变量
+
+变量使用$开头，不能以数字开头，
+大小写敏感(区分大小写)
+
+
+php代码必须写在&lt;?php 代码  ?&gt;,
+
+在..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP简单入门》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/15/git应用之git和github/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git应用之git和github</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/14/AJAX应用之HTTP/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AJAX应用之HTTP</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="PHP简单入门" data-title="PHP简单入门" data-url="http://www.wangpansheng.cn/2017/03/14/PHP简单入门/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/&title=《PHP简单入门》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/&title=《PHP简单入门》 — onepansheng&source=
+
+php基础
+定义变量
+
+变量使用$开头，不能以数字开头，
+大小写敏感(区分大小写)
+
+
+php代码必须写在&lt;?php 代码  ?&gt;,
+
+在..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《PHP简单入门》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/14/PHP简单入门/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJUlEQVR42u3ay27rMAwFwPz/T7vbe1HEOaTkAqHGKwP1Q+MCjPh4veLj+ud499f8+nf35nc1DwwMjK9lXLdHcs097/dzkjXka8PAwDiHkYTC+1cmAXTl/MOaMTAwMBauSUIwBgYGxhOM6oKqG0EMDAyMXhKbbBOrJbm8ALctF8fAwPhCRl51//vzR/obGBgYX8W4isd9o7HXyOw1If67CwMDYzRjb5msmriuBFwMDIzTGHmamrczV0JtNWRjYGCcw0iWlYTalRGNalB+y8PAwBjE6BXC1gv6VcyHYI2BgTGaUR2t6O3EqhvE/JkYGBgnMPIg2ONVt5XNAQsMDIwDGNUks9oAWA/iHz4rBgbGAYzqmEU11lVT03K7AgMDYzQjbxz2tncbgmkQyjEwMGYz8iCbbwpXhiTyQBzl4hgYGCMYhYtapbp8wGtDMxUDA2M0o7cpfK6Uln+aV/4CDAyMcYz1wLfUkty7TcTAwBjESIJpntD2RjGaLQEMDIwDGNXNX7UNubLc/BwDA+NMxq7XVMc1qj8DGBgY5zB6I1/3IbX3gXppNgYGxlTGVTyeKO4nA6+F/wMGBsY4xkprc6UhmhfpmrVDDAyMcYx8jLW30HzrWU5ck0iPgYExiFHIeuNyWDU93pCLY2BgYOQNxSAoV5+2OeBiYGCMZuxKVvPCWVTsw8DAOICRJLHVK6vtz6UNJQYGxmhGL3Vcx+RDYL2fAQwMjBGMH1kIk2FdvHoBAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

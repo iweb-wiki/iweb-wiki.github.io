@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>AngularJS系列之模块化介绍 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="模块化介绍
+通过AngularJS构建应用时，是以模块化的方式组织的，即将整个应用划分成若干个模块，每个模块都各有其职责，最终组合成一个整体。
+采用模块化的组织方式，可以最大程度的实现代码的复用，可以像搭积木一样进行开发。
+
+定义应用
+通过为任一HTML标签添加ng-app属性，可以指定一个应用，表示此标签所包裹的内容都属于应用的一部分。
+123&amp;lt;!--为html标签添加ng-app表明整个">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS系列之模块化介绍">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="模块化介绍
+通过AngularJS构建应用时，是以模块化的方式组织的，即将整个应用划分成若干个模块，每个模块都各有其职责，最终组合成一个整体。
+采用模块化的组织方式，可以最大程度的实现代码的复用，可以像搭积木一样进行开发。
+
+定义应用
+通过为任一HTML标签添加ng-app属性，可以指定一个应用，表示此标签所包裹的内容都属于应用的一部分。
+123&amp;lt;!--为html标签添加ng-app表明整个">
+<meta property="og:updated_time" content="2017-03-11T05:43:31.579Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AngularJS系列之模块化介绍">
+<meta name="twitter:description" content="模块化介绍
+通过AngularJS构建应用时，是以模块化的方式组织的，即将整个应用划分成若干个模块，每个模块都各有其职责，最终组合成一个整体。
+采用模块化的组织方式，可以最大程度的实现代码的复用，可以像搭积木一样进行开发。
+
+定义应用
+通过为任一HTML标签添加ng-app属性，可以指定一个应用，表示此标签所包裹的内容都属于应用的一部分。
+123&amp;lt;!--为html标签添加ng-app表明整个">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AngularJS系列之模块化介绍</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">AngularJS系列之模块化介绍</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-11T05:07:39.000Z" itemprop="datePublished" class="page-time">
+  2017-03-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模块化介绍"><span class="post-toc-number">1.</span> <span class="post-toc-text">模块化介绍</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义应用"><span class="post-toc-number">2.</span> <span class="post-toc-text">定义应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义模块"><span class="post-toc-number">3.</span> <span class="post-toc-text">定义模块</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#定义控制器"><span class="post-toc-number">4.</span> <span class="post-toc-text">定义控制器</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-AngularJS系列之模块化介绍"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AngularJS系列之模块化介绍</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月11日 13:07" datetime="2017-03-11T05:07:39.000Z"  itemprop="datePublished">2017-03-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="模块化介绍"><a href="#模块化介绍" class="headerlink" title="模块化介绍"></a>模块化介绍</h2><ul>
+<li>通过AngularJS构建应用时，是以模块化的方式组织的，即将整个应用划分成若干个模块，每个模块都各有其职责，最终组合成一个整体。</li>
+<li>采用模块化的组织方式，可以最大程度的实现代码的复用，可以像搭积木一样进行开发。</li>
+</ul>
+<h2 id="定义应用"><a href="#定义应用" class="headerlink" title="定义应用"></a>定义应用</h2><ul>
+<li><p>通过为任一HTML标签添加ng-app属性，可以指定一个应用，表示此标签所包裹的内容都属于应用的一部分。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;!--为html标签添加ng-app表明整个文档都是应用--&gt;</div><div class="line">&lt;!--ng-app属性可以不赋值，但是要关联相应模块时则必须赋值--&gt;</div><div class="line">&lt;html lang=&quot;zh-CN&quot; ng-app=&quot;App&quot;&gt;&lt;/html&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="定义模块"><a href="#定义模块" class="headerlink" title="定义模块"></a>定义模块</h2><ul>
+<li><p>AngularJS提供了一个全局对象angular，在此全局对象下存在若干方法，其中angular.module()方法用来定义一个模块。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//通过module方法定义模块</span></div><div class="line"><span class="comment">//需要传递两个参数，第一个表示模块的名字，</span></div><div class="line"><span class="comment">// 第二个表示此模块依赖的其它模块</span></div><div class="line"><span class="keyword">var</span> app = angular.module(<span class="string">"app"</span>,[]);</div></pre></td></tr></table></figure>
+<p>注：应用本质也是一个模块（一个比较大的模块）；</p>
+</li>
+</ul>
+<h2 id="定义控制器"><a href="#定义控制器" class="headerlink" title="定义控制器"></a>定义控制器</h2><ul>
+<li><p>控制器（Controller）作为连接模型（model）和视图（view）的桥梁存在，所以当我们定义好了控制器以后，也就定义好了模型和视图。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//app是一个模型实例对象</span></div><div class="line"><span class="comment">//通过这个实例对象定义控制器，需要两个参数</span></div><div class="line"><span class="comment">//第一个参数表示控制器名称，</span></div><div class="line"><span class="comment">//第二个参数是一个数组，这个数组除最后一个单元是函数外，其余都是字符串，标明此控制器的依赖关系</span></div><div class="line">app.controller(<span class="string">'studentController'</span>,[<span class="string">'$scope'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</div><div class="line">  <span class="comment">//模型（model）</span></div><div class="line">  $scope = [</div><div class="line">    &#123;<span class="attr">name</span>: <span class="string">"李白"</span>, <span class="attr">sex</span>: <span class="string">'男'</span>, <span class="attr">age</span>: <span class="string">"23"</span>&#125;,</div><div class="line">    &#123;<span class="attr">name</span>: <span class="string">'华仔'</span>, <span class="attr">sex</span>: <span class="string">'男'</span>, <span class="attr">age</span>: <span class="string">'34'</span>&#125;</div><div class="line">  ]</div><div class="line">&#125;])</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>模型数据时要展示到视图上的，所以需要将控制器关联到视图上，通过为HTML标签添加ng-controller属性并赋值相应的控制器的名称，就确立了关联关系，</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--添加ng-controller属性，并赋值为相应的控制器名称--&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">table</span> <span class="attr">ng-controller</span>=<span class="string">"StudentController"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">tr</span> <span class="attr">ng-repeat</span>=<span class="string">"student in students"</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;student.name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;student.sex&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;student.age&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>以上为AngularJS最基本的MVC工作模式。</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-11T05:43:31.579Z" itemprop="dateUpdated">2017年3月11日 13:43</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/11/AngularJS系列之模块化介绍/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/&title=《AngularJS系列之模块化介绍》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/&title=《AngularJS系列之模块化介绍》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AngularJS系列之模块化介绍》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/13/git快速入门之bash/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git应用之认识bash</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/11/AngularJS介绍/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AngularJS系列之简单介绍</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="AngularJS系列之模块化介绍" data-title="AngularJS系列之模块化介绍" data-url="http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/&title=《AngularJS系列之模块化介绍》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/&title=《AngularJS系列之模块化介绍》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AngularJS系列之模块化介绍》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/11/AngularJS系列之模块化介绍/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3aQW7cMAwF0Ln/pVOgmyzSeP6nTDcBnldFMbH4tBBpUq9X/Hz8fa7//+tvPi6fr7/J/+rmBw8PD28UehLELKAZ77sI6y3Aw8PDW+Mlh367cJ4w8k3MY8bDw8P7Cbw8DSSleVIi4+Hh4f12XnLcJwkgSS2zrcHDw8N7kpe3DNq2RRJEvuJirwUPDw9vYYr0c/69ON/Dw8PDO5iqXx+4J1cB8lRxFC0eHh7eAi9/9ay5cL01yeqz8Vi9c3h4eHgjXhtuO+6aXUdIWh5vtgwPDw/vVt7sU79tp+ZXBNry/c2W4eHh4S3zTq4LzEZi+RYkAzM8PDy8Z3hJ43U27J/Np3Je8Rs8PDy8R3izAvqc1w7JIgUeHh7eAi8ffZ3fcTo/t9sRGh4eHt42L1+gbUbk16pOVn+1Dx4eHl7Jy1sJs9Bnzdyc/Sad4OHh4S3w2sXyorkd9rfpoWgf4+Hh4S3w2oDyIztPDyejr+LLAA8PD+8mXpIY7h1Tzdqy+eWGuqTGw8PDG/HaZNB2iM/7zcPNxcPDw1vjnbRf81L7ZCSWxPaPN+Ph4eGt8c7DnQ3MkiJ+1lbGw8PD2+DlB3GSEvaSwXBoh4eHh7fAawdgbQKYjcTasVnURsHDw8O7iVd/2JeFb1vd58O2qJWMh4eH9whvdrjnVw1mI65hIY6Hh4e3wGtbru3F1hlptnH1twIeHh7eiJcsnz+zINpmcXFBFg8PD+8R3nkRPGtAXL+5bXPg4eHh7fHaQz9ZPh/z5wO29rIsHh4e3jbv5Phuy/T8ne01hWH2w8PDwzvgJQf6+aWBWej5hn7bzMXDw8P7T7z26L9rzNZu/SsPCA8PD+8R3mzkf1K+nzR/8fDw8PZ4s3I5TyFtW7Z95w29Fjw8PLyYdz4Amy3ZBpQksJX5Hh4eHt7n8wdPcBg8/QQl4gAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

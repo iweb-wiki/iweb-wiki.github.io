@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>git应用之vi编辑器 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git,vi,vim">
+    <meta name="description" content="认识vi
+vi编辑器是Linux下的标配，通过它我们可以创建，编辑文件，它是一个系统自带的文本编辑器，
+
+在bash命令行输入 vi 文件名，即可打开文件，进入vi编辑模式。
+三种模式
+vi编辑器提供了3种模式，分别是命令模式,插入模式，末行模式，每种模式下用户所能进行的操作是不一样的。
+
+3种模式的切换如下图：
+  
+
+通过上图我们发现，输入模式是不能直接切换到末行模式的，必须要先切换到命令模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git应用之vi编辑器">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="认识vi
+vi编辑器是Linux下的标配，通过它我们可以创建，编辑文件，它是一个系统自带的文本编辑器，
+
+在bash命令行输入 vi 文件名，即可打开文件，进入vi编辑模式。
+三种模式
+vi编辑器提供了3种模式，分别是命令模式,插入模式，末行模式，每种模式下用户所能进行的操作是不一样的。
+
+3种模式的切换如下图：
+  
+
+通过上图我们发现，输入模式是不能直接切换到末行模式的，必须要先切换到命令模式">
+<meta property="og:image" content="http://www.wangpansheng.cn/images/vi.png">
+<meta property="og:updated_time" content="2017-03-13T07:22:57.616Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git应用之vi编辑器">
+<meta name="twitter:description" content="认识vi
+vi编辑器是Linux下的标配，通过它我们可以创建，编辑文件，它是一个系统自带的文本编辑器，
+
+在bash命令行输入 vi 文件名，即可打开文件，进入vi编辑模式。
+三种模式
+vi编辑器提供了3种模式，分别是命令模式,插入模式，末行模式，每种模式下用户所能进行的操作是不一样的。
+
+3种模式的切换如下图：
+  
+
+通过上图我们发现，输入模式是不能直接切换到末行模式的，必须要先切换到命令模式">
+<meta name="twitter:image" content="http://www.wangpansheng.cn/images/vi.png">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git应用之vi编辑器</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git应用之vi编辑器</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-13T04:02:20.000Z" itemprop="datePublished" class="page-time">
+  2017-03-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#认识vi"><span class="post-toc-number">1.</span> <span class="post-toc-text">认识vi</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#三种模式"><span class="post-toc-number">2.</span> <span class="post-toc-text">三种模式</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#VI编辑器快捷键"><span class="post-toc-number">3.</span> <span class="post-toc-text">VI编辑器快捷键</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#末行模式："><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">末行模式：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#命令模式"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">命令模式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#编辑模式"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">编辑模式</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-git应用之vi编辑器"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git应用之vi编辑器</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月13日 12:02" datetime="2017-03-13T04:02:20.000Z"  itemprop="datePublished">2017-03-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="认识vi"><a href="#认识vi" class="headerlink" title="认识vi"></a>认识vi</h2><ul>
+<li><p>vi编辑器是Linux下的标配，通过它我们可以创建，编辑文件，它是一个系统自带的文本编辑器，</p>
+</li>
+<li><p>在bash命令行输入 vi 文件名，即可打开文件，进入vi编辑模式。</p>
+<h2 id="三种模式"><a href="#三种模式" class="headerlink" title="三种模式"></a>三种模式</h2></li>
+<li><p>vi编辑器提供了3种模式，分别是命令模式,插入模式，末行模式，每种模式下用户所能进行的操作是不一样的。</p>
+</li>
+<li><p>3种模式的切换如下图：</p>
+<p>  <img src="/images/vi.png" alt="vi3种模式的切换"></p>
+</li>
+<li><p>通过上图我们发现，输入模式是不能直接切换到末行模式的，必须要先切换到命令模式。</p>
+</li>
+</ul>
+<h2 id="VI编辑器快捷键"><a href="#VI编辑器快捷键" class="headerlink" title="VI编辑器快捷键"></a>VI编辑器快捷键</h2><h4 id="末行模式："><a href="#末行模式：" class="headerlink" title="末行模式："></a>末行模式：</h4><ol>
+<li><p>:w(小写) 保存；</p>
+</li>
+<li><p>:w filename    另存为；</p>
+</li>
+<li><p>:q    退出</p>
+</li>
+<li><p>:wq    保存并退出</p>
+</li>
+<li><p>:e!    撤销更改</p>
+</li>
+<li><p>:q!    不保存强制退出</p>
+</li>
+<li><p>:set nu    设置行号</p>
+</li>
+</ol>
+<h4 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h4><ol>
+<li><p>ZZ(大写)    保存并退出</p>
+</li>
+<li><p>u    撤销操作，可多次使用</p>
+</li>
+<li><p>dd    删除当前行</p>
+</li>
+<li><p>yy    复制当前行</p>
+</li>
+<li><p>p    粘贴内容</p>
+</li>
+<li><p>ctrl+f    向前翻页</p>
+</li>
+<li><p>ctrl+b    向后翻页</p>
+</li>
+<li><p>i    进入编辑模式，在当前光标插入</p>
+</li>
+<li><p>a    进入编辑模式，在当前光标后插入</p>
+</li>
+<li><p>A    进入编辑模式，光标移动到行尾</p>
+</li>
+<li><p>o    进入编辑模式，当前行下面插入新一行</p>
+</li>
+<li><p>O    进入编辑模式，当前行上面插入一行</p>
+</li>
+</ol>
+<h4 id="编辑模式"><a href="#编辑模式" class="headerlink" title="编辑模式"></a>编辑模式</h4><ul>
+<li>编辑模式下，操作和正常widows编辑器操作类似</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-13T07:22:57.616Z" itemprop="dateUpdated">2017年3月13日 15:22</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/13/git应用之vi编辑器/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vi/">vi</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vim/">vim</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/&title=《git应用之vi编辑器》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/&title=《git应用之vi编辑器》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之vi编辑器》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/13/git应用之认识SSH/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git应用之认识SSH</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/13/git快速入门之bash/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git应用之认识bash</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="git应用之vi编辑器" data-title="git应用之vi编辑器" data-url="http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/&title=《git应用之vi编辑器》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/&title=《git应用之vi编辑器》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之vi编辑器》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git应用之vi编辑器/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJElEQVR42u3aS5LCMAwFQO5/aeYADOFJMlMTu71KFSG4sxDW5/GI1/NlvX6a3//uu8n9o4WBgXFbxvNyXd/z7jnJFq+fn+8NAwPjHEYSCpPryafX1x/2jIGBgRGE1963ch4GBgZGldE7XOapLwYGBsaqTSSJaM5IktsFuTgGBsYNGXnV/e+vv9LfwMDAuBXjWVx5+lpNWScLAwNjb0Ye4PIjWl6GmwRcDAyMcxhrm5cJZlX74Ys9WAwMjH/MyItlaxsGk9bmLwEXAwNjU0Y1ybzeYnJAnLQ5MTAwTmPkP1DdXF6Gy0nJb2FgYOzKyItf+ZEuenOLnoCBgYFRDZ3VIFvoYFy/VgwMjIMZ1YNgIeEcj6NhYGCcw5iko/l4xKT9MDomYmBg3JzRK9znI19J+rrgNWFgYGzNqFarqmNk1aZCXuyL+hsYGBhbMKrjEb2EMz8gFtLUJN5jYGBswage1OatzTygLz7tYmBg3JyRD61WP+1FyN4fAwYGxgmMSeG+OrQ6aVJ+GLbAwMA4ktFrBkwaCb1qPwYGxjmMakugl/RWy3OFJBYDA2M7xrO4qgMZvfHWvG2AgYFxAqPaGZyQ8mLcaGYEAwNjU0YeZHv3z19NoQeLgYGxNaMX+HpJaVLOq4ZjDAwMjN5QRd5m6LVFRwEXAwPjAMakJbmq5bAg4GJgYNyKUS2cVY+SyehGteWJgYFxDqM34pBvOt/E/PiIgYGxHeMHjCRLqexmxSwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

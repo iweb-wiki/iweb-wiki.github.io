@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>框架封装练习3 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="原生框架,JavaScript">
+    <meta name="description" content="DOM操作模块appendTO方法
+语法：实例对象.appendTo(target);
+
+功能：将调用者上的所有DOM元素，分别追加到目标元素上
+
+target参数类型：
+
+选择器
+DOM元素
+DOM数组，伪数组
+
+
+
+
+为了更方便处理不同的类型，在实现时，首先统一target的参数类型，方便发i吗逻辑的处理
+
+将target统一成itcast的对象，参数一致，便于处理，同时由于是itcast">
+<meta property="og:type" content="article">
+<meta property="og:title" content="框架封装练习3">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/18/框架封装练习3/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="DOM操作模块appendTO方法
+语法：实例对象.appendTo(target);
+
+功能：将调用者上的所有DOM元素，分别追加到目标元素上
+
+target参数类型：
+
+选择器
+DOM元素
+DOM数组，伪数组
+
+
+
+
+为了更方便处理不同的类型，在实现时，首先统一target的参数类型，方便发i吗逻辑的处理
+
+将target统一成itcast的对象，参数一致，便于处理，同时由于是itcast">
+<meta property="og:updated_time" content="2017-03-18T07:41:16.827Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="框架封装练习3">
+<meta name="twitter:description" content="DOM操作模块appendTO方法
+语法：实例对象.appendTo(target);
+
+功能：将调用者上的所有DOM元素，分别追加到目标元素上
+
+target参数类型：
+
+选择器
+DOM元素
+DOM数组，伪数组
+
+
+
+
+为了更方便处理不同的类型，在实现时，首先统一target的参数类型，方便发i吗逻辑的处理
+
+将target统一成itcast的对象，参数一致，便于处理，同时由于是itcast">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">框架封装练习3</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">框架封装练习3</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-18T03:23:09.000Z" itemprop="datePublished" class="page-time">
+  2017-03-18
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DOM操作模块"><span class="post-toc-number">1.</span> <span class="post-toc-text">DOM操作模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#appendTO方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">appendTO方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#append方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">append方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#next方法"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">next方法</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-框架封装练习3"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">框架封装练习3</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月18日 11:23" datetime="2017-03-18T03:23:09.000Z"  itemprop="datePublished">2017-03-18</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="298" height="52" src="//music.163.com/outchain/player?type=0&id=611811413&auto=1&height=32"></iframe>
+
+<h2 id="DOM操作模块"><a href="#DOM操作模块" class="headerlink" title="DOM操作模块"></a>DOM操作模块</h2><h3 id="appendTO方法"><a href="#appendTO方法" class="headerlink" title="appendTO方法"></a>appendTO方法</h3><ol>
+<li><p>语法：实例对象.appendTo(target);</p>
+</li>
+<li><p>功能：将调用者上的所有DOM元素，分别追加到目标元素上</p>
+</li>
+<li><p>target参数类型：</p>
+<ul>
+<li>选择器</li>
+<li>DOM元素</li>
+<li>DOM数组，伪数组</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>为了更方便处理不同的类型，在实现时，首先统一target的参数类型，方便发i吗逻辑的处理</p>
+</li>
+<li><p>将target统一成itcast的对象，参数一致，便于处理，同时由于是itcast对象，就可以直接调用each方法进行遍历元素</p>
+</li>
+</ul>
+<ol>
+<li>实现思路</li>
+</ol>
+<ul>
+<li>统一target类型，</li>
+<li>遍历target，再遍历调用者</li>
+<li>判断，当目标元素是不是第一个元素，如果是，不需要拷贝源节点，否则就要深拷贝源节点，</li>
+<li>将上述得到的新节点，缓存起来到数组中，</li>
+<li>再将新节点追加到dom元素中</li>
+<li>将缓存的数组转换成itcast对象，作为appendTo的返回值，来实现链式编程。</li>
+</ul>
+<h3 id="append方法"><a href="#append方法" class="headerlink" title="append方法"></a>append方法</h3><ol>
+<li><p>功能：    将传入参数追加给调用者。</p>
+</li>
+<li><p>思路：</p>
+<ul>
+<li>将传入实参转换成itcast对象</li>
+<li>用传入的实参调用appendTo方法，将this作为目标元素传入appendTo方法</li>
+<li>实现链式编程</li>
+</ul>
+</li>
+</ol>
+<h3 id="next方法"><a href="#next方法" class="headerlink" title="next方法"></a>next方法</h3><ol>
+<li></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-18T07:41:16.827Z" itemprop="dateUpdated">2017年3月18日 15:41</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/18/框架封装练习3/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/18/框架封装练习3/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原生框架/">原生框架</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/&title=《框架封装练习3》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/&title=《框架封装练习3》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《框架封装练习3》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/22/框架封装之Ajax/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">框架封装之Ajax</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/18/ECMAScript发展史/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ECMAScript发展史</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="框架封装练习3" data-title="框架封装练习3" data-url="http://www.wangpansheng.cn/2017/03/18/框架封装练习3/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/&title=《框架封装练习3》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/&title=《框架封装练习3》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《框架封装练习3》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/18/框架封装练习3/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3awY6DMAxFUf7/pxlpVpUY6H12qYb4ZlW1QHJYuIntbcNj/x2vn1/H9ffH5xx/Jfd+YMiQIeOxjP1yHBlnC7p+QnovX5sMGTLmMEiQ5YH4+kqydD6vDBkyZJAQSQIuR8qQIUNGP+DygysPpnxLKkOGjMmMWrjcw8EPtDeexWXIkPFARq0w8J3Pt9c3ZMiQ8e8Ze2PwJBoJpp31yJAhY20GSYT12y/4EvmWceN9HDJkyFiUwafhLV/pleS1vgm4MmTIWIKRTpy2WdSuSYsWMmTIWJvBb0gPqzVMuk2M67EyZMh4LKOWuOcFRfQWGy0dMmTIWJvxqU1hmvVKSW9ehwwZMgYw0iMoWVBnl8rnkiFDxhxGmsTn6ftgKXhreJo1lCFDxqKMTjtF+mu60PTVyJAhY1VGOlmtpYyUHFrtFzJkyBjDuC+hn86bviYZMmRMYKSFw7hGGobmdIMoQ4aMmYx0SpK242m4OPTLkCFjaUatxaFWmKwVG0iBU4YMGRMYvFWCJMtqRdBOcJchQ8YcBk+fkdF5MjnW/oGRIUPG0oxaR0ZaKqgdldM/BhkyZKzH2MORFibJEZcjT8OuDBkylmbwkS6Fbz07rRsyZMiYw+gcR8kxlSfvWgFXhgwZAxhp4CMJMhKIO4fYjURxGTJkjGSkGzjC+0BKToYMGTLam7w7NpQyZMiYxuABMU2H8XvT58uQIWMOo1YY6D+hVhytNWrIkCHjsYwfpmiJh5cgUKMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

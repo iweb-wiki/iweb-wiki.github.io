@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>AngularJS系列之简单介绍 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Angular,JS">
+    <meta name="description" content="AngularJS是Google公司开发维护的MVC前端框架；客服了HTMl在构建应用上的不足，降低了开发成本。
+特点
+jQuery更准确的说只是一个类库（类库指的是一系列函数的集合）以DOM作为驱动（核心），而AngularJS则是一个框架（诸多类库的集合）以数据和逻辑作为驱动（核心）。
+框架对开发流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。
+AngularJS有诸多特性">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AngularJS系列之简单介绍">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="AngularJS是Google公司开发维护的MVC前端框架；客服了HTMl在构建应用上的不足，降低了开发成本。
+特点
+jQuery更准确的说只是一个类库（类库指的是一系列函数的集合）以DOM作为驱动（核心），而AngularJS则是一个框架（诸多类库的集合）以数据和逻辑作为驱动（核心）。
+框架对开发流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。
+AngularJS有诸多特性">
+<meta property="og:updated_time" content="2017-03-11T05:06:37.156Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AngularJS系列之简单介绍">
+<meta name="twitter:description" content="AngularJS是Google公司开发维护的MVC前端框架；客服了HTMl在构建应用上的不足，降低了开发成本。
+特点
+jQuery更准确的说只是一个类库（类库指的是一系列函数的集合）以DOM作为驱动（核心），而AngularJS则是一个框架（诸多类库的集合）以数据和逻辑作为驱动（核心）。
+框架对开发流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。
+AngularJS有诸多特性">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">AngularJS系列之简单介绍</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">AngularJS系列之简单介绍</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-11T04:45:49.000Z" itemprop="datePublished" class="page-time">
+  2017-03-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#特点"><span class="post-toc-number">1.</span> <span class="post-toc-text">特点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#MVC"><span class="post-toc-number">2.</span> <span class="post-toc-text">MVC</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-AngularJS介绍"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">AngularJS系列之简单介绍</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月11日 12:45" datetime="2017-03-11T04:45:49.000Z"  itemprop="datePublished">2017-03-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>AngularJS是Google公司开发维护的MVC前端框架；客服了HTMl在构建应用上的不足，降低了开发成本。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul>
+<li>jQuery更准确的说只是一个类库（类库指的是一系列函数的集合）以DOM作为驱动（核心），而AngularJS则是一个框架（诸多类库的集合）以数据和逻辑作为驱动（核心）。</li>
+<li>框架对开发流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。</li>
+<li>AngularJS有诸多特性，最为核心的就是：模块化，双向数据绑定，语义化标签，依赖注入等。</li>
+<li>类似的框架的还有 BackBone，KnockoutJS，vue，Rect等，</li>
+</ul>
+<h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><ul>
+<li>MVC是一种开发模式，有模型（Model），视图（View），控制器（Controller），三部分组成，采用这种开发模式为合理组织代码提供了方便，降低了代码间的耦合度，功能结构清晰可见。</li>
+</ul>
+<ol>
+<li>模型（Model）：一般用来处理数据（读取/设置），具体指操作数据库，</li>
+<li>视图（View）：一般用来展示数据，比如通过HTML展示，</li>
+<li>控制器（Controller）：一般用作连接模型和属兔的桥梁。</li>
+</ol>
+<ul>
+<li>MVC被引入到前端开发中，由于受到技术的限制，便有了 一些细节的调整，于是出现了MVC的衍生版（子集）如：MVVM，MVW，MVP，MV*等；</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-11T05:06:37.156Z" itemprop="dateUpdated">2017年3月11日 13:06</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/11/AngularJS介绍/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Angular/">Angular</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/&title=《AngularJS系列之简单介绍》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/&title=《AngularJS系列之简单介绍》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AngularJS系列之简单介绍》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/11/AngularJS系列之模块化介绍/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AngularJS系列之模块化介绍</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/11/高级canvas/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">高级canvas</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="AngularJS介绍" data-title="AngularJS系列之简单介绍" data-url="http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/&title=《AngularJS系列之简单介绍》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/&title=《AngularJS系列之简单介绍》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AngularJS系列之简单介绍》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/11/AngularJS介绍/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aUW4DIQxF0ex/09MFJKB37aQS5vJVqczAmUgWtnm94vG8jff/ruYnb6ZPFYcMGTKOZTzbsWfsF6bvrM2RIUPGPYwkFO7n7APoPliv1srXlSFDhozOnOTIuA+4MmTIkFHbYn6wqx0WZciQIaOzoSRl7R8if5iLy5Ah40BGXnX//79/0t+QIUPGUYwHDhoEk5Ynff+HFWXIkDGa0SmTgfQy3nqrbCdDhoyhjFpq2r+EkX+aKGWVIUPGaEYnWa1dm6iNfA8yZMiYzaCNzNqFsPxQmLQZZMiQcQ+DFs7oITJPSvPPJ0OGjHsY+4dbaWS8xfxDROdZGTJkXMPIecnNBxpSaftThgwZNzDAhQZ4L6vTJAAprgwZMkYzasknXTJPhvMQvKwXypAh4wJGJ4mtFdpocwJEfRkyZIxg5Clr7RP0S2n4hCtDhoyhjForsVaMSyJksmKxvyFDhowDGfSoVyvo1wp5rdOuDBkyhjLoldPOVmjqC9JjGTJkDGXQEluCpAE0/1jLtWTIkHEBA1xriLdLAyi92AomyZAhYxyDJqi1Ul2trAYCrgwZMkYwHjhocf+7rc3od5AhQ8Y4Bm0S0BfRq7G0IVHsdciQIeNARt4MyENqnsrWAi7ubMiQIWMEA2S97aMhPT6CXFyGDBkyYNpJN52X574QcGXIkDGakYdC+lQ+Z5nEypAhYzQjSWJpiktLdbTlKUOGjHsYtdSxs/XiJvqNTBkyZJzH+AM8N3RyWbKyCQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

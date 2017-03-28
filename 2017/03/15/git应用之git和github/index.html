@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>git应用之git和github | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="git和github的区别
+git是一个软件，是一种版本控制工具，通过git命令提供的指令，方便管理源码，在实际开发时，可以将更多的经理集中在开发上，而不是要分出精力去管理代码的合并和版本控制问题。
+
+github是一个网站，提供远程仓库，方便开发人员的交流学习。
+
+github可以为git提供一些服务，比如 远程共享仓库，以及开发人员的交流平台。
+
+配置SSH免密码下载
+ssh-keygen -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git应用之git和github">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/15/git应用之git和github/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="git和github的区别
+git是一个软件，是一种版本控制工具，通过git命令提供的指令，方便管理源码，在实际开发时，可以将更多的经理集中在开发上，而不是要分出精力去管理代码的合并和版本控制问题。
+
+github是一个网站，提供远程仓库，方便开发人员的交流学习。
+
+github可以为git提供一些服务，比如 远程共享仓库，以及开发人员的交流平台。
+
+配置SSH免密码下载
+ssh-keygen -">
+<meta property="og:updated_time" content="2017-03-15T06:42:05.699Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git应用之git和github">
+<meta name="twitter:description" content="git和github的区别
+git是一个软件，是一种版本控制工具，通过git命令提供的指令，方便管理源码，在实际开发时，可以将更多的经理集中在开发上，而不是要分出精力去管理代码的合并和版本控制问题。
+
+github是一个网站，提供远程仓库，方便开发人员的交流学习。
+
+github可以为git提供一些服务，比如 远程共享仓库，以及开发人员的交流平台。
+
+配置SSH免密码下载
+ssh-keygen -">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git应用之git和github</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git应用之git和github</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-15T02:26:02.000Z" itemprop="datePublished" class="page-time">
+  2017-03-15
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git和github的区别"><span class="post-toc-number">1.</span> <span class="post-toc-text">git和github的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置SSH免密码下载"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置SSH免密码下载</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git指令"><span class="post-toc-number">3.</span> <span class="post-toc-text">git指令</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-git应用之git和github"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git应用之git和github</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月15日 10:26" datetime="2017-03-15T02:26:02.000Z"  itemprop="datePublished">2017-03-15</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="git和github的区别"><a href="#git和github的区别" class="headerlink" title="git和github的区别"></a>git和github的区别</h2><ul>
+<li><p>git是一个软件，是一种版本控制工具，通过git命令提供的指令，方便管理源码，在实际开发时，可以将更多的经理集中在开发上，而不是要分出精力去管理代码的合并和版本控制问题。</p>
+</li>
+<li><p>github是一个网站，提供远程仓库，方便开发人员的交流学习。</p>
+</li>
+<li>github可以为git提供一些服务，比如 远程共享仓库，以及开发人员的交流平台。</li>
+</ul>
+<h2 id="配置SSH免密码下载"><a href="#配置SSH免密码下载" class="headerlink" title="配置SSH免密码下载"></a>配置SSH免密码下载</h2><ul>
+<li>ssh-keygen -t rsa</li>
+</ul>
+<h2 id="git指令"><a href="#git指令" class="headerlink" title="git指令"></a>git指令</h2><ol>
+<li><p>从远程服务器上获取指定仓库的分支，并且与工作目录的分支进行合并操作，如果出现问题，需要手动解决就好。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull [remote url] branchName</div></pre></td></tr></table></figure>
+</li>
+<li><p>如果本地开发完成，要将本地仓库的版本提交到远程仓库，实现共享与项目合并，此时就是用这个指令。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push [remote url] branchName</div></pre></td></tr></table></figure>
+</li>
+<li><p>获取远程仓库，但是不合并本地仓库</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git fetch [remote url] branchName</div></pre></td></tr></table></figure>
+</li>
+<li><p>把远程仓库的地址存在变量name中，方便以后拉取远程仓库文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add name remoteURL</div></pre></td></tr></table></figure>
+<ul>
+<li>如果是拉取远程仓库中的子分支上的文件时，需要在本地首先创建一个同名的子分支 ，否则会把远程仓库子分支中的文件拉取到本地主分支上</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-15T06:42:05.699Z" itemprop="dateUpdated">2017年3月15日 14:42</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/15/git应用之git和github/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/15/git应用之git和github/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/&title=《git应用之git和github》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/&title=《git应用之git和github》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之git和github》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/15/原生框架封装练习01/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">原生框架封装练习01</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/14/PHP简单入门/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">PHP简单入门</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="git应用之git和github" data-title="git应用之git和github" data-url="http://www.wangpansheng.cn/2017/03/15/git应用之git和github/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/&title=《git应用之git和github》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/&title=《git应用之git和github》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之git和github》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/15/git应用之git和github/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3aQW7jMBAEwPz/015gTwE2srqHpLUBSifBkSUVA3DGTX59xcfr7/H9PPnk3/Pk+vyTbQceHh7e6NWvjvyaq1dPXvr93d4P8fs74OHh4Z3jnS4GbcnJqTcWPDw8vEd5eYucv25+Zzw8PLzfzssfvPLXxwoDHh4eXsBrXzpJTfPvtmXjSNaCh4eHF/NmkcGz58fX9/Dw8PBGq+rJhNtOx0nheW068PDw8E7w1qPSJHidbS9oG+XiFwMeHh7eVl4b1LaLZHmpaK+8fDoeHh7eVt4svdgbLuQhcr5BAQ8PD+9Z3iyqmH2eDEEx0Hh4eHgf4Z1olz8TZ1zGEHh4eHgHeG1MsNKIX036yaDkJeeH9T08PDy8Tbz2prOmuR2adjtCpMDDw8PbymtfqIW127Zm8e4lEg8PD+8YbyVESAZondEWMzw8PLwTvFd5zKb7ZPiS6b5eQsPDw8M7xmtLxWzibgdoFlJEm67w8PDwtvISRrtklTf0eegwLAx4eHh4y7xk+s43E+StdrulIG/rf3g6Hh4e3lbe7GH5unzbQK8P7oaxxMPDwwt+xe/CrDfoyaaEun3Hw8PD28qbbWwqJuVyWJNoAw8PD+9ZXrswn8cB7d2SQc/xN+01Hh4e3jIvX+DPy8CsUW6v2ZBS4+Hh4ZW8XeFCvpkgLyHtdgE8PDy8z/NmE/dKMVgJJqKBxsPDwzvAawOCNrpty8NsuSsqS3h4eHibeK/yOBFS5P+HPNjFw8PDO8ebLfO3jW++fJV/dwMJDw8Pb4G3qxjk189a6qQIRYkLHh4e3iZeu1jVxrItIy8kN9fg4eHhPcprtwjMWu227b65Ax4eHt5/wGsDgjYXaVv2m1qAh4eHd4w3CyM2JMTlUNbbEfDw8PAO8NYXwFZC2Nmmq3yzAh4eHt5W3h+/7jXKJXHmkAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

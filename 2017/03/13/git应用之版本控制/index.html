@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>git应用之版本控制工具 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git,版本控制,工具">
+    <meta name="description" content="版本控制工具版本控制工具可以解决的问题
+代码合并
+
+协同开发
+
+提供效率
+
+回退版本
+
+数据丢失
+
+分支管理-多任务处理
+
+
+分类
+集中式版本控制管理工具：
+
+如：svn
+
+在集中式版本控制工具中，都会有一个中央服务器，所有的协同开发者都需要来连接到这个服务器，将所有源代码都放在中央服务器上，
+
+开发中，首先需要从中央服务器种下载代码（或者更新代码），然后在本地开发，
+
+如果开发完毕，需要通过网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git应用之版本控制工具">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="版本控制工具版本控制工具可以解决的问题
+代码合并
+
+协同开发
+
+提供效率
+
+回退版本
+
+数据丢失
+
+分支管理-多任务处理
+
+
+分类
+集中式版本控制管理工具：
+
+如：svn
+
+在集中式版本控制工具中，都会有一个中央服务器，所有的协同开发者都需要来连接到这个服务器，将所有源代码都放在中央服务器上，
+
+开发中，首先需要从中央服务器种下载代码（或者更新代码），然后在本地开发，
+
+如果开发完毕，需要通过网络">
+<meta property="og:updated_time" content="2017-03-14T01:02:05.314Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git应用之版本控制工具">
+<meta name="twitter:description" content="版本控制工具版本控制工具可以解决的问题
+代码合并
+
+协同开发
+
+提供效率
+
+回退版本
+
+数据丢失
+
+分支管理-多任务处理
+
+
+分类
+集中式版本控制管理工具：
+
+如：svn
+
+在集中式版本控制工具中，都会有一个中央服务器，所有的协同开发者都需要来连接到这个服务器，将所有源代码都放在中央服务器上，
+
+开发中，首先需要从中央服务器种下载代码（或者更新代码），然后在本地开发，
+
+如果开发完毕，需要通过网络">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git应用之版本控制工具</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git应用之版本控制工具</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-13T05:57:39.000Z" itemprop="datePublished" class="page-time">
+  2017-03-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#版本控制工具"><span class="post-toc-number">1.</span> <span class="post-toc-text">版本控制工具</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#版本控制工具可以解决的问题"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">版本控制工具可以解决的问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#分类"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">分类</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-git应用之版本控制"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git应用之版本控制工具</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月13日 13:57" datetime="2017-03-13T05:57:39.000Z"  itemprop="datePublished">2017-03-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="版本控制工具"><a href="#版本控制工具" class="headerlink" title="版本控制工具"></a>版本控制工具</h2><h4 id="版本控制工具可以解决的问题"><a href="#版本控制工具可以解决的问题" class="headerlink" title="版本控制工具可以解决的问题"></a>版本控制工具可以解决的问题</h4><ol>
+<li><p>代码合并</p>
+</li>
+<li><p>协同开发</p>
+</li>
+<li><p>提供效率</p>
+</li>
+<li><p>回退版本</p>
+</li>
+<li><p>数据丢失</p>
+</li>
+<li><p>分支管理-多任务处理</p>
+</li>
+</ol>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><ol>
+<li><p>集中式版本控制管理工具：</p>
+<ul>
+<li><p>如：svn</p>
+</li>
+<li><p>在集中式版本控制工具中，都会有一个中央服务器，所有的协同开发者都需要来连接到这个服务器，将所有源代码都放在中央服务器上，</p>
+</li>
+<li><p>开发中，首先需要从中央服务器种下载代码（或者更新代码），然后在本地开发，</p>
+</li>
+<li><p>如果开发完毕，需要通过网络把开发完成的代码提交到中央服务器上。</p>
+</li>
+<li><p>这种方式解决了多人协同开发的问题，由于过渡依赖于网络和中央服务器，</p>
+</li>
+<li><p>如果中央服务器出现故障，将会严重导致数据版本丢失的风险，</p>
+</li>
+<li><p>另外，如果网路出现问题，也就没有办法更新，同步代码。</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>分布式</p>
+<ul>
+<li><p>这种方式不需要中央服务器，每一个协同开发者，都是有一个完整的版本库，这样一来，任何协同开发者出现问题，事后都可以通过其它协同开发者进行恢复。</p>
+</li>
+<li><p>由于版本库在本地计算机，也就不再受网络影响，如果要将本地修改的代码推送给其它协同开发者，还需要一台 共享服务器，所有开发者通过这台服务器进行同步和更新。</p>
+</li>
+<li><p>分布式版本控制系统弥补了集中式版本控制工具的缺陷，成为了版本控制的首选，现在用的最多的就是Git。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-14T01:02:05.314Z" itemprop="dateUpdated">2017年3月14日 9:02</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/13/git应用之版本控制/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/工具/">工具</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/版本控制/">版本控制</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/&title=《git应用之版本控制工具》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/&title=《git应用之版本控制工具》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之版本控制工具》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/13/markdown2html/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">把markdown文件转换为html文件</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/13/git应用之认识SSH/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git应用之认识SSH</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="git应用之版本控制" data-title="git应用之版本控制工具" data-url="http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/&title=《git应用之版本控制工具》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/&title=《git应用之版本控制工具》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之版本控制工具》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git应用之版本控制/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACo0lEQVR42u3awU7kQAwE0Pz/T+9ekRChyk4HkF5OIzGZ9Muh3ZR9XfH17/a6yuvjXfe/kH9zdeHh4eEdWPrnz58flrO/+rX7p7d34eHh4Z3m5Zty8piv2DNwXiTw8PDwfjMv375zTP4dPDw8vL/Cy2H3v5/8zg8UBjw8PLySlwPyLTt/Efvi9EDWgoeHh/dkx6oIJt75fKS/h4eHh7fuqifhbL65bw7Kw9Xi4eHhHeDtRwdmQwCbslTHH3h4eHiP8pLH5wvdR7152cDDw8P7Kd7+//q22Z83sfJw9oEMBg8PD2/ES46t++9sisdmGAsPDw/vBC9Z9FMDUu3AQRuI4OHh4b3Daxe3Hz64Z+zHsPDw8PDO8fbhwua4nMccMzYeHh7eOd4mTn2n3TUbMsDDw8M7wZtt0LPmWXIUnpWcxzp4eHh4ePFuuQ9MNzFrEnm0jTE8PDy8E7ziz6PG1VMBx6xJhoeHh3eC10armzA3oc7aY8N8Gg8PD2/Emx1Y81GqTfCRt76iNeDh4eE9xGsPuPko1b7l35aK653F4eHh4bU3lMtqAflBPyoheHh4eMd4s+XOQor2Nc2O3Xh4eHjneJu+2Wwps7ZZWzDw8PDw3uTNRgpmW3zbKhuOFODh4eG9wssD2Ta6TYpQ8sTV0AAeHh7eAV6+HW8iiTbmaMsDHh4e3pu85Oicl4dZYchbcd/chYeHh/cobxMQ5DHrLJBtj/V4eHh47/Darbbd6PMFzeLaWdyMh4eHt+fNYoVrdM1iizZKjt4ZHh4e3prXjkYlD24PyvsYAg8PD+938jZxwCzsSIYbipQaDw8P73VeflcSFsxGBIqDNR4eHt4xXnvwbQ/Zyebexr5RPo2Hh4d3gNf+R9/GB/nrS4rQfsQBDw8Pb8H7Dx+FPBhFwR92AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

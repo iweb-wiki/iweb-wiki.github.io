@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>原生框架封装练习01 | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="js,原生js实现jq，原生框架封装">
+    <meta name="description" content="我们通过原生的js实现一些jq的功能，通过练习，锻炼我们的分析问题的能力。锻炼编程的思维能力。
+
+查询DOM方法
+
+操作DOM方法
+appendTo
+append
+prependTo
+prepend
+next/prev
+nextAll/prevAll
+before
+after
+parent /parents
+nextSibling
+attr
+prop
+val
+html
+text
+css
+addC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生框架封装练习01">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="我们通过原生的js实现一些jq的功能，通过练习，锻炼我们的分析问题的能力。锻炼编程的思维能力。
+
+查询DOM方法
+
+操作DOM方法
+appendTo
+append
+prependTo
+prepend
+next/prev
+nextAll/prevAll
+before
+after
+parent /parents
+nextSibling
+attr
+prop
+val
+html
+text
+css
+addC">
+<meta property="og:updated_time" content="2017-03-17T01:27:49.297Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生框架封装练习01">
+<meta name="twitter:description" content="我们通过原生的js实现一些jq的功能，通过练习，锻炼我们的分析问题的能力。锻炼编程的思维能力。
+
+查询DOM方法
+
+操作DOM方法
+appendTo
+append
+prependTo
+prepend
+next/prev
+nextAll/prevAll
+before
+after
+parent /parents
+nextSibling
+attr
+prop
+val
+html
+text
+css
+addC">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">原生框架封装练习01</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">原生框架封装练习01</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-15T07:07:04.000Z" itemprop="datePublished" class="page-time">
+  2017-03-15
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jQuery框架结构"><span class="post-toc-number">1.</span> <span class="post-toc-text">jQuery框架结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jQuery对象的本质"><span class="post-toc-number">2.</span> <span class="post-toc-text">jQuery对象的本质</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#init构造函数的参数类型"><span class="post-toc-number">3.</span> <span class="post-toc-text">init构造函数的参数类型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加类型判断方法"><span class="post-toc-number">4.</span> <span class="post-toc-text">添加类型判断方法</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-原生框架封装练习01"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">原生框架封装练习01</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月15日 15:07" datetime="2017-03-15T07:07:04.000Z"  itemprop="datePublished">2017-03-15</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li><p>我们通过原生的js实现一些jq的功能，通过练习，锻炼我们的分析问题的能力。锻炼编程的思维能力。</p>
+</li>
+<li><p>查询DOM方法</p>
+</li>
+<li>操作DOM方法<ul>
+<li>appendTo</li>
+<li>append</li>
+<li>prependTo</li>
+<li>prepend</li>
+<li>next/prev</li>
+<li>nextAll/prevAll</li>
+<li>before</li>
+<li>after</li>
+<li>parent /parents</li>
+<li>nextSibling</li>
+<li>attr</li>
+<li>prop</li>
+<li>val</li>
+<li>html</li>
+<li>text</li>
+<li>css</li>
+<li>addClass</li>
+<li>hasClass</li>
+<li>removeClass</li>
+<li>toggleClass</li>
+<li>on</li>
+<li>off</li>
+<li>click /dbclick/keydown</li>
+<li>$.ajax</li>
+</ul>
+</li>
+</ul>
+<h2 id="jQuery框架结构"><a href="#jQuery框架结构" class="headerlink" title="jQuery框架结构"></a>jQuery框架结构</h2><ol>
+<li>为了防止对变量和全局对象的污染，使用沙箱模式</li>
+<li>jq的功能是查询DOM和操作DOM，<ul>
+<li>在查询时，通过选择器来查询。因此要使用函数去实现Dom元素的查询。在实现时，要先定义一个函数init，</li>
+<li>查询到DOM后，要对这些DOM进行操作，此时，要使用面向对象编程的方式来实现，创建一个对象，然后通过该对象的方法来实现操作查询到的DOM元素。</li>
+</ul>
+</li>
+<li>由于框架的结构在完成之后，不允许任何使用者随意改动，所以用户如果想要扩展方法，就必须向其能拿到的对象上扩展，$-&gt;createinit，也就是工厂函数以及其原型。最终要实现init对象继承自createinit函数的原型。</li>
+</ol>
+<h2 id="jQuery对象的本质"><a href="#jQuery对象的本质" class="headerlink" title="jQuery对象的本质"></a>jQuery对象的本质</h2><pre><code>是一个伪数组对象，在自然数的索引上存储的是查询到的DOM元素，本质是jQuery原型上的init构造函数的实例。
+</code></pre><h2 id="init构造函数的参数类型"><a href="#init构造函数的参数类型" class="headerlink" title="init构造函数的参数类型"></a>init构造函数的参数类型</h2><ul>
+<li>构造函数中传入参数的类型有很多，所以我们需要对传入的参数进行判断，根据传入参数的不同，实现不同的功能。</li>
+</ul>
+<ol>
+<li><p>string</p>
+<ul>
+<li>html字符串：创建对应的html元素</li>
+<li>选择器：在DOM树上查询元素</li>
+</ul>
+</li>
+<li><p>dom元素</p>
+<ul>
+<li>将其转换成init对象</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>dom数组和伪数组</p>
+<ul>
+<li>转换成init对象</li>
+</ul>
+</li>
+<li><p>函数</p>
+<ul>
+<li>其实就是入口函数</li>
+<li>监听dom树是否加载完毕，如果加载完毕就执行函数</li>
+</ul>
+</li>
+<li><p>非法值 null undefined</p>
+</li>
+</ol>
+<ul>
+<li>返回空的init对象</li>
+</ul>
+<h2 id="添加类型判断方法"><a href="#添加类型判断方法" class="headerlink" title="添加类型判断方法"></a>添加类型判断方法</h2><ul>
+<li>根据上面的类型需要做出判断，添加对应的怕段方法</li>
+</ul>
+<ol>
+<li><p>isString方法：判断是否为字符串</p>
+</li>
+<li><p>isHTML方法：判断是否为html字符串</p>
+</li>
+<li><p>isDOM方法：判断是否是dom节点</p>
+</li>
+<li><p>isArrayLike方法：判断是否为数组或伪数组对象</p>
+</li>
+<li><p>isFunction方法：判断是否为函数类型</p>
+</li>
+<li><p>isWindow方法：判断是否为window对象</p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-17T01:27:49.297Z" itemprop="dateUpdated">2017年3月17日 9:27</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/15/原生框架封装练习01/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/js/">js</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/原生js实现jq，原生框架封装/">原生js实现jq，原生框架封装</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/&title=《原生框架封装练习01》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/&title=《原生框架封装练习01》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生框架封装练习01》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/15/关于js中的静态方法和实例方法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">关于js中的静态方法和实例方法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/15/git应用之git和github/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">git应用之git和github</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="原生框架封装练习01" data-title="原生框架封装练习01" data-url="http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/&title=《原生框架封装练习01》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/&title=《原生框架封装练习01》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《原生框架封装练习01》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/15/原生框架封装练习01/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3a0U7DQAwEwP7/T5dXJEi6ts+0SNMnBGniCdLdae3HI/48g8/9ld//enX/n3e4+s3hDx4eHt7R0u8fkHy397LuX03huXh4eHhrvGSxvr9mDq6+7qQePDw8vM/h3cPys26vBjw8PLz/xZuEEVfXVIMMPDw8vE/gTW6dMBJYsvEsZi14eHh4nUygfPx9188r/T08PDy8QwMB9wtuNaSohrP5ZvDLPfHw8PAWePmCm4QLk6Gr6uaU1ImHh4e3wcsX8d5CPznf5uNfly8RDw8Pb42XfGGyPbwoorgJFbYKPDw8vDXe5ACdx755a60aT1zWhoeHh7fMy1vvvULnTzzQtcPDw8M7yqsetZPvVocPTkXGl1kLHh4e3pjXW3YnW8I8OK6OheHh4eFt8E61teaH4F4wEQXEeHh4eEd5kxjinn1qI6kOcuHh4eHt8SYH3N4IQh5J5NdcXomHh4e3wFtp2Ad9qOqY16h1h4eHh3eUlwcNyWOSBlVvKKH5ovHw8PD+hDcZosoD3Am7cE88PDy8BV6y4BZ6aPEjey8r/2cUsgo8PDy8Iq8XjOYDo70YtzeOcLnv4eHh4S3wegNVVUYe5iaRR1QtHh4e3hqvegiuNrSqB/HqkMGLzh4eHh7eUV61xCQaqA5y9V5W/lc8PDy8DV5v6CovsVdWvgk1twQ8PDy8Ma9Xeq+FVm1rJQd6PDw8vPfy8pU23wbyoYTJ58UAAR4eHt6Y9yx+qi3/akMrD4vL0S0eHh7eIV51wa1GBvNBhLwN1owq8PDw8Fq83q17AWsPmW8b5YM1Hh4e3oBXHXvKD7i9oo8dmvHw8PA+gNe7Q6/ovLYX02R4eHh4b+VNDtN5+Ns7WB/b9/Dw8PAGbbBJ+tsLXudhBx4eHt42b15or2VVXeIP9/Tw8PDwOrwvZqmccbfKw90AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

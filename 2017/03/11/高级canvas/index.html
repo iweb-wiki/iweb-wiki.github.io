@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>高级canvas | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JS,画布,Canvas">
+    <meta name="description" content="懒加载：现在不加载，用的时候再加载，
+
+案例
+移动的小球 实线思路：
+
+简单版
+
+
+利用计时器，定时执行
+首先绘制一个圆形，圆从左上角出来，然后定时改变圆心的位置，再进行绘制，
+等到x轴的坐标大于w或者小于0，改变每一步的正负值，使其反向运动，
+
+
+鼠标进入再鼠标所在位置绘制圆形，然后开始下落
+
+
+时钟案例
+
+实现效果 
+实现思路
+
+
+​绘制表盘">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高级canvas">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/11/高级canvas/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="懒加载：现在不加载，用的时候再加载，
+
+案例
+移动的小球 实线思路：
+
+简单版
+
+
+利用计时器，定时执行
+首先绘制一个圆形，圆从左上角出来，然后定时改变圆心的位置，再进行绘制，
+等到x轴的坐标大于w或者小于0，改变每一步的正负值，使其反向运动，
+
+
+鼠标进入再鼠标所在位置绘制圆形，然后开始下落
+
+
+时钟案例
+
+实现效果 
+实现思路
+
+
+​绘制表盘">
+<meta property="og:image" content="http://www.wangpansheng.cn/images/clock.png">
+<meta property="og:updated_time" content="2017-03-12T16:09:38.187Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高级canvas">
+<meta name="twitter:description" content="懒加载：现在不加载，用的时候再加载，
+
+案例
+移动的小球 实线思路：
+
+简单版
+
+
+利用计时器，定时执行
+首先绘制一个圆形，圆从左上角出来，然后定时改变圆心的位置，再进行绘制，
+等到x轴的坐标大于w或者小于0，改变每一步的正负值，使其反向运动，
+
+
+鼠标进入再鼠标所在位置绘制圆形，然后开始下落
+
+
+时钟案例
+
+实现效果 
+实现思路
+
+
+​绘制表盘">
+<meta name="twitter:image" content="http://www.wangpansheng.cn/images/clock.png">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">高级canvas</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">高级canvas</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-11T00:54:50.000Z" itemprop="datePublished" class="page-time">
+  2017-03-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#案例"><span class="post-toc-number">1.</span> <span class="post-toc-text">案例</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-高级canvas"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">高级canvas</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月11日 8:54" datetime="2017-03-11T00:54:50.000Z"  itemprop="datePublished">2017-03-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <ul>
+<li>懒加载：现在不加载，用的时候再加载，</li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ol>
+<li><p>移动的小球 实线思路：</p>
+<ul>
+<li>简单版</li>
+</ul>
+<ol>
+<li>利用计时器，定时执行</li>
+<li>首先绘制一个圆形，圆从左上角出来，然后定时改变圆心的位置，再进行绘制，</li>
+<li>等到x轴的坐标大于w或者小于0，改变每一步的正负值，使其反向运动，</li>
+</ol>
+<ul>
+<li>鼠标进入再鼠标所在位置绘制圆形，然后开始下落</li>
+</ul>
+</li>
+<li><p>时钟案例</p>
+<ul>
+<li>实现效果<br> <img src="/images/clock.png" alt="cloc"></li>
+<li>实现思路</li>
+</ul>
+<ol>
+<li>​绘制表盘</li>
+</ol>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-12T16:09:38.187Z" itemprop="dateUpdated">2017年3月13日 0:09</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/11/高级canvas/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/11/高级canvas/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Canvas/">Canvas</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/画布/">画布</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/11/高级canvas/&title=《高级canvas》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/11/高级canvas/&title=《高级canvas》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/11/高级canvas/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《高级canvas》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/11/高级canvas/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/11/高级canvas/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/11/AngularJS介绍/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AngularJS系列之简单介绍</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/10/hexo配置个人博客站点/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hexo配置个人博客站点</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="高级canvas" data-title="高级canvas" data-url="http://www.wangpansheng.cn/2017/03/11/高级canvas/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/11/高级canvas/&title=《高级canvas》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/11/高级canvas/&title=《高级canvas》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/11/高级canvas/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《高级canvas》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/11/高级canvas/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/11/高级canvas/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3awW6EMAyEYd7/panU00pVwswY2mL/OaHVAvk4WHbs45DX+b0+rz+X/h/9yccTCwYMGK9lnNv182X7Taw2pD95f9eSCgMGjAGMSpBVtvJchIQBAwaMjFoJuzBgwIDxXMB1i9v9LzBgwICRpWj7FHD/4grj5locBgwYL2RkjYHfuX68vwEDBox/zzjNtQ+y+1CohNFwVzBgwGjNcNO7rEDVU0M3cTyyLBUGDBgvZ7glpV6sukmnPSgGAwaMpgz3UN4FuAFaecsyKYQBA0ZrRjawpW/LDdz2KAYMGDDGMPQRB2MA4tYBi+UngAEDxgBGZXP1oQp3nGIZcGHAgNGU4R6WKSVu/bgtazDAgAGjK0O/oV6OSj0KcxwNBgwYExj6K92y1g2+9cIYBgwYExhKMFUKUemAzAzoYW4LAwaMFoxsbDQbnnji+uLUEAYMGO0YbtJWL1OzQHzR34ABA0Y7hntDlnveNVpx8XFhwIDRmlFpA7gHc9ImspYADBgwmjL047Nsc+4omBt2YcCAMYeRJXYK+N4R1eW9MGDAaM1wg6nepKw0G8JDOhgwYDRlnOZSvoqeaLpPhgEDxkyG227Mhiqy0ld5LwwYMOYw9MQuu9ZTvezIDwYMGHMY9fN2PV2z4z0MGDBgFNqTlQP97PDuhsYADBgwBjAq1bA+RqbcFfY3YMCA8VqG3oCsp5JuwL0AwIABYwAjawxUwuifYWDAgPE+xhdH1iLg3dSr2wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>

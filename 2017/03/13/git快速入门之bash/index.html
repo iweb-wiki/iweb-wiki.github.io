@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>git应用之认识bash | onepansheng | 不积跬步，无以至千里！</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="git,shell,bash">
+    <meta name="description" content="什么是shellShell俗称壳，是指”提供使用者使用界面”的软件，接收用户命令，然后调用相应的应用程序。
+shell分类图形化shell通过友好的可视化界面，调用相应应用程序，如windows系类操作系统，类Unix，Linux系统上的图形化应用程序Gnome，Kde等。
+命令行shell通过输入特定命令调用相应的应用程序。如window系统的cmd，Windows PowerShell；Lin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git应用之认识bash">
+<meta property="og:url" content="http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/index.html">
+<meta property="og:site_name" content="onepansheng">
+<meta property="og:description" content="什么是shellShell俗称壳，是指”提供使用者使用界面”的软件，接收用户命令，然后调用相应的应用程序。
+shell分类图形化shell通过友好的可视化界面，调用相应应用程序，如windows系类操作系统，类Unix，Linux系统上的图形化应用程序Gnome，Kde等。
+命令行shell通过输入特定命令调用相应的应用程序。如window系统的cmd，Windows PowerShell；Lin">
+<meta property="og:updated_time" content="2017-03-13T04:48:05.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="git应用之认识bash">
+<meta name="twitter:description" content="什么是shellShell俗称壳，是指”提供使用者使用界面”的软件，接收用户命令，然后调用相应的应用程序。
+shell分类图形化shell通过友好的可视化界面，调用相应应用程序，如windows系类操作系统，类Unix，Linux系统上的图形化应用程序Gnome，Kde等。
+命令行shell通过输入特定命令调用相应的应用程序。如window系统的cmd，Windows PowerShell；Lin">
+    
+        <link rel="alternative" href="/atom.xml" title="onepansheng" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.11">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/images/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Pansheng</h5>
+          <a href="mailto:wangpansheng@qq.com" title="wangpansheng@qq.com" class="mail">wangpansheng@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                日志
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                标签
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/wangpansheng" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://weibo.com/u/5598490525" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                微博
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/友链/"  >
+                <i class="icon icon-lg icon-link"></i>
+                友链
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/me/"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                关于我
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">git应用之认识bash</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">git应用之认识bash</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-13T01:22:24.000Z" itemprop="datePublished" class="page-time">
+  2017-03-13
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是shell"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是shell</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#shell分类"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">shell分类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#图形化shell"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">图形化shell</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#命令行shell"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">命令行shell</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#认识bash"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">认识bash</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#bash常用命令"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">bash常用命令</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-git快速入门之bash"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">git应用之认识bash</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月13日 9:22" datetime="2017-03-13T01:22:24.000Z"  itemprop="datePublished">2017-03-13</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="什么是shell"><a href="#什么是shell" class="headerlink" title="什么是shell"></a>什么是shell</h2><p>Shell俗称壳，是指”提供使用者使用界面”的软件，接收用户命令，然后调用相应的应用程序。</p>
+<h3 id="shell分类"><a href="#shell分类" class="headerlink" title="shell分类"></a>shell分类</h3><h4 id="图形化shell"><a href="#图形化shell" class="headerlink" title="图形化shell"></a>图形化shell</h4><p>通过友好的可视化界面，调用相应应用程序，如windows系类操作系统，类Unix，Linux系统上的图形化应用程序Gnome，Kde等。</p>
+<h4 id="命令行shell"><a href="#命令行shell" class="headerlink" title="命令行shell"></a>命令行shell</h4><p>通过输入特定命令调用相应的应用程序。如window系统的cmd，Windows PowerShell；Linux系统的bash。</p>
+<h3 id="认识bash"><a href="#认识bash" class="headerlink" title="认识bash"></a>认识bash</h3><ul>
+<li><p>在window下使用bash，需要一个软件，这个软件模拟集成了bash大部分命令，</p>
+</li>
+<li><p>各个shell的功能都差不多，linux默认使用bash，所以主要学习bash。</p>
+</li>
+</ul>
+<h4 id="bash常用命令"><a href="#bash常用命令" class="headerlink" title="bash常用命令"></a>bash常用命令</h4><ul>
+<li><p>pwd(Print Working Directory) 查看当前目录;</p>
+</li>
+<li><p>cd(Change Directory) 切换目录，如cd etc,cd ..返回上一层目录;</p>
+</li>
+<li><p>ls(List) 查看当前目录下内容，如ls-al;</p>
+</li>
+<li><p>ls -l 以列表形式产看当前目录内容</p>
+</li>
+<li><p>mkdir(Make Directory) 创建目录，可以指定路径创建目录，如mkdir blog;</p>
+</li>
+<li><p>touch    创建文件，</p>
+</li>
+<li><p>cat 查看文件全部内容，cat ./路径/文件名</p>
+</li>
+<li><p>more(unix支持) less(linux支持) 分页查看文件，空格翻页，q退出。</p>
+</li>
+<li><p>rm(remove) 删除文件，如rm 文件名</p>
+</li>
+<li><p>rm -rf 强制删除目录内所有文件，-r(recursion)是递归删除，-f强制删除</p>
+</li>
+<li><p>rmdir(Remove Directory)   删除文件夹，只能删除空文件夹</p>
+</li>
+<li><p>mv(move) 移动文件或重命名,mv index.html ./00/00/index.html</p>
+</li>
+<li><p>cp(copy) 复制文件 </p>
+</li>
+<li><p>head    查看文件前几行，如 head -g index.html</p>
+</li>
+<li><p>tail    查看文件后几行， -n-f,</p>
+</li>
+<li><p>tab    自动补全，连续按两次会将所有匹配内容显示出来</p>
+</li>
+<li><p>history    查看操作历史</p>
+</li>
+<li><p>ssh    远程免密码登录，如ssh root@gitlab.study.com</p>
+</li>
+<li><blockquote>
+<p>和 &gt;&gt;    重定向，&gt;覆盖，&gt;&gt;追加，如cat index.html &gt; log.txt;</p>
+</blockquote>
+</li>
+<li><p>clear 清空当前窗口</p>
+</li>
+<li><p>curl    网络请求，</p>
+</li>
+<li><p>whoami    查看当前用户</p>
+</li>
+<li><p>以下在winodw集成环境不支持</p>
+</li>
+<li><p>weget    下载</p>
+</li>
+<li><p>tar    解压缩</p>
+</li>
+<li><p>管道符可以将多个命令来连接在一起，上一次命令的执行结果当成下一次命令的参数。</p>
+</li>
+<li>grep    匹配内容，一般结合管道符使用。</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-13T04:48:05.000Z" itemprop="dateUpdated">2017年3月13日 12:48</time>
+</span><br>
+
+
+        转载请注明出处：<a href="/2017/03/13/git快速入门之bash/" target="_blank" rel="external">http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/</a>
+    </div>
+    <footer>
+        <a href="http://www.wangpansheng.cn">
+            <img src="/images/avatar.jpg" alt="Pansheng">
+            Pansheng
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/bash/">bash</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/&title=《git应用之认识bash》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/&title=《git应用之认识bash》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之认识bash》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/13/git应用之vi编辑器/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">git应用之vi编辑器</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/11/AngularJS系列之模块化介绍/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AngularJS系列之模块化介绍</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="git快速入门之bash" data-title="git应用之认识bash" data-url="http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'wangpansheng', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.11');
+
+
+</script>
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>onepansheng &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/&title=《git应用之认识bash》 — onepansheng&pic=http://www.wangpansheng.cn/images/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/&title=《git应用之认识bash》 — onepansheng&source=攀升的学习记录" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《git应用之认识bash》 — onepansheng&url=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/&via=http://www.wangpansheng.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://www.wangpansheng.cn/2017/03/13/git快速入门之bash/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aO3KDUAwF0Ox/06RNA7mSsGcQh8pjE/NOClm/n5/4Ok6u5P78nuSvRhcGBsZjGcfldXZP9Zv/vpP/g5KzYWBgvIdxdoje6+Sd3neevo+BgYERB8rrAyXpIAYGBsZdjEmh2yNhYGBgfD90XgfxD9biGBgYD2TkjbPvv/7IfAMDA+NRjKN4VdO1fJA5OhUGBsZqRq9A7R29WuKWz4OBgbGakZemCaO6nJGPH5ppIgYGxgpGL9XLk8Xewlne8sPAwHgDoze8zFPAPEHsBXQMDIzdjEkZOUkce+Xx6RMxMDBWM5KHVRtk+cJEHu7LvxIYGBjrGNWj9FYi8qFCHohPBwMYGBjrGHnDqxciJ8PLctcQAwNjHaOahFUHnJPCtdDIw8DAWM2YHLE3GKgmi+U0FAMDYzUjeUCvlXad3k1el/uIGBgYD2fctbB1byutHGoxMDDWMfIlrXwkkC+elmcX1zMNDAyMpYw8dvUaanfd2cxtMTAwFjF6i6eTMWdz1posW2BgYKxmTBYjqiPP6iAhIWFgYLyBMUnXeildbx32nzULDAyMdYyjeFXHADk1H0g0fzEwMDAey5gPOKvBsbouNtoZwcDAWMSoBtmkEJ00zvJAX0gQMTAwVjCqDbXqMutdvwCF+QYGBgbGBz6tlsq3BVwMDIyljBsefG8xjIGB8QJGtRDN7++tUyRhGgMD4z2MSenYe/B1A26+joaBgbGI8Qtgve7NDn5okAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261513673&web_id=1261513673')
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.11"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.11" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+</body>
+</html>
