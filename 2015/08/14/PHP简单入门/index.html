@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> PHP简单入门 · Pansheng`s Blog</title><meta name="description" content="PHP简单入门 - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">PHP简单入门</h1><div class="post-info">2015年8月14日</div><div class="post-content"><h2 id="php基础"><a href="#php基础" class="headerlink" title="php基础"></a>php基础</h2><ul>
+<li><p>定义变量</p>
+<ul>
+<li>变量使用$开头，不能以数字开头，</li>
+<li>大小写敏感(区分大小写)</li>
+</ul>
+</li>
+<li><p>php代码必须写在<code>&lt;?php 代码  ?&gt;</code>,</p>
+</li>
+<li><p>在第一行加上下面这行代码可以防止中文乱码问题</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Content-Type:text/html;charset=utf-8"</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>php变量的类型：    字符串，整型，浮点型，布尔类型，数组</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>函数    <ul>
+<li>与js基本一致</li>
+<li>函数的形参可以设置一个默认值。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function foo($username = &quot;zs&quot;) &#123;</span><br><span class="line">	echo &quot;你好&quot;.$username;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<!-- more -->
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><ul>
+<li>php里面有两种类型的数组，普通数组和关联数组</li>
+</ul>
+<ol>
+<li><p>普通数组</p>
+<ul>
+<li><p>定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$arr1 = array(&quot;zs&quot;,&quot;ls&quot;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数组没有length属性，</p>
+</li>
+<li>遍历数组,使用for循环，可以得到数组的长度</li>
+<li>php有一个函数可以获取数组的长度，count($arr);</li>
+</ul>
+</li>
+<li><p>关联数组</p>
+<ul>
+<li>以键值对的方式进行存储的数组，我们叫做关联数组，<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$array = <span class="keyword">array</span>(<span class="string">"key"</span> =&gt; <span class="string">"value"</span>);</span><br><span class="line">$array[<span class="string">"key];</span></span><br><span class="line"><span class="string">//通过key可以获取值</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>二维数组</p>
+<ul>
+<li>数组里边还有数组</li>
+</ul>
+</li>
+</ol>
+<h2 id="输出打印"><a href="#输出打印" class="headerlink" title="输出打印"></a>输出打印</h2><ul>
+<li>php提供了三个用来输出的方法</li>
+</ul>
+<ol>
+<li><p>echo “”;     用来输出字符串的</p>
+</li>
+<li><p>print_r();    用来输出数组或者对象的。</p>
+</li>
+<li><p>var_dump();    这个也是用来输出数组里面的详细信息</p>
+</li>
+</ol>
+<h2 id="php常见函数方法"><a href="#php常见函数方法" class="headerlink" title="php常见函数方法"></a>php常见函数方法</h2><ol>
+<li><p>count();    得到数组长度</p>
+</li>
+<li><p>in_array();    </p>
+<ul>
+<li>判断数组中是否存在某个元素，这个是用在普通数组当中的</li>
+</ul>
+</li>
+<li><p>array_key_exists();    </p>
+<ul>
+<li>检测数组中是否存在某个key，这个用在关联数组中</li>
+</ul>
+</li>
+<li><p>file_get_contents();    </p>
+<ul>
+<li>读取文件里边的内容，读取出来的是字符串，</li>
+</ul>
+</li>
+<li><p>move_upload_file();    移动上传的文件</p>
+</li>
+</ol>
+<h2 id="表单处理"><a href="#表单处理" class="headerlink" title="表单处理"></a>表单处理</h2><ul>
+<li><p>name属性 是用来提供给服务端接收数据而设置的</p>
+</li>
+<li><p>action属性 设置接收数据的处理程序</p>
+</li>
+<li><p>method属性    设置发送数据的方式</p>
+</li>
+<li><p>当上传文件时，必须设置 <code>enctype=&quot;multipart/form-data&quot;</code>,且只能使用post方式</p>
+</li>
+<li><p>$_GET    接收get传来的数据</p>
+</li>
+<li><p>$_POST    接收post传来数据</p>
+</li>
+<li><p>$_FILES    接收上传的文件</p>
+</li>
+</ul>
+<h2 id="get和post提交"><a href="#get和post提交" class="headerlink" title="get和post提交"></a>get和post提交</h2><ol>
+<li><p>get</p>
+<ul>
+<li><p>点击超链接，表单提交默认方式就是get，地址栏输入地址，</p>
+</li>
+<li><p>传递到服务端的都是参数，参数值，可以传递多个参数参数值</p>
+</li>
+<li>第一个必须是？ 参数名=参数值</li>
+<li>可以发送多个参数到服务器</li>
+<li>假设我要发送多个数据，</li>
+<li><p>第二个参数之前添加&amp;字符</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href=&quot;01.php?username=zs&amp;age=12&quot;&gt;&lt;/a&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在php要对请求进行处理，处理我们分为三个步骤，</p>
+</li>
+</ul>
+<ol>
+<li>接收请求，接收客户端传递到服务端的数据，<ul>
+<li>如果客户端是get方式提交，用$_GET去接收数据，对应的值是一个数组，是一个关联数组。</li>
+</ul>
+</li>
+<li>处理请求：    接收到数据之后具体做什么，就是要使用php去操作了。</li>
+<li>响应处理，给客户端一个响应</li>
+</ol>
+</li>
+<li><p>post提交</p>
+<ul>
+<li><p>表单提交一般都是使用post</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--post 提交，我需要表单提交，设置成post--&gt;</span><br><span class="line">   &lt;form action=&quot;02post.php&quot; method=&quot;post&quot;&gt;</span><br><span class="line">       用户名:&lt;input type=&quot;text&quot; name=&quot;username&quot;&gt;</span><br><span class="line">       &lt;input type=&quot;submit&quot; value=&quot;post 提交&quot;&gt;</span><br><span class="line">   &lt;/form&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>服务端处理</p>
+</li>
+</ul>
+<ol>
+<li><p>接收请求</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$username = $_POST[&quot;username&quot;];</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>处理请求</p>
+</li>
+</ol>
+<ul>
+<li>php后端处理数据</li>
+</ul>
+<ol>
+<li>完成响应</li>
+</ol>
+<ul>
+<li>返回信息到客户端</li>
+</ul>
+</li>
+</ol>
+<h2 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h2><h4 id="前端页面"><a href="#前端页面" class="headerlink" title="前端页面"></a>前端页面</h4><ul>
+<li>必须满足以下条件才可以上传文件</li>
+</ul>
+<ol>
+<li><p>必须是表单提交</p>
+</li>
+<li><p>表单里面必须有 input type=”file”</p>
+</li>
+<li><p>必须是post方式提交</p>
+</li>
+<li><p>必须设置 <code>enctype=&quot;multipart/form-data&quot;</code>属性</p>
+</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/01/13/markdown2html/" class="prev">PREV</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>

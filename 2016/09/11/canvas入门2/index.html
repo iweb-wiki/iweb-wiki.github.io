@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> canvas入门2 · Pansheng`s Blog</title><meta name="description" content="canvas入门2 - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">canvas入门2</h1><div class="post-info">2016年9月11日</div><div class="post-content"><ul>
+<li>懒加载：现在不加载，用的时候再加载，</li>
+</ul>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><ol>
+<li><p>移动的小球 实线思路：</p>
+<ul>
+<li>简单版</li>
+</ul>
+<ol>
+<li>利用计时器，定时执行</li>
+<li>首先绘制一个圆形，圆从左上角出来，然后定时改变圆心的位置，再进行绘制，</li>
+<li>等到x轴的坐标大于w或者小于0，改变每一步的正负值，使其反向运动，</li>
+</ol>
+<ul>
+<li>鼠标进入再鼠标所在位置绘制圆形，然后开始下落</li>
+</ul>
+</li>
+<li><p>时钟案例</p>
+</li>
+</ol>
+<a id="more"></a>
+<pre><code>- 实现效果
+   ![cloc](/images/clock.png)
+- 实现思路
+
+1.  ​绘制表盘
+</code></pre><h2 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h2></div></article></div></main><footer><div class="paginator"><a href="/2016/10/10/js原型/" class="prev">PREV</a><a href="/2016/09/10/canvas入门1/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>

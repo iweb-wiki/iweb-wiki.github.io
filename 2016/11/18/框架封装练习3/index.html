@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> jqeury框架封装练习3 · Pansheng`s Blog</title><meta name="description" content="jqeury框架封装练习3 - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">jqeury框架封装练习3</h1><div class="post-info">2016年11月18日</div><div class="post-content"><h2 id="DOM操作模块"><a href="#DOM操作模块" class="headerlink" title="DOM操作模块"></a>DOM操作模块</h2><h3 id="appendTO方法"><a href="#appendTO方法" class="headerlink" title="appendTO方法"></a>appendTO方法</h3><ol>
+<li><p>语法：实例对象.appendTo(target);</p>
+</li>
+<li><p>功能：将调用者上的所有DOM元素，分别追加到目标元素上</p>
+</li>
+<li><p>target参数类型：</p>
+<ul>
+<li>选择器</li>
+<li>DOM元素</li>
+<li>DOM数组，伪数组</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>为了更方便处理不同的类型，在实现时，首先统一target的参数类型，方便发i吗逻辑的处理</p>
+</li>
+<li><p>将target统一成itcast的对象，参数一致，便于处理，同时由于是itcast对象，就可以直接调用each方法进行遍历元素</p>
+</li>
+</ul>
+<ol>
+<li>实现思路</li>
+</ol>
+<ul>
+<li>统一target类型，</li>
+<li>遍历target，再遍历调用者</li>
+<li>判断，当目标元素是不是第一个元素，如果是，不需要拷贝源节点，否则就要深拷贝源节点，</li>
+<li>将上述得到的新节点，缓存起来到数组中，</li>
+<li>再将新节点追加到dom元素中</li>
+<li>将缓存的数组转换成itcast对象，作为appendTo的返回值，来实现链式编程。</li>
+</ul>
+<a id="more"></a>
+<h3 id="append方法"><a href="#append方法" class="headerlink" title="append方法"></a>append方法</h3><ol>
+<li><p>功能：    将传入参数追加给调用者。</p>
+</li>
+<li><p>思路：</p>
+<ul>
+<li>将传入实参转换成itcast对象</li>
+<li>用传入的实参调用appendTo方法，将this作为目标元素传入appendTo方法</li>
+<li>实现链式编程</li>
+</ul>
+</li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/11/20/原生框架封装之插件开发/" class="prev">PREV</a><a href="/2016/11/17/框架封装之Ajax/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>

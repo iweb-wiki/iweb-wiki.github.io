@@ -1,0 +1,23 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 前后端渲染的对比 · Pansheng`s Blog</title><meta name="description" content="前后端渲染的对比 - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">前后端渲染的对比</h1><div class="post-info">2017年5月14日</div><div class="post-content"><blockquote>
+<p>  服务端渲染是通过后端模板引擎编译成html,css,js,然后回传给前端来进行显示；而前端渲染则是将整个生成逻辑代码全部回传前端，再由客户端生成用户界面。</p>
+</blockquote>
+<h2 id="为什么会有服务端渲染与客户端渲染"><a href="#为什么会有服务端渲染与客户端渲染" class="headerlink" title="为什么会有服务端渲染与客户端渲染"></a>为什么会有服务端渲染与客户端渲染</h2><p>早期，我们每一个页面都是直接由html，css，js实现的，每一个页面彼此之间相当于是独立的，当我们的网站应用足够大的时候，每当我们需要修改网站的内容时，我们需要更改很多的代码，非常麻烦。</p>
+<p>那么后来，我们聪明的程序员就想到了，使用代码生成代码，就是后端的模板引擎，人们开始广泛使用模板代替手写html，大大减少的前端的工作量。通过代码生成代码，其实就是编译，基于html等基础语言，做出了更高层次的抽象封装，增加了易用性。</p>
+<p>后来h5,c3的崛起，再加上客户端硬件性能的提升，我们开始通过前端模板引擎，来在客户端渲染页面。</p>
+<p>对待模板，angular，vue，react的态度都不一样。</p>
+<a id="more"></a>
+<p><strong>前后端真正解耦，前端专注于UI视图,后台专注于数据处理，通过设计好的api交互，这是未来的趋势。</strong></p>
+<h2 id="从-后端渲染-到-前端渲染-，有什么变化"><a href="#从-后端渲染-到-前端渲染-，有什么变化" class="headerlink" title="从 后端渲染 到 前端渲染 ，有什么变化"></a>从 后端渲染 到 前端渲染 ，有什么变化</h2><ul>
+<li>计算任务的变化</li>
+</ul>
+<blockquote>
+<p>  原来由后端执行的渲染任务，现在放在了前端来做，降低了多用户同时访问时服务端的压力，然后端专注做后端的事情，由于客户端硬件的发展，前端处理起来没有什么问题。</p>
+</blockquote>
+<ul>
+<li>放弃前端权限</li>
+</ul>
+<blockquote>
+<p>  将整个页面逻辑，交给客户端以后，会出现劫持的情况，比如某些运营商劫持之后，投放广告。俗话说的好<strong>一切在前端谈安全都是耍流氓</strong>，后端不能轻信前端发来的数据，一切数据都需要过滤与验证，最好使用ssl，屏蔽XSS。</p>
+</blockquote>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p><strong>总之一句话，后端渲染针对seo比较友好，前端渲染，可以减轻服务端的压力，提升服务器的性能，而且可以实现前后端分离！</strong></p>
+</div></article></div></main><footer><div class="paginator"><a href="/2017/07/11/css变形/" class="prev">PREV</a><a href="/2017/04/02/ubuntu常见问题/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>

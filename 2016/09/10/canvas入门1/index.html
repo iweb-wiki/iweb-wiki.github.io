@@ -1,0 +1,57 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Canvas入门1 · Pansheng`s Blog</title><meta name="description" content="Canvas入门1 - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">Canvas入门1</h1><div class="post-info">2016年9月10日</div><div class="post-content"><ol>
+<li><p>概念：中文：“画布，帆布”<br>HTML5提出一个新的标签。可以通过脚本语言（JS）在其上面绘制图形、图像以及制作动画。</p>
+</li>
+<li><p>基本使用</p>
+</li>
+</ol>
+<ul>
+<li>创建Canvas标签，同时指定canvas标签的大小；如果不指定的话，默认值为 300 * 150 （px）<br> 如果想动态改变canvas的宽和高，必须通过其属性节点width以及height来改变，不能通过css样式来改变。</li>
+<li>通过js获取到canvas对象。本身Canvas不具备绘图能力。</li>
+<li>通过Canvas对象调用getContext方法来获取绘图的API方法</li>
+<li>使用获取到绘图工具来绘制图形</li>
+</ul>
+<ol>
+<li>getContext方法</li>
+</ol>
+<ul>
+<li>语法: <canvas对象>.getContext(‘2d|WebGL’);</canvas对象></li>
+<li>功能：获取绘制平面图形或立体图形的api方法以及相关属性；如果参数值为’2d’<br> ，表示获取绘制平面图形的工具；如果参数值为’WebGL’,表示获取绘制立体图形的工具。</li>
+</ul>
+<ol>
+<li>基本绘图API</li>
+</ol>
+<ul>
+<li>ctx.moveTo(x, y) 移动笔触到指定点。</li>
+<li>ctx.lineTo(x, y) 从笔触所在点连线到指定点</li>
+<li>ctx.stroke(); 将当前路径绘制的图形描绘其边框</li>
+<li>ctx.fill(); 填充一个封闭的图形（将当前路径形成一个封闭图形，然后在填充。）</li>
+<li>stroke方法与fill方法可以同时调用</li>
+</ul>
+<a id="more"></a>
+<ol>
+<li>开启新路径的方法</li>
+</ol>
+<ul>
+<li>ctx.beginPath();</li>
+</ul>
+<ol>
+<li>闭合路径的方法</li>
+</ol>
+<ul>
+<li>ctx.closePath();<br>如果当前路径，没有形成一个封闭的图形，可以调用该方法来将图形闭合。</li>
+<li>注意：beginPath与closePath不需要成对出现</li>
+</ul>
+<ol>
+<li><p>非零环绕原则：是用来判断某一封闭的区域是否要填充。<br>如果想判断指定区域是否填充，就在该区域内选择任意点，然后从该点引出一条射线，穿过整个图形到外部。查看该射线与图形的相交线，如果相交线是顺时针穿出射线，计数 + 1；如果是逆时针穿出射线，计数 -1；如果最后所有计数累加在一起，值不为0就填充该区域;</p>
+<p>如果相交线是自上而下的穿出射线，即为顺时针穿出，计数 +1<br>如果相交线是自下而上的穿出射线，即为逆时针穿出，计数 -1</p>
+</li>
+<li><p>奇偶原则：是用来判断某一封闭的区域是否要填充<br>如果想判断指定区域是否填充，就在该区域内选择任意点，然后从该点引出一条射线，穿过整个图形到外部。查看该射线与图形的相交线的个数。如果为奇数，那么就填充；如果为偶数就不填充。</p>
+</li>
+</ol>
+<h3 id="线性相关属性"><a href="#线性相关属性" class="headerlink" title="线性相关属性"></a>线性相关属性</h3><ol>
+<li>设置线宽</li>
+</ol>
+<ul>
+<li>ctx.lineWidth = value;</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/09/11/canvas入门2/" class="prev">PREV</a><a href="/2016/08/15/关于js中的静态方法和实例方法/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>

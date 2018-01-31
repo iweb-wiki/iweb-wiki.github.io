@@ -1,0 +1,44 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 原生框架封装之插件开发 · Pansheng`s Blog</title><meta name="description" content="原生框架封装之插件开发 - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">ARCHIVE</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">原生框架封装之插件开发</h1><div class="post-info">2016年11月20日</div><div class="post-content"><h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><ol>
+<li><p>历史背景</p>
+<ul>
+<li>http https: 都是一种无状态、无连接的协议</li>
+<li>tcp/ip 是一种长连接协议</li>
+<li>无论什么用户都可以访问网址页面，在实际开发中，有些页面需要先验证身份才可以访问的，此时就需要http记录用户的状态，（登录状态），</li>
+<li>但是http协议是无状态的，因此就诞生了session和cookie</li>
+</ul>
+</li>
+<li><p>应用场景</p>
+<ul>
+<li>登录功能：记录登录状态，以及一些用户基本信息。</li>
+<li>用户基本信息：昵称、头像地址、加密后的密码（记住密码）、用户名</li>
+</ul>
+</li>
+<li><p>做cookie插件的目的</p>
+</li>
+</ol>
+<ul>
+<li>方便前端人员操作cookie</li>
+</ul>
+<a id="more"></a>
+<h2 id="原生js操作cookie"><a href="#原生js操作cookie" class="headerlink" title="原生js操作cookie"></a>原生js操作cookie</h2><ol>
+<li><p>获取</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>操作</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">document</span>.cookie = <span class="string">"username=guoguo"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置有效期</p>
+<ul>
+<li><p>默认如果没有设置cookie有效期，它就是一个会话的cookie，也就是说，当浏览器关闭时，该cookie的信息会被清除掉</p>
+</li>
+<li><p>在设置cookie有效期时，单位是天，在原生设置cookie有效期时，要给expiries赋值为截止日期；</p>
+</li>
+</ul>
+</li>
+<li><p>设置域名</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">domain=<span class="string">"xxx.com"</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置路径</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path=<span class="string">"/"</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/11/26/数组方法梳理/" class="prev">PREV</a><a href="/2016/11/18/框架封装练习3/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>
