@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wangpansheng.github.io/"/>
-  <updated>2018-01-31T12:28:58.927Z</updated>
+  <updated>2018-01-31T12:42:33.003Z</updated>
   <id>https://wangpansheng.github.io/</id>
   
   <author>
@@ -15,24 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>初识Koa</title>
-    <link href="https://wangpansheng.github.io/2018/01/31/%E5%88%9D%E8%AF%86Koa/"/>
-    <id>https://wangpansheng.github.io/2018/01/31/初识Koa/</id>
-    <published>2018-01-31T09:39:36.000Z</published>
-    <updated>2018-01-31T12:28:58.927Z</updated>
-    
-    <content type="html"><![CDATA[<p>Koa是Express原版团队开发的一个代替express的新一代node框架。<br><a id="more"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Koa是Express原版团队开发的一个代替express的新一代node框架。&lt;br&gt;
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>手动一步一步搭建ss</title>
@@ -583,11 +565,11 @@
     
       <category term="JS" scheme="https://wangpansheng.github.io/tags/JS/"/>
     
-      <category term="函数" scheme="https://wangpansheng.github.io/tags/%E5%87%BD%E6%95%B0/"/>
-    
       <category term="原型" scheme="https://wangpansheng.github.io/tags/%E5%8E%9F%E5%9E%8B/"/>
     
       <category term="原型链" scheme="https://wangpansheng.github.io/tags/%E5%8E%9F%E5%9E%8B%E9%93%BE/"/>
+    
+      <category term="函数" scheme="https://wangpansheng.github.io/tags/%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
@@ -628,9 +610,9 @@
     
       <category term="JS" scheme="https://wangpansheng.github.io/tags/JS/"/>
     
-      <category term="画布" scheme="https://wangpansheng.github.io/tags/%E7%94%BB%E5%B8%83/"/>
-    
       <category term="Canvas" scheme="https://wangpansheng.github.io/tags/Canvas/"/>
+    
+      <category term="画布" scheme="https://wangpansheng.github.io/tags/%E7%94%BB%E5%B8%83/"/>
     
   </entry>
   
@@ -680,9 +662,9 @@
     
       <category term="JS" scheme="https://wangpansheng.github.io/tags/JS/"/>
     
-      <category term="canvas" scheme="https://wangpansheng.github.io/tags/canvas/"/>
-    
       <category term="画布" scheme="https://wangpansheng.github.io/tags/%E7%94%BB%E5%B8%83/"/>
+    
+      <category term="canvas" scheme="https://wangpansheng.github.io/tags/canvas/"/>
     
   </entry>
   
@@ -717,13 +699,13 @@
     </summary>
     
     
+      <category term="函数" scheme="https://wangpansheng.github.io/tags/%E5%87%BD%E6%95%B0/"/>
+    
       <category term="js" scheme="https://wangpansheng.github.io/tags/js/"/>
     
       <category term="静态方法" scheme="https://wangpansheng.github.io/tags/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/"/>
     
       <category term="实例方法" scheme="https://wangpansheng.github.io/tags/%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/"/>
-    
-      <category term="函数" scheme="https://wangpansheng.github.io/tags/%E5%87%BD%E6%95%B0/"/>
     
   </entry>
   
@@ -757,6 +739,35 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>AngularJS系列之简单介绍</title>
+    <link href="https://wangpansheng.github.io/2016/07/11/AngularJS%E4%BB%8B%E7%BB%8D/"/>
+    <id>https://wangpansheng.github.io/2016/07/11/AngularJS介绍/</id>
+    <published>2016-07-11T04:45:49.000Z</published>
+    <updated>2018-01-31T12:39:09.799Z</updated>
+    
+    <content type="html"><![CDATA[<p>AngularJS是Google公司开发维护的MVC前端框架；客服了HTMl在构建应用上的不足，降低了开发成本。</p><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li>jQuery更准确的说只是一个类库（类库指的是一系列函数的集合）以DOM作为驱动（核心），而AngularJS则是一个框架（诸多类库的集合）以数据和逻辑作为驱动（核心）。</li><li>框架对开发流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。</li><li>AngularJS有诸多特性，最为核心的就是：模块化，双向数据绑定，语义化标签，依赖注入等。</li><li>类似的框架的还有 BackBone，KnockoutJS，vue，Rect等，</li></ul><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><a id="more"></a><ul><li>MVC是一种开发模式，有模型（Model），视图（View），控制器（Controller），三部分组成，采用这种开发模式为合理组织代码提供了方便，降低了代码间的耦合度，功能结构清晰可见。</li></ul><ol><li>模型（Model）：一般用来处理数据（读取/设置），具体指操作数据库，</li><li>视图（View）：一般用来展示数据，比如通过HTML展示，</li><li>控制器（Controller）：一般用作连接模型和属兔的桥梁。</li></ol><ul><li>MVC被引入到前端开发中，由于受到技术的限制，便有了 一些细节的调整，于是出现了MVC的衍生版（子集）如：MVVM，MVW，MVP，MV*等；</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;AngularJS是Google公司开发维护的MVC前端框架；客服了HTMl在构建应用上的不足，降低了开发成本。&lt;/p&gt;
+&lt;h2 id=&quot;特点&quot;&gt;&lt;a href=&quot;#特点&quot; class=&quot;headerlink&quot; title=&quot;特点&quot;&gt;&lt;/a&gt;特点&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;jQuery更准确的说只是一个类库（类库指的是一系列函数的集合）以DOM作为驱动（核心），而AngularJS则是一个框架（诸多类库的集合）以数据和逻辑作为驱动（核心）。&lt;/li&gt;
+&lt;li&gt;框架对开发流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。&lt;/li&gt;
+&lt;li&gt;AngularJS有诸多特性，最为核心的就是：模块化，双向数据绑定，语义化标签，依赖注入等。&lt;/li&gt;
+&lt;li&gt;类似的框架的还有 BackBone，KnockoutJS，vue，Rect等，&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;MVC&quot;&gt;&lt;a href=&quot;#MVC&quot; class=&quot;headerlink&quot; title=&quot;MVC&quot;&gt;&lt;/a&gt;MVC&lt;/h2&gt;
+    
+    </summary>
+    
+    
+      <category term="JS" scheme="https://wangpansheng.github.io/tags/JS/"/>
+    
+      <category term="Angular" scheme="https://wangpansheng.github.io/tags/Angular/"/>
     
   </entry>
   
