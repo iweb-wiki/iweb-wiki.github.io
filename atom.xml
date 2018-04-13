@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://wangpansheng.github.io/"/>
-  <updated>2018-01-31T12:42:33.003Z</updated>
+  <updated>2018-04-13T09:05:42.397Z</updated>
   <id>https://wangpansheng.github.io/</id>
   
   <author>
@@ -17,21 +17,128 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>手动一步一步搭建ss</title>
-    <link href="https://wangpansheng.github.io/2018/01/31/%E6%89%8B%E5%8A%A8%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%90%AD%E5%BB%BAss/"/>
-    <id>https://wangpansheng.github.io/2018/01/31/手动一步一步搭建ss/</id>
-    <published>2018-01-31T08:02:12.000Z</published>
-    <updated>2018-01-31T12:42:33.003Z</updated>
+    <title>ubuntu安装rime输入法</title>
+    <link href="https://wangpansheng.github.io/2018/04/13/ubuntu%E5%AE%89%E8%A3%85rime%E8%BE%93%E5%85%A5%E6%B3%95/"/>
+    <id>https://wangpansheng.github.io/2018/04/13/ubuntu安装rime输入法/</id>
+    <published>2018-04-13T09:46:19.000Z</published>
+    <updated>2018-04-13T09:05:42.397Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="动手安装ss-教程"><a href="#动手安装ss-教程" class="headerlink" title="动手安装ss,教程"></a>动手安装ss,教程</h1><h2 id="安装具体步骤"><a href="#安装具体步骤" class="headerlink" title="安装具体步骤"></a>安装具体步骤</h2><p> 我用的是Ubuntu系统，安装步骤非常简单，一步一步执行下面的命令就好</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">&lt;!-- 如果服务器没有安装git，需要执行这一步 --&gt;</span><br><span class="line">sudo apt-get install git</span><br><span class="line">sudo apt-get install python-pip</span><br><span class="line">pip install git+https://github.com/shadowsocks/shadowsocks.git@master</span><br></pre></td></tr></table></figure><a id="more"></a><h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><h4 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json</span><br></pre></td></tr></table></figure><h4 id="后台使用"><a href="#后台使用" class="headerlink" title="后台使用"></a>后台使用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="ubuntu系统安装-rime输入法"><a href="#ubuntu系统安装-rime输入法" class="headerlink" title="ubuntu系统安装 rime输入法"></a>ubuntu系统安装 rime输入法</h2><blockquote><p>RIME／中州韻輸入法引擎，是一個跨平臺的輸入法算法框架。基於這一框架，Rime 開發者與其他開源社區的參與者在 Windows、macOS、Linux、Android 等平臺上創造了不同的輸入法前端實現</p></blockquote><p>以上是<a href="http://http://rime.im/" target="_blank" rel="noopener">RIME官网</a>的介绍，是一款开源的跨平台输入法。这里是linux平台的，Windows平台下的是小狼毫，都很好用。</p><p>因为系统自带的输入法，不是很好用，而且以前一直用的rime输入法，确实很好用，但是，由于之前没怎么用ubuntu，今天安装，遇到了一些问题，这里记录下</p><ol><li>首先 安装 ibus-rime,执行下面命令 </li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install ibus-rime</span><br></pre></td></tr></table></figure><ol><li>然后 安装输入方案，选择自己需要的安装</li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"># 朙月拼音（預裝）</span><br><span class="line">sudo apt-get install librime-data-luna-pinyin</span><br><span class="line"># 雙拼</span><br><span class="line">sudo apt-get install librime-data-double-pinyin</span><br><span class="line"># 宮保拼音</span><br><span class="line">sudo apt-get install librime-data-combo-pinyin</span><br><span class="line"># 注音、地球拼音</span><br><span class="line">sudo apt-get install librime-data-terra-pinyin librime-data-bopomofo</span><br><span class="line"># 倉頡五代（預裝）</span><br><span class="line">sudo apt-get install librime-data-cangjie5</span><br><span class="line"># 速成五代</span><br><span class="line">sudo apt-get install librime-data-quick5</span><br><span class="line"># 五筆86、袖珍簡化字拼音、五筆畫</span><br><span class="line">sudo apt-get install librime-data-wubi librime-data-pinyin-simp librime-data-stroke-simp</span><br><span class="line"># IPA (X-SAMPA)</span><br><span class="line">sudo apt-get install librime-data-ipa-xsampa</span><br><span class="line"># 上海吳語</span><br><span class="line">sudo apt-get install librime-data-wugniu</span><br><span class="line"># 粵拼</span><br><span class="line">sudo apt-get install librime-data-jyutping</span><br><span class="line"># 中古漢語拼音</span><br><span class="line">sudo apt-get install librime-data-zyenpheng</span><br></pre></td></tr></table></figure><ol><li><p>但是安装之后，直接切换输入法的时候，是找不到rime，是需要先去<code>系统设置-&gt;语言支持-&gt;键盘输入法系统</code>，把默认值<code>fcitx</code>设置为<code>IBus</code>，然后再设置，如果不行就重启系统试试</p></li><li><p>rime的设置文件放在<code>~/.config/ibus/rime</code>下的<code>default.yaml</code>，执行<code>vi default.yaml</code>，编辑文件，把需要用的方案写在<code>schema_list</code>中，然后重新部署，再按ctrl+`或者F4，就可以切换方案了，</p></li></ol><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">schema_list:</span><br><span class="line">  - schema: wubi_pinyin</span><br><span class="line">  - schema: wubi86</span><br></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;动手安装ss-教程&quot;&gt;&lt;a href=&quot;#动手安装ss-教程&quot; class=&quot;headerlink&quot; title=&quot;动手安装ss,教程&quot;&gt;&lt;/a&gt;动手安装ss,教程&lt;/h1&gt;&lt;h2 id=&quot;安装具体步骤&quot;&gt;&lt;a href=&quot;#安装具体步骤&quot; class=&quot;headerlink&quot; title=&quot;安装具体步骤&quot;&gt;&lt;/a&gt;安装具体步骤&lt;/h2&gt;&lt;p&gt; 我用的是Ubuntu系统，安装步骤非常简单，一步一步执行下面的命令就好&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!-- 如果服务器没有安装git，需要执行这一步 --&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install python-pip&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;pip install git+https://github.com/shadowsocks/shadowsocks.git@master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      
+      
+        &lt;h2 id=&quot;ubuntu系统安装-rime输入法&quot;&gt;&lt;a href=&quot;#ubuntu系统安装-rime输入法&quot; class=&quot;headerlink&quot; title=&quot;ubuntu系统安装 rime输入法&quot;&gt;&lt;/a&gt;ubuntu系统安装 rime输入法&lt;/h2&gt;&lt;blockquo
+      
     
     </summary>
     
+    
+      <category term="linux" scheme="https://wangpansheng.github.io/tags/linux/"/>
+    
+      <category term="ubuntu" scheme="https://wangpansheng.github.io/tags/ubuntu/"/>
+    
+      <category term="rime" scheme="https://wangpansheng.github.io/tags/rime/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>快速上手快应用</title>
+    <link href="https://wangpansheng.github.io/2018/03/23/%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%E5%BF%AB%E5%BA%94%E7%94%A8/"/>
+    <id>https://wangpansheng.github.io/2018/03/23/快速上手快应用/</id>
+    <published>2018-03-23T03:19:27.000Z</published>
+    <updated>2018-03-23T03:52:21.911Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>快应用是国内各大厂商联合制定的，基于手机硬件平台的新型应用形态，和小程序类似，无需安装，随用随走。</p></blockquote><h2 id="搭建开发环境"><a href="#搭建开发环境" class="headerlink" title="搭建开发环境"></a>搭建开发环境</h2><blockquote><p>首先需要安装nodejs版本6.0以上，不过官方建议不要使用8.0.*版本，会有报错.</p></blockquote><h3 id="安装hap-toolkit"><a href="#安装hap-toolkit" class="headerlink" title="安装hap-toolkit"></a>安装hap-toolkit</h3><ul><li>通过npm安装</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i -g hap-toolkit</span><br></pre></td></tr></table></figure><ul><li>输入以下命令，检测安装是否成功<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hap -V</span><br></pre></td></tr></table></figure></li></ul><h2 id="创建第一个项目"><a href="#创建第一个项目" class="headerlink" title="创建第一个项目"></a>创建第一个项目</h2><ul><li><p>环境搭建好之后，直接输入下面命令，可以初始化我们的第一个快应用</p>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hap init &lt;projectName&gt;</span><br></pre></td></tr></table></figure></li><li><p>目录的简要说明如下：</p><p>  src：项目源文件夹<br>  node_modules：项目的依赖类库<br>  sign：签名模块，当前仅有debug签名，如果内测上线，请添加release文件夹，增加线上签名；签名生成方法请参考文档：编译工具的openssl</p></li></ul><h2 id="编译项目"><a href="#编译项目" class="headerlink" title="编译项目"></a>编译项目</h2><h3 id="安装依赖-在项目根目录输入命令安装依赖，可以使用npm或者yarn"><a href="#安装依赖-在项目根目录输入命令安装依赖，可以使用npm或者yarn" class="headerlink" title="安装依赖,在项目根目录输入命令安装依赖，可以使用npm或者yarn"></a>安装依赖,在项目根目录输入命令安装依赖，可以使用<code>npm</code>或者<code>yarn</code></h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm i </span><br><span class="line">或者</span><br><span class="line">yarn</span><br></pre></td></tr></table></figure></code></pre><h3 id="编译项目，在项目根目录，进行编译打包，生成rpk包"><a href="#编译项目，在项目根目录，进行编译打包，生成rpk包" class="headerlink" title="编译项目，在项目根目录，进行编译打包，生成rpk包"></a>编译项目，在项目根目录，进行编译打包，生成rpk包</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure></code></pre><p>编译打包之后，项目根目录下会生成文件夹 <code>build</code>,<code>dist</code></p><ul><li><code>build</code>: 临时产出，包含编译后的页面js，图片等</li><li><code>dist</code>: 最终产出，包含rpk文件。其实是将build目录下的资源打包压缩为一个文件，后缀名为rpk，这个rpk文件就是项目编译后的最终产出</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;快应用是国内各大厂商联合制定的，基于手机硬件平台的新型应用形态，和小程序类似，无需安装，随用随走。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;搭建开发环境&quot;&gt;&lt;a href=&quot;#搭建开发环境&quot; class=&quot;headerlink&quot; tit
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>科学上网</title>
+    <link href="https://wangpansheng.github.io/2017/10/31/%E6%89%8B%E6%91%B8%E6%89%8B%E6%90%AD%E5%BB%BA%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E5%8E%BB%E6%9C%8D%E5%8A%A1/"/>
+    <id>https://wangpansheng.github.io/2017/10/31/手摸手搭建科学上网去服务/</id>
+    <published>2017-10-31T08:02:12.000Z</published>
+    <updated>2018-04-13T09:08:37.022Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>因为工作的原因，需要查询资料，国内文档比较少，需要访问国外的网站，所以这里需要科学上网。本篇文章是搭建科学上网的服务端，搭建成功之后，客户端链接就可以尽情科学上网了。</p></blockquote><h2 id="安装具体步骤"><a href="#安装具体步骤" class="headerlink" title="安装具体步骤"></a>安装具体步骤</h2><ul><li>首先，你需要有一台海外的服务器，然后才能执行搭建服务。</li><li>我这里用的是Ubuntu系统，步骤非常简单，一步一步执行下面的命令就好</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">&lt;!-- 如果服务器没有安装git，需要执行这一步，安装git --&gt;</span><br><span class="line">sudo apt-get install git</span><br><span class="line">sudo apt-get install python-pip</span><br><span class="line">pip install git+https://github.com/shadowsocks/shadowsocks.git@master</span><br></pre></td></tr></table></figure><h2 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h2><h4 id="直接启动"><a href="#直接启动" class="headerlink" title="直接启动"></a>直接启动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json</span><br><span class="line">&lt;!-- 启动之后，ctrl+c就可以关闭服务 --&gt;</span><br></pre></td></tr></table></figure><h4 id="后台使用"><a href="#后台使用" class="headerlink" title="后台使用"></a>后台使用</h4><ul><li>在后台启动服务</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop</span><br></pre></td></tr></table></figure><p>至此，服务端已经搭建完成，直接在客户端链接就可以科学上网了。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;因为工作的原因，需要查询资料，国内文档比较少，需要访问国外的网站，所以这里需要科学上网。本篇文章是搭建科学上网的服务端，搭建成功之后，客户端链接就可以尽情科学上网了。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;安装具体步骤&quot;&gt;&lt;a hre
+      
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>MongoDB数据库配合NodeJS简单使用</title>
+    <link href="https://wangpansheng.github.io/2017/10/09/MongoDB%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://wangpansheng.github.io/2017/10/09/MongoDB简单学习/</id>
+    <published>2017-10-09T11:11:15.000Z</published>
+    <updated>2018-04-13T09:09:46.803Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="关于-MongoDB"><a href="#关于-MongoDB" class="headerlink" title="关于 MongoDB"></a>关于 MongoDB</h2><blockquote><p>  我们一般把数据库分为关系型数据库和非关系型数据库，MongoDB就是属于非关系型数据库的一种。</p></blockquote><ul><li>官网：<a href="https://www.mongodb.com/" target="_blank" rel="noopener">https://www.mongodb.com/</a></li><li>下载地址：<a href="https://www.mongodb.com/download-center?jmp=nav" target="_blank" rel="noopener">https://www.mongodb.com/download-center?jmp=nav</a></li></ul><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><ul><li><a href="https://www.smartftp.com/support/kb/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0dll-is-missing-f2702.html?lang=zh-CN" target="_blank" rel="noopener">https://www.smartftp.com/support/kb/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0dll-is-missing-f2702.html?lang=zh-CN</a></li><li><a href="http://stackoverflow.com/questions/33265663/api-ms-win-crt-runtime-l1-1-0-dll-is-missing-when-opening-microsoft-office-file" target="_blank" rel="noopener">http://stackoverflow.com/questions/33265663/api-ms-win-crt-runtime-l1-1-0-dll-is-missing-when-opening-microsoft-office-file</a></li></ul><h2 id="启动和关闭-MongoDB-数据库服务程序"><a href="#启动和关闭-MongoDB-数据库服务程序" class="headerlink" title="启动和关闭 MongoDB 数据库服务程序"></a>启动和关闭 MongoDB 数据库服务程序</h2><p>mongod.exe 是我们要启动的服务器文件<br>mongo的客户端去连我们的服务器</p><ul><li><p>打开终端，输入 <code>mongod</code> 回车</p><ul><li><code>mongod</code> 命令用来启动 MongoDB 数据服务</li><li>MongoDB 服务默认将 C:/data/db 目录作为数据目录</li><li>所以你需要先在 C:/ 根目录新建一个目录：C:/data/db</li><li>当你执行 mongod 命令的时候，默认会去使用 c:/data/db 目录作为数据存储目录</li><li>如果你不想使用 c:/data/db 目录</li><li>mongod –dbpath=路径</li></ul></li><li><p>32位操作系统启动 MongoDB</p><ul><li><a href="http://jingyan.baidu.com/article/76a7e409e1bb49fc3b6e1516.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/76a7e409e1bb49fc3b6e1516.html</a></li><li><code>mongod --dbpath 数据存储路径 --journal --storageEngine=mmapv1</code><br>mongod –dbpath C:/data/db –journal –storageEngine=mmapv1`</li></ul></li></ul><a id="more"></a><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ol><li>什么是数据？</li></ol><blockquote><p>数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。通俗一点，数据就是信息，例如，个人信息、账户信息、家庭信息、企业信息、财务信息等等。</p></blockquote><ol><li>什么是数据库（Database，DB）？</li></ol><blockquote><p> 数据库是按照数据结构来组织、存储和管理数据的仓库。</p></blockquote><ol><li>为什么要使用数据库？</li></ol><blockquote><p>   我们需要使用数据库来存储我们网站的数据，然后通过增删改查进行数据交互，数据库，为我们提供了存储数据的仓库。</p></blockquote><ol><li>什么是数据库管理系统（DataBase Management System，DBMS）？</li></ol><blockquote><p> 数据库管理系统（DataBase Management System，DBMS）是为管理数据库而设计的大型电脑软件管理系统.例如，Oracle、Microsoft SQL Server、Access、MySQL、PostgreSQL、db2等等.我们可以简称这些数据库管理系统为数据库，虽然这种叫法不是很严谨，但是一般人都听的懂。</p></blockquote><ol><li>数据库的分类</li></ol><ul><li>关系型数据库 sql语言</li></ul><blockquote><p>关系数据库管理系统(Relational Database Management System)，<br>是将数据组织为相关的行和列的系统，而管理关系数据库的计算机软件就是关系数据库管理系统，常用的数据库软件有Oracle、SQL Server、MySQL等。</p></blockquote><ul><li>非关系型数据库 nosql<ul><li>内存数据库 redis</li><li>面向文档数据库 mongodb</li></ul></li></ul><h2 id="文档-document"><a href="#文档-document" class="headerlink" title="文档 document"></a>文档 document</h2><blockquote><p>文档是MongoDB中最基本的单元，里边包含多个键值对。</p></blockquote><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;name:"zhangsan",age:12&#125;</span><br><span class="line">&#123;name:"lisi"&#125;</span><br></pre></td></tr></table></figure><h2 id="集合-collection"><a href="#集合-collection" class="headerlink" title="集合 collection"></a>集合 collection</h2><blockquote><p>集合就是一组文档，特点是动态模式，集合中每一个文档都有可能不一样。但是在实际开发中，最好我们保存一样格式的文档。</p></blockquote><h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h4 id="1-列出所有的数据库"><a href="#1-列出所有的数据库" class="headerlink" title="1.  列出所有的数据库"></a>1.  列出所有的数据库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show dbs</span><br></pre></td></tr></table></figure><h4 id="2-进入或者新建数据库user"><a href="#2-进入或者新建数据库user" class="headerlink" title="2.  进入或者新建数据库user"></a>2.  进入或者新建数据库user</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use user</span><br><span class="line">//如果已经有了user数据库，就会进入user数据库</span><br><span class="line">//如果没有user数据库，就会自动新建数据库，如果数据库中没有任何文档，则用show dbs不会显示该仓库</span><br></pre></td></tr></table></figure><h4 id="3-新建文档"><a href="#3-新建文档" class="headerlink" title="3.  新建文档"></a>3.  新建文档</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.user.insert(&#123;name:<span class="string">"wang"</span>&#125;)</span><br><span class="line">//在user集合中添加一条文档数据</span><br></pre></td></tr></table></figure><h4 id="4-查看user集合中的文档"><a href="#4-查看user集合中的文档" class="headerlink" title="4.  查看user集合中的文档"></a>4.  查看user集合中的文档</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.find()</span><br></pre></td></tr></table></figure><h4 id="5-更新文档内容"><a href="#5-更新文档内容" class="headerlink" title="5.  更新文档内容"></a>5.  更新文档内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.update(&#123;name:<span class="string">"wang"</span>&#125;,&#123;<span class="variable">$set</span>:&#123;name:<span class="string">"ang"</span>&#125;&#125;)</span><br></pre></td></tr></table></figure><h4 id="6-删除文档"><a href="#6-删除文档" class="headerlink" title="6.  删除文档"></a>6.  删除文档</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.user.remove(&#123;name:<span class="string">"wang"</span>&#125;)</span><br><span class="line">//如果不传入参数，则会直接删除集合</span><br></pre></td></tr></table></figure><h3 id="7-删除数据库"><a href="#7-删除数据库" class="headerlink" title="7.  删除数据库"></a>7.  删除数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use user</span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure><h2 id="js链接MongoDb"><a href="#js链接MongoDb" class="headerlink" title="js链接MongoDb"></a>js链接MongoDb</h2><blockquote><p> mongodb包提供的方法api和monggodb的命令基本一样，我们可以在nodejs中使用mongodb数据库进行增删改查操作。</p></blockquote><ul><li>api地址：<a href="http://mongodb.github.io/node-mongodb-native/2.2/api" target="_blank" rel="noopener">http://mongodb.github.io/node-mongodb-native/2.2/api</a></li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;关于-MongoDB&quot;&gt;&lt;a href=&quot;#关于-MongoDB&quot; class=&quot;headerlink&quot; title=&quot;关于 MongoDB&quot;&gt;&lt;/a&gt;关于 MongoDB&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;  我们一般把数据库分为关系型数据库和非关系型数据库，MongoDB就是属于非关系型数据库的一种。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;官网：&lt;a href=&quot;https://www.mongodb.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.mongodb.com/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;下载地址：&lt;a href=&quot;https://www.mongodb.com/download-center?jmp=nav&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.mongodb.com/download-center?jmp=nav&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;环境安装&quot;&gt;&lt;a href=&quot;#环境安装&quot; class=&quot;headerlink&quot; title=&quot;环境安装&quot;&gt;&lt;/a&gt;环境安装&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.smartftp.com/support/kb/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0dll-is-missing-f2702.html?lang=zh-CN&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.smartftp.com/support/kb/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0dll-is-missing-f2702.html?lang=zh-CN&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/33265663/api-ms-win-crt-runtime-l1-1-0-dll-is-missing-when-opening-microsoft-office-file&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://stackoverflow.com/questions/33265663/api-ms-win-crt-runtime-l1-1-0-dll-is-missing-when-opening-microsoft-office-file&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;启动和关闭-MongoDB-数据库服务程序&quot;&gt;&lt;a href=&quot;#启动和关闭-MongoDB-数据库服务程序&quot; class=&quot;headerlink&quot; title=&quot;启动和关闭 MongoDB 数据库服务程序&quot;&gt;&lt;/a&gt;启动和关闭 MongoDB 数据库服务程序&lt;/h2&gt;&lt;p&gt;mongod.exe 是我们要启动的服务器文件&lt;br&gt;mongo的客户端去连我们的服务器&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;打开终端，输入 &lt;code&gt;mongod&lt;/code&gt; 回车&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mongod&lt;/code&gt; 命令用来启动 MongoDB 数据服务&lt;/li&gt;
+&lt;li&gt;MongoDB 服务默认将 C:/data/db 目录作为数据目录&lt;/li&gt;
+&lt;li&gt;所以你需要先在 C:/ 根目录新建一个目录：C:/data/db&lt;/li&gt;
+&lt;li&gt;当你执行 mongod 命令的时候，默认会去使用 c:/data/db 目录作为数据存储目录&lt;/li&gt;
+&lt;li&gt;如果你不想使用 c:/data/db 目录&lt;/li&gt;
+&lt;li&gt;mongod –dbpath=路径&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;32位操作系统启动 MongoDB&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://jingyan.baidu.com/article/76a7e409e1bb49fc3b6e1516.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://jingyan.baidu.com/article/76a7e409e1bb49fc3b6e1516.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mongod --dbpath 数据存储路径 --journal --storageEngine=mmapv1&lt;/code&gt;&lt;br&gt;mongod –dbpath C:/data/db –journal –storageEngine=mmapv1`&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="MongoDB" scheme="https://wangpansheng.github.io/tags/MongoDB/"/>
+    
+      <category term="NodeJS" scheme="https://wangpansheng.github.io/tags/NodeJS/"/>
     
   </entry>
   
@@ -95,6 +202,30 @@
   </entry>
   
   <entry>
+    <title>ubuntu常用软件部署</title>
+    <link href="https://wangpansheng.github.io/2017/04/02/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/"/>
+    <id>https://wangpansheng.github.io/2017/04/02/ubuntu常用软件部署/</id>
+    <published>2017-04-02T09:46:19.000Z</published>
+    <updated>2018-01-31T12:39:09.828Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="ubuntu中快速安装nodejs"><a href="#ubuntu中快速安装nodejs" class="headerlink" title="ubuntu中快速安装nodejs"></a>ubuntu中快速安装nodejs</h1><h2 id="1-我们可以直接通过apt-get安装nodejs"><a href="#1-我们可以直接通过apt-get安装nodejs" class="headerlink" title="1.  我们可以直接通过apt-get安装nodejs"></a>1.  我们可以直接通过<code>apt-get</code>安装nodejs</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update //需要先刷新本地索引包</span><br><span class="line">sudo apt-get install nodejs //然后安装nodejs包</span><br><span class="line">sudo apt-get install npm    //安装npm包管理器</span><br></pre></td></tr></table></figure><h2 id="2-安装好的node版本较低，我们可以使用n模块升级node到你需要打版本"><a href="#2-安装好的node版本较低，我们可以使用n模块升级node到你需要打版本" class="headerlink" title="2. 安装好的node版本较低，我们可以使用n模块升级node到你需要打版本"></a>2. 安装好的node版本较低，我们可以使用n模块升级node到你需要打版本</h2><h4 id="1-node有一个-n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下"><a href="#1-node有一个-n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下" class="headerlink" title="1.  node有一个 n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下"></a>1.  node有一个 n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n</span><br></pre></td></tr></table></figure><h4 id="2-升级到制定版本，我们可以在n加上指定的版本号就可以"><a href="#2-升级到制定版本，我们可以在n加上指定的版本号就可以" class="headerlink" title="2.  升级到制定版本，我们可以在n加上指定的版本号就可以"></a>2.  升级到制定版本，我们可以在n加上指定的版本号就可以</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n 6.10.2</span><br></pre></td></tr></table></figure><a id="more"></a><h4 id="3-还有一些常用打快捷方法"><a href="#3-还有一些常用打快捷方法" class="headerlink" title="3.  还有一些常用打快捷方法"></a>3.  还有一些常用打快捷方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo n latest   //安装最新打官方版本</span><br><span class="line">sudo n stanle   //安装最新打稳定版</span><br><span class="line">sudo n lts      //安装最新打lts官方版</span><br></pre></td></tr></table></figure><h4 id="4-删除版本"><a href="#4-删除版本" class="headerlink" title="4.  删除版本"></a>4.  删除版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo n rm 0.9.4</span><br><span class="line">sudo n -0.9.4</span><br></pre></td></tr></table></figure><ul><li>更多命令，我们可以使用<code>n --help</code>寻求帮助</li></ul><h1 id="ubuntu常用工具安装"><a href="#ubuntu常用工具安装" class="headerlink" title="ubuntu常用工具安装"></a>ubuntu常用工具安装</h1><h2 id="右上角任务栏显示cpu内存使用百分比，还可以显示网络传输速率"><a href="#右上角任务栏显示cpu内存使用百分比，还可以显示网络传输速率" class="headerlink" title="右上角任务栏显示cpu内存使用百分比，还可以显示网络传输速率"></a>右上角任务栏显示cpu内存使用百分比，还可以显示网络传输速率</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor   //这里选择按enter键</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install indicator-sysmonitor</span><br><span class="line">//启动</span><br><span class="line">indicator-sysmonitor &amp;</span><br><span class="line">//ctrl+c后台运行该程序</span><br></pre></td></tr></table></figure><ul><li>启动之后，最好让程序开机自启动，鼠标右键点击标题栏上图标，弹出菜单，把<code>run on startup</code>后边打勾打上，然后进去advanced选项卡，就可以自定义配置需要显示在任务栏的项目啦</li></ul><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line">git config --global user.name &quot;name&quot;</span><br><span class="line">git config --global user.email &quot;your@email.com&quot;</span><br></pre></td></tr></table></figure><h2 id="安装编译工具"><a href="#安装编译工具" class="headerlink" title="安装编译工具"></a>安装编译工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br></pre></td></tr></table></figure><h2 id="安装yarn包管理工具"><a href="#安装yarn包管理工具" class="headerlink" title="安装yarn包管理工具"></a>安装yarn包管理工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g yarn</span><br></pre></td></tr></table></figure><h2 id="安装cnpm镜像源"><a href="#安装cnpm镜像源" class="headerlink" title="安装cnpm镜像源"></a>安装cnpm镜像源</h2><blockquote><p>  下载包直接可以使用 <code>cnpm install name</code> 下载</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g cnpm</span><br></pre></td></tr></table></figure><h2 id="安装nrm，node下载数据源管理器"><a href="#安装nrm，node下载数据源管理器" class="headerlink" title="安装nrm，node下载数据源管理器"></a>安装nrm，node下载数据源管理器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g nrm</span><br><span class="line">nrm -v //查看安装版本验证是否安装成功</span><br></pre></td></tr></table></figure><h4 id="可以查看当前所有的下载数据源链接"><a href="#可以查看当前所有的下载数据源链接" class="headerlink" title="可以查看当前所有的下载数据源链接"></a>可以查看当前所有的下载数据源链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure><h4 id="测试所有打镜像源的响应速度，然后根据测试我们可以切换我们需要使用的下载源"><a href="#测试所有打镜像源的响应速度，然后根据测试我们可以切换我们需要使用的下载源" class="headerlink" title="测试所有打镜像源的响应速度，然后根据测试我们可以切换我们需要使用的下载源"></a>测试所有打镜像源的响应速度，然后根据测试我们可以切换我们需要使用的下载源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nrm test</span><br><span class="line">nrm use [taobao]</span><br></pre></td></tr></table></figure><h1 id="github使用ssh"><a href="#github使用ssh" class="headerlink" title="github使用ssh"></a>github使用ssh</h1><blockquote><p>  我们使用git去github上传东西，一般都使用ssh免密方式，所以需要首先生成一枚ssh-key密钥，然后在home文件夹进入个人文件夹中，按ctrl+h，会显示所有隐藏文件，打开.ssh文件夹中的id_rsa.pub文件，把里边内容粘贴到github上就可以啦</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;wangpansheng@qq.com&quot;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;ubuntu中快速安装nodejs&quot;&gt;&lt;a href=&quot;#ubuntu中快速安装nodejs&quot; class=&quot;headerlink&quot; title=&quot;ubuntu中快速安装nodejs&quot;&gt;&lt;/a&gt;ubuntu中快速安装nodejs&lt;/h1&gt;&lt;h2 id=&quot;1-我们可以直接通过apt-get安装nodejs&quot;&gt;&lt;a href=&quot;#1-我们可以直接通过apt-get安装nodejs&quot; class=&quot;headerlink&quot; title=&quot;1.  我们可以直接通过apt-get安装nodejs&quot;&gt;&lt;/a&gt;1.  我们可以直接通过&lt;code&gt;apt-get&lt;/code&gt;安装nodejs&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update //需要先刷新本地索引包&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install nodejs //然后安装nodejs包&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install npm    //安装npm包管理器&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;2-安装好的node版本较低，我们可以使用n模块升级node到你需要打版本&quot;&gt;&lt;a href=&quot;#2-安装好的node版本较低，我们可以使用n模块升级node到你需要打版本&quot; class=&quot;headerlink&quot; title=&quot;2. 安装好的node版本较低，我们可以使用n模块升级node到你需要打版本&quot;&gt;&lt;/a&gt;2. 安装好的node版本较低，我们可以使用n模块升级node到你需要打版本&lt;/h2&gt;&lt;h4 id=&quot;1-node有一个-n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下&quot;&gt;&lt;a href=&quot;#1-node有一个-n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下&quot; class=&quot;headerlink&quot; title=&quot;1.  node有一个 n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下&quot;&gt;&lt;/a&gt;1.  node有一个 n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g n&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;2-升级到制定版本，我们可以在n加上指定的版本号就可以&quot;&gt;&lt;a href=&quot;#2-升级到制定版本，我们可以在n加上指定的版本号就可以&quot; class=&quot;headerlink&quot; title=&quot;2.  升级到制定版本，我们可以在n加上指定的版本号就可以&quot;&gt;&lt;/a&gt;2.  升级到制定版本，我们可以在n加上指定的版本号就可以&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo n 6.10.2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="linux" scheme="https://wangpansheng.github.io/tags/linux/"/>
+    
+      <category term="ubuntu" scheme="https://wangpansheng.github.io/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
     <title>ubuntu常见问题处理</title>
     <link href="https://wangpansheng.github.io/2017/04/02/ubuntu%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
     <id>https://wangpansheng.github.io/2017/04/02/ubuntu常见问题/</id>
@@ -113,30 +244,6 @@
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo ntfsfix /绝对路径&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="linux" scheme="https://wangpansheng.github.io/tags/linux/"/>
-    
-      <category term="ubuntu" scheme="https://wangpansheng.github.io/tags/ubuntu/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ubuntu常用软件部署</title>
-    <link href="https://wangpansheng.github.io/2017/04/02/ubuntu%E5%B8%B8%E7%94%A8%E8%BD%AF%E4%BB%B6%E9%83%A8%E7%BD%B2/"/>
-    <id>https://wangpansheng.github.io/2017/04/02/ubuntu常用软件部署/</id>
-    <published>2017-04-02T09:46:19.000Z</published>
-    <updated>2018-01-31T12:39:09.828Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ubuntu中快速安装nodejs"><a href="#ubuntu中快速安装nodejs" class="headerlink" title="ubuntu中快速安装nodejs"></a>ubuntu中快速安装nodejs</h1><h2 id="1-我们可以直接通过apt-get安装nodejs"><a href="#1-我们可以直接通过apt-get安装nodejs" class="headerlink" title="1.  我们可以直接通过apt-get安装nodejs"></a>1.  我们可以直接通过<code>apt-get</code>安装nodejs</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update //需要先刷新本地索引包</span><br><span class="line">sudo apt-get install nodejs //然后安装nodejs包</span><br><span class="line">sudo apt-get install npm    //安装npm包管理器</span><br></pre></td></tr></table></figure><h2 id="2-安装好的node版本较低，我们可以使用n模块升级node到你需要打版本"><a href="#2-安装好的node版本较低，我们可以使用n模块升级node到你需要打版本" class="headerlink" title="2. 安装好的node版本较低，我们可以使用n模块升级node到你需要打版本"></a>2. 安装好的node版本较低，我们可以使用n模块升级node到你需要打版本</h2><h4 id="1-node有一个-n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下"><a href="#1-node有一个-n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下" class="headerlink" title="1.  node有一个 n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下"></a>1.  node有一个 n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g n</span><br></pre></td></tr></table></figure><h4 id="2-升级到制定版本，我们可以在n加上指定的版本号就可以"><a href="#2-升级到制定版本，我们可以在n加上指定的版本号就可以" class="headerlink" title="2.  升级到制定版本，我们可以在n加上指定的版本号就可以"></a>2.  升级到制定版本，我们可以在n加上指定的版本号就可以</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo n 6.10.2</span><br></pre></td></tr></table></figure><a id="more"></a><h4 id="3-还有一些常用打快捷方法"><a href="#3-还有一些常用打快捷方法" class="headerlink" title="3.  还有一些常用打快捷方法"></a>3.  还有一些常用打快捷方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo n latest   //安装最新打官方版本</span><br><span class="line">sudo n stanle   //安装最新打稳定版</span><br><span class="line">sudo n lts      //安装最新打lts官方版</span><br></pre></td></tr></table></figure><h4 id="4-删除版本"><a href="#4-删除版本" class="headerlink" title="4.  删除版本"></a>4.  删除版本</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo n rm 0.9.4</span><br><span class="line">sudo n -0.9.4</span><br></pre></td></tr></table></figure><ul><li>更多命令，我们可以使用<code>n --help</code>寻求帮助</li></ul><h1 id="ubuntu常用工具安装"><a href="#ubuntu常用工具安装" class="headerlink" title="ubuntu常用工具安装"></a>ubuntu常用工具安装</h1><h2 id="右上角任务栏显示cpu内存使用百分比，还可以显示网络传输速率"><a href="#右上角任务栏显示cpu内存使用百分比，还可以显示网络传输速率" class="headerlink" title="右上角任务栏显示cpu内存使用百分比，还可以显示网络传输速率"></a>右上角任务栏显示cpu内存使用百分比，还可以显示网络传输速率</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor   //这里选择按enter键</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install indicator-sysmonitor</span><br><span class="line">//启动</span><br><span class="line">indicator-sysmonitor &amp;</span><br><span class="line">//ctrl+c后台运行该程序</span><br></pre></td></tr></table></figure><ul><li>启动之后，最好让程序开机自启动，鼠标右键点击标题栏上图标，弹出菜单，把<code>run on startup</code>后边打勾打上，然后进去advanced选项卡，就可以自定义配置需要显示在任务栏的项目啦</li></ul><h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git</span><br><span class="line">git config --global user.name &quot;name&quot;</span><br><span class="line">git config --global user.email &quot;your@email.com&quot;</span><br></pre></td></tr></table></figure><h2 id="安装编译工具"><a href="#安装编译工具" class="headerlink" title="安装编译工具"></a>安装编译工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install build-essential</span><br></pre></td></tr></table></figure><h2 id="安装yarn包管理工具"><a href="#安装yarn包管理工具" class="headerlink" title="安装yarn包管理工具"></a>安装yarn包管理工具</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g yarn</span><br></pre></td></tr></table></figure><h2 id="安装cnpm镜像源"><a href="#安装cnpm镜像源" class="headerlink" title="安装cnpm镜像源"></a>安装cnpm镜像源</h2><blockquote><p>  下载包直接可以使用 <code>cnpm install name</code> 下载</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g cnpm</span><br></pre></td></tr></table></figure><h2 id="安装nrm，node下载数据源管理器"><a href="#安装nrm，node下载数据源管理器" class="headerlink" title="安装nrm，node下载数据源管理器"></a>安装nrm，node下载数据源管理器</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo npm install -g nrm</span><br><span class="line">nrm -v //查看安装版本验证是否安装成功</span><br></pre></td></tr></table></figure><h4 id="可以查看当前所有的下载数据源链接"><a href="#可以查看当前所有的下载数据源链接" class="headerlink" title="可以查看当前所有的下载数据源链接"></a>可以查看当前所有的下载数据源链接</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nrm ls</span><br></pre></td></tr></table></figure><h4 id="测试所有打镜像源的响应速度，然后根据测试我们可以切换我们需要使用的下载源"><a href="#测试所有打镜像源的响应速度，然后根据测试我们可以切换我们需要使用的下载源" class="headerlink" title="测试所有打镜像源的响应速度，然后根据测试我们可以切换我们需要使用的下载源"></a>测试所有打镜像源的响应速度，然后根据测试我们可以切换我们需要使用的下载源</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nrm test</span><br><span class="line">nrm use [taobao]</span><br></pre></td></tr></table></figure><h1 id="github使用ssh"><a href="#github使用ssh" class="headerlink" title="github使用ssh"></a>github使用ssh</h1><blockquote><p>  我们使用git去github上传东西，一般都使用ssh免密方式，所以需要首先生成一枚ssh-key密钥，然后在home文件夹进入个人文件夹中，按ctrl+h，会显示所有隐藏文件，打开.ssh文件夹中的id_rsa.pub文件，把里边内容粘贴到github上就可以啦</p></blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -b 4096 -C &quot;wangpansheng@qq.com&quot;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;ubuntu中快速安装nodejs&quot;&gt;&lt;a href=&quot;#ubuntu中快速安装nodejs&quot; class=&quot;headerlink&quot; title=&quot;ubuntu中快速安装nodejs&quot;&gt;&lt;/a&gt;ubuntu中快速安装nodejs&lt;/h1&gt;&lt;h2 id=&quot;1-我们可以直接通过apt-get安装nodejs&quot;&gt;&lt;a href=&quot;#1-我们可以直接通过apt-get安装nodejs&quot; class=&quot;headerlink&quot; title=&quot;1.  我们可以直接通过apt-get安装nodejs&quot;&gt;&lt;/a&gt;1.  我们可以直接通过&lt;code&gt;apt-get&lt;/code&gt;安装nodejs&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get update //需要先刷新本地索引包&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install nodejs //然后安装nodejs包&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;sudo apt-get install npm    //安装npm包管理器&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h2 id=&quot;2-安装好的node版本较低，我们可以使用n模块升级node到你需要打版本&quot;&gt;&lt;a href=&quot;#2-安装好的node版本较低，我们可以使用n模块升级node到你需要打版本&quot; class=&quot;headerlink&quot; title=&quot;2. 安装好的node版本较低，我们可以使用n模块升级node到你需要打版本&quot;&gt;&lt;/a&gt;2. 安装好的node版本较低，我们可以使用n模块升级node到你需要打版本&lt;/h2&gt;&lt;h4 id=&quot;1-node有一个-n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下&quot;&gt;&lt;a href=&quot;#1-node有一个-n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下&quot; class=&quot;headerlink&quot; title=&quot;1.  node有一个 n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下&quot;&gt;&lt;/a&gt;1.  node有一个 n模块，专门用来管理nodejs版本的。不过目前并不支持windows系统。我们先安装下&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;npm install -g n&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;h4 id=&quot;2-升级到制定版本，我们可以在n加上指定的版本号就可以&quot;&gt;&lt;a href=&quot;#2-升级到制定版本，我们可以在n加上指定的版本号就可以&quot; class=&quot;headerlink&quot; title=&quot;2.  升级到制定版本，我们可以在n加上指定的版本号就可以&quot;&gt;&lt;/a&gt;2.  升级到制定版本，我们可以在n加上指定的版本号就可以&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;sudo n 6.10.2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -199,57 +306,6 @@
     
     
       <category term="NodeJS express" scheme="https://wangpansheng.github.io/tags/NodeJS-express/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MongoDB数据库配合NodeJS简单使用</title>
-    <link href="https://wangpansheng.github.io/2017/01/09/MongoDB%E7%AE%80%E5%8D%95%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://wangpansheng.github.io/2017/01/09/MongoDB简单学习/</id>
-    <published>2017-01-09T11:11:15.000Z</published>
-    <updated>2018-01-31T12:39:09.846Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="关于-MongoDB"><a href="#关于-MongoDB" class="headerlink" title="关于 MongoDB"></a>关于 MongoDB</h2><blockquote><p>  我们一般把数据库分为关系型数据库和非关系型数据库，MongoDB就是属于非关系型数据库的一种。</p></blockquote><ul><li>官网：<a href="https://www.mongodb.com/" target="_blank" rel="noopener">https://www.mongodb.com/</a></li><li>下载地址：<a href="https://www.mongodb.com/download-center?jmp=nav" target="_blank" rel="noopener">https://www.mongodb.com/download-center?jmp=nav</a></li></ul><h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><ul><li><a href="https://www.smartftp.com/support/kb/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0dll-is-missing-f2702.html?lang=zh-CN" target="_blank" rel="noopener">https://www.smartftp.com/support/kb/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0dll-is-missing-f2702.html?lang=zh-CN</a></li><li><a href="http://stackoverflow.com/questions/33265663/api-ms-win-crt-runtime-l1-1-0-dll-is-missing-when-opening-microsoft-office-file" target="_blank" rel="noopener">http://stackoverflow.com/questions/33265663/api-ms-win-crt-runtime-l1-1-0-dll-is-missing-when-opening-microsoft-office-file</a></li></ul><h2 id="启动和关闭-MongoDB-数据库服务程序"><a href="#启动和关闭-MongoDB-数据库服务程序" class="headerlink" title="启动和关闭 MongoDB 数据库服务程序"></a>启动和关闭 MongoDB 数据库服务程序</h2><p>mongod.exe 是我们要启动的服务器文件<br>mongo的客户端去连我们的服务器</p><ul><li><p>打开终端，输入 <code>mongod</code> 回车</p><ul><li><code>mongod</code> 命令用来启动 MongoDB 数据服务</li><li>MongoDB 服务默认将 C:/data/db 目录作为数据目录</li><li>所以你需要先在 C:/ 根目录新建一个目录：C:/data/db</li><li>当你执行 mongod 命令的时候，默认会去使用 c:/data/db 目录作为数据存储目录</li><li>如果你不想使用 c:/data/db 目录</li><li>mongod –dbpath=路径</li></ul></li><li><p>32位操作系统启动 MongoDB</p><ul><li><a href="http://jingyan.baidu.com/article/76a7e409e1bb49fc3b6e1516.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/76a7e409e1bb49fc3b6e1516.html</a></li><li><code>mongod --dbpath 数据存储路径 --journal --storageEngine=mmapv1</code><br>mongod –dbpath C:/data/db –journal –storageEngine=mmapv1`</li></ul></li></ul><a id="more"></a><h2 id="基础概念"><a href="#基础概念" class="headerlink" title="基础概念"></a>基础概念</h2><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><ol><li>什么是数据？</li></ol><blockquote><p>数据是信息的表现形式和载体，可以是符号、文字、数字、语音、图像、视频等。通俗一点，数据就是信息，例如，个人信息、账户信息、家庭信息、企业信息、财务信息等等。</p></blockquote><ol><li>什么是数据库（Database，DB）？</li></ol><blockquote><p> 数据库是按照数据结构来组织、存储和管理数据的仓库。</p></blockquote><ol><li>为什么要使用数据库？</li></ol><blockquote><p>   我们需要使用数据库来存储我们网站的数据，然后通过增删改查进行数据交互，数据库，为我们提供了存储数据的仓库。</p></blockquote><ol><li>什么是数据库管理系统（DataBase Management System，DBMS）？</li></ol><blockquote><p> 数据库管理系统（DataBase Management System，DBMS）是为管理数据库而设计的大型电脑软件管理系统.例如，Oracle、Microsoft SQL Server、Access、MySQL、PostgreSQL、db2等等.我们可以简称这些数据库管理系统为数据库，虽然这种叫法不是很严谨，但是一般人都听的懂。</p></blockquote><ol><li>数据库的分类</li></ol><ul><li>关系型数据库 sql语言</li></ul><blockquote><p>关系数据库管理系统(Relational Database Management System)，<br>是将数据组织为相关的行和列的系统，而管理关系数据库的计算机软件就是关系数据库管理系统，常用的数据库软件有Oracle、SQL Server、MySQL等。</p></blockquote><ul><li>非关系型数据库 nosql<ul><li>内存数据库 redis</li><li>面向文档数据库 mongodb</li></ul></li></ul><h2 id="文档-document"><a href="#文档-document" class="headerlink" title="文档 document"></a>文档 document</h2><blockquote><p>文档是MongoDB中最基本的单元，里边包含多个键值对。</p></blockquote><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;name:"zhangsan",age:12&#125;</span><br><span class="line">&#123;name:"lisi"&#125;</span><br></pre></td></tr></table></figure><h2 id="集合-collection"><a href="#集合-collection" class="headerlink" title="集合 collection"></a>集合 collection</h2><blockquote><p>集合就是一组文档，特点是动态模式，集合中每一个文档都有可能不一样。但是在实际开发中，最好我们保存一样格式的文档。</p></blockquote><h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h4 id="1-列出所有的数据库"><a href="#1-列出所有的数据库" class="headerlink" title="1.  列出所有的数据库"></a>1.  列出所有的数据库</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show dbs</span><br></pre></td></tr></table></figure><h4 id="2-进入或者新建数据库user"><a href="#2-进入或者新建数据库user" class="headerlink" title="2.  进入或者新建数据库user"></a>2.  进入或者新建数据库user</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">use user</span><br><span class="line">//如果已经有了user数据库，就会进入user数据库</span><br><span class="line">//如果没有user数据库，就会自动新建数据库，如果数据库中没有任何文档，则用show dbs不会显示该仓库</span><br></pre></td></tr></table></figure><h4 id="3-新建文档"><a href="#3-新建文档" class="headerlink" title="3.  新建文档"></a>3.  新建文档</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.user.insert(&#123;name:<span class="string">"wang"</span>&#125;)</span><br><span class="line">//在user集合中添加一条文档数据</span><br></pre></td></tr></table></figure><h4 id="4-查看user集合中的文档"><a href="#4-查看user集合中的文档" class="headerlink" title="4.  查看user集合中的文档"></a>4.  查看user集合中的文档</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.find()</span><br></pre></td></tr></table></figure><h4 id="5-更新文档内容"><a href="#5-更新文档内容" class="headerlink" title="5.  更新文档内容"></a>5.  更新文档内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.user.update(&#123;name:<span class="string">"wang"</span>&#125;,&#123;<span class="variable">$set</span>:&#123;name:<span class="string">"ang"</span>&#125;&#125;)</span><br></pre></td></tr></table></figure><h4 id="6-删除文档"><a href="#6-删除文档" class="headerlink" title="6.  删除文档"></a>6.  删除文档</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">db.user.remove(&#123;name:<span class="string">"wang"</span>&#125;)</span><br><span class="line">//如果不传入参数，则会直接删除集合</span><br></pre></td></tr></table></figure><h3 id="7-删除数据库"><a href="#7-删除数据库" class="headerlink" title="7.  删除数据库"></a>7.  删除数据库</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use user</span><br><span class="line">db.dropDatabase()</span><br></pre></td></tr></table></figure><h2 id="js链接MongoDb"><a href="#js链接MongoDb" class="headerlink" title="js链接MongoDb"></a>js链接MongoDb</h2><blockquote><p> mongodb包提供的方法api和monggodb的命令基本一样，我们可以在nodejs中使用mongodb数据库进行增删改查操作。</p></blockquote><ul><li>api地址：<a href="http://mongodb.github.io/node-mongodb-native/2.2/api" target="_blank" rel="noopener">http://mongodb.github.io/node-mongodb-native/2.2/api</a></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;关于-MongoDB&quot;&gt;&lt;a href=&quot;#关于-MongoDB&quot; class=&quot;headerlink&quot; title=&quot;关于 MongoDB&quot;&gt;&lt;/a&gt;关于 MongoDB&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;  我们一般把数据库分为关系型数据库和非关系型数据库，MongoDB就是属于非关系型数据库的一种。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;官网：&lt;a href=&quot;https://www.mongodb.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.mongodb.com/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;下载地址：&lt;a href=&quot;https://www.mongodb.com/download-center?jmp=nav&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.mongodb.com/download-center?jmp=nav&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;环境安装&quot;&gt;&lt;a href=&quot;#环境安装&quot; class=&quot;headerlink&quot; title=&quot;环境安装&quot;&gt;&lt;/a&gt;环境安装&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://www.smartftp.com/support/kb/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0dll-is-missing-f2702.html?lang=zh-CN&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://www.smartftp.com/support/kb/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0dll-is-missing-f2702.html?lang=zh-CN&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/33265663/api-ms-win-crt-runtime-l1-1-0-dll-is-missing-when-opening-microsoft-office-file&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://stackoverflow.com/questions/33265663/api-ms-win-crt-runtime-l1-1-0-dll-is-missing-when-opening-microsoft-office-file&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;启动和关闭-MongoDB-数据库服务程序&quot;&gt;&lt;a href=&quot;#启动和关闭-MongoDB-数据库服务程序&quot; class=&quot;headerlink&quot; title=&quot;启动和关闭 MongoDB 数据库服务程序&quot;&gt;&lt;/a&gt;启动和关闭 MongoDB 数据库服务程序&lt;/h2&gt;&lt;p&gt;mongod.exe 是我们要启动的服务器文件&lt;br&gt;mongo的客户端去连我们的服务器&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;打开终端，输入 &lt;code&gt;mongod&lt;/code&gt; 回车&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;mongod&lt;/code&gt; 命令用来启动 MongoDB 数据服务&lt;/li&gt;
-&lt;li&gt;MongoDB 服务默认将 C:/data/db 目录作为数据目录&lt;/li&gt;
-&lt;li&gt;所以你需要先在 C:/ 根目录新建一个目录：C:/data/db&lt;/li&gt;
-&lt;li&gt;当你执行 mongod 命令的时候，默认会去使用 c:/data/db 目录作为数据存储目录&lt;/li&gt;
-&lt;li&gt;如果你不想使用 c:/data/db 目录&lt;/li&gt;
-&lt;li&gt;mongod –dbpath=路径&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;32位操作系统启动 MongoDB&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;http://jingyan.baidu.com/article/76a7e409e1bb49fc3b6e1516.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://jingyan.baidu.com/article/76a7e409e1bb49fc3b6e1516.html&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;mongod --dbpath 数据存储路径 --journal --storageEngine=mmapv1&lt;/code&gt;&lt;br&gt;mongod –dbpath C:/data/db –journal –storageEngine=mmapv1`&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-    
-    </summary>
-    
-    
-      <category term="MongoDB" scheme="https://wangpansheng.github.io/tags/MongoDB/"/>
-    
-      <category term="NodeJS" scheme="https://wangpansheng.github.io/tags/NodeJS/"/>
     
   </entry>
   
@@ -478,9 +534,9 @@
     </summary>
     
     
-      <category term="原生框架封装" scheme="https://wangpansheng.github.io/tags/%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85/"/>
-    
       <category term="原生js实现jq" scheme="https://wangpansheng.github.io/tags/%E5%8E%9F%E7%94%9Fjs%E5%AE%9E%E7%8E%B0jq/"/>
+    
+      <category term="原生框架封装" scheme="https://wangpansheng.github.io/tags/%E5%8E%9F%E7%94%9F%E6%A1%86%E6%9E%B6%E5%B0%81%E8%A3%85/"/>
     
   </entry>
   
@@ -610,9 +666,9 @@
     
       <category term="JS" scheme="https://wangpansheng.github.io/tags/JS/"/>
     
-      <category term="Canvas" scheme="https://wangpansheng.github.io/tags/Canvas/"/>
-    
       <category term="画布" scheme="https://wangpansheng.github.io/tags/%E7%94%BB%E5%B8%83/"/>
+    
+      <category term="Canvas" scheme="https://wangpansheng.github.io/tags/Canvas/"/>
     
   </entry>
   
@@ -662,9 +718,9 @@
     
       <category term="JS" scheme="https://wangpansheng.github.io/tags/JS/"/>
     
-      <category term="画布" scheme="https://wangpansheng.github.io/tags/%E7%94%BB%E5%B8%83/"/>
-    
       <category term="canvas" scheme="https://wangpansheng.github.io/tags/canvas/"/>
+    
+      <category term="画布" scheme="https://wangpansheng.github.io/tags/%E7%94%BB%E5%B8%83/"/>
     
   </entry>
   
@@ -706,68 +762,6 @@
       <category term="静态方法" scheme="https://wangpansheng.github.io/tags/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/"/>
     
       <category term="实例方法" scheme="https://wangpansheng.github.io/tags/%E5%AE%9E%E4%BE%8B%E6%96%B9%E6%B3%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>AngularJS系列之模块化介绍</title>
-    <link href="https://wangpansheng.github.io/2016/07/20/AngularJS%E7%B3%BB%E5%88%97%E4%B9%8B%E6%A8%A1%E5%9D%97%E5%8C%96%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://wangpansheng.github.io/2016/07/20/AngularJS系列之模块化介绍/</id>
-    <published>2016-07-20T05:07:39.000Z</published>
-    <updated>2018-01-31T12:39:09.799Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="模块化介绍"><a href="#模块化介绍" class="headerlink" title="模块化介绍"></a>模块化介绍</h2><ul><li>通过AngularJS构建应用时，是以模块化的方式组织的，即将整个应用划分成若干个模块，每个模块都各有其职责，最终组合成一个整体。</li><li>采用模块化的组织方式，可以最大程度的实现代码的复用，可以像搭积木一样进行开发。</li></ul><h2 id="定义应用"><a href="#定义应用" class="headerlink" title="定义应用"></a>定义应用</h2><ul><li><p>通过为任一HTML标签添加ng-app属性，可以指定一个应用，表示此标签所包裹的内容都属于应用的一部分。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!--为html标签添加ng-app表明整个文档都是应用--&gt;</span><br><span class="line">&lt;!--ng-app属性可以不赋值，但是要关联相应模块时则必须赋值--&gt;</span><br><span class="line">&lt;html lang=&quot;zh-CN&quot; ng-app=&quot;App&quot;&gt;&lt;/html&gt;</span><br></pre></td></tr></table></figure></li></ul><h2 id="定义模块"><a href="#定义模块" class="headerlink" title="定义模块"></a>定义模块</h2><ul><li><p>AngularJS提供了一个全局对象angular，在此全局对象下存在若干方法，其中angular.module()方法用来定义一个模块。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//通过module方法定义模块</span></span><br><span class="line"><span class="comment">//需要传递两个参数，第一个表示模块的名字，</span></span><br><span class="line"><span class="comment">// 第二个表示此模块依赖的其它模块</span></span><br><span class="line"><span class="keyword">var</span> app = angular.module(<span class="string">"app"</span>,[]);</span><br></pre></td></tr></table></figure><p>注：应用本质也是一个模块（一个比较大的模块）；</p></li></ul><h2 id="定义控制器"><a href="#定义控制器" class="headerlink" title="定义控制器"></a>定义控制器</h2><a id="more"></a><ul><li><p>控制器（Controller）作为连接模型（model）和视图（view）的桥梁存在，所以当我们定义好了控制器以后，也就定义好了模型和视图。</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//app是一个模型实例对象</span></span><br><span class="line"><span class="comment">//通过这个实例对象定义控制器，需要两个参数</span></span><br><span class="line"><span class="comment">//第一个参数表示控制器名称，</span></span><br><span class="line"><span class="comment">//第二个参数是一个数组，这个数组除最后一个单元是函数外，其余都是字符串，标明此控制器的依赖关系</span></span><br><span class="line">app.controller(<span class="string">'studentController'</span>,[<span class="string">'$scope'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">$scope</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//模型（model）</span></span><br><span class="line">  $scope = [</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">"李白"</span>, <span class="attr">sex</span>: <span class="string">'男'</span>, <span class="attr">age</span>: <span class="string">"23"</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">name</span>: <span class="string">'华仔'</span>, <span class="attr">sex</span>: <span class="string">'男'</span>, <span class="attr">age</span>: <span class="string">'34'</span>&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;])</span><br></pre></td></tr></table></figure></li></ul><ul><li><p>模型数据时要展示到视图上的，所以需要将控制器关联到视图上，通过为HTML标签添加ng-controller属性并赋值相应的控制器的名称，就确立了关联关系，</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--添加ng-controller属性，并赋值为相应的控制器名称--&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">table</span> <span class="attr">ng-controller</span>=<span class="string">"StudentController"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">th</span>&gt;</span>姓名<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">th</span>&gt;</span>性别<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">th</span>&gt;</span>年龄<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">tr</span> <span class="attr">ng-repeat</span>=<span class="string">"student in students"</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;student.name&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;student.sex&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">td</span>&gt;</span>&#123;&#123;student.age&#125;&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure></li><li><p>以上为AngularJS最基本的MVC工作模式。</p></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;模块化介绍&quot;&gt;&lt;a href=&quot;#模块化介绍&quot; class=&quot;headerlink&quot; title=&quot;模块化介绍&quot;&gt;&lt;/a&gt;模块化介绍&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;通过AngularJS构建应用时，是以模块化的方式组织的，即将整个应用划分成若干个模块，每个模块都各有其职责，最终组合成一个整体。&lt;/li&gt;
-&lt;li&gt;采用模块化的组织方式，可以最大程度的实现代码的复用，可以像搭积木一样进行开发。&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;定义应用&quot;&gt;&lt;a href=&quot;#定义应用&quot; class=&quot;headerlink&quot; title=&quot;定义应用&quot;&gt;&lt;/a&gt;定义应用&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;通过为任一HTML标签添加ng-app属性，可以指定一个应用，表示此标签所包裹的内容都属于应用的一部分。&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--为html标签添加ng-app表明整个文档都是应用--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;!--ng-app属性可以不赋值，但是要关联相应模块时则必须赋值--&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;lt;html lang=&amp;quot;zh-CN&amp;quot; ng-app=&amp;quot;App&amp;quot;&amp;gt;&amp;lt;/html&amp;gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;定义模块&quot;&gt;&lt;a href=&quot;#定义模块&quot; class=&quot;headerlink&quot; title=&quot;定义模块&quot;&gt;&lt;/a&gt;定义模块&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;AngularJS提供了一个全局对象angular，在此全局对象下存在若干方法，其中angular.module()方法用来定义一个模块。&lt;/p&gt;
-&lt;figure class=&quot;highlight javascript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//通过module方法定义模块&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//需要传递两个参数，第一个表示模块的名字，&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// 第二个表示此模块依赖的其它模块&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; app = angular.module(&lt;span class=&quot;string&quot;&gt;&quot;app&quot;&lt;/span&gt;,[]);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;注：应用本质也是一个模块（一个比较大的模块）；&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;定义控制器&quot;&gt;&lt;a href=&quot;#定义控制器&quot; class=&quot;headerlink&quot; title=&quot;定义控制器&quot;&gt;&lt;/a&gt;定义控制器&lt;/h2&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>AngularJS系列之简单介绍</title>
-    <link href="https://wangpansheng.github.io/2016/07/11/AngularJS%E4%BB%8B%E7%BB%8D/"/>
-    <id>https://wangpansheng.github.io/2016/07/11/AngularJS介绍/</id>
-    <published>2016-07-11T04:45:49.000Z</published>
-    <updated>2018-01-31T12:39:09.799Z</updated>
-    
-    <content type="html"><![CDATA[<p>AngularJS是Google公司开发维护的MVC前端框架；客服了HTMl在构建应用上的不足，降低了开发成本。</p><h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ul><li>jQuery更准确的说只是一个类库（类库指的是一系列函数的集合）以DOM作为驱动（核心），而AngularJS则是一个框架（诸多类库的集合）以数据和逻辑作为驱动（核心）。</li><li>框架对开发流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。</li><li>AngularJS有诸多特性，最为核心的就是：模块化，双向数据绑定，语义化标签，依赖注入等。</li><li>类似的框架的还有 BackBone，KnockoutJS，vue，Rect等，</li></ul><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2><a id="more"></a><ul><li>MVC是一种开发模式，有模型（Model），视图（View），控制器（Controller），三部分组成，采用这种开发模式为合理组织代码提供了方便，降低了代码间的耦合度，功能结构清晰可见。</li></ul><ol><li>模型（Model）：一般用来处理数据（读取/设置），具体指操作数据库，</li><li>视图（View）：一般用来展示数据，比如通过HTML展示，</li><li>控制器（Controller）：一般用作连接模型和属兔的桥梁。</li></ol><ul><li>MVC被引入到前端开发中，由于受到技术的限制，便有了 一些细节的调整，于是出现了MVC的衍生版（子集）如：MVVM，MVW，MVP，MV*等；</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;AngularJS是Google公司开发维护的MVC前端框架；客服了HTMl在构建应用上的不足，降低了开发成本。&lt;/p&gt;
-&lt;h2 id=&quot;特点&quot;&gt;&lt;a href=&quot;#特点&quot; class=&quot;headerlink&quot; title=&quot;特点&quot;&gt;&lt;/a&gt;特点&lt;/h2&gt;&lt;ul&gt;
-&lt;li&gt;jQuery更准确的说只是一个类库（类库指的是一系列函数的集合）以DOM作为驱动（核心），而AngularJS则是一个框架（诸多类库的集合）以数据和逻辑作为驱动（核心）。&lt;/li&gt;
-&lt;li&gt;框架对开发流程和模式做了约束，开发者遵照约束进行开发，更注重的实际的业务逻辑。&lt;/li&gt;
-&lt;li&gt;AngularJS有诸多特性，最为核心的就是：模块化，双向数据绑定，语义化标签，依赖注入等。&lt;/li&gt;
-&lt;li&gt;类似的框架的还有 BackBone，KnockoutJS，vue，Rect等，&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;MVC&quot;&gt;&lt;a href=&quot;#MVC&quot; class=&quot;headerlink&quot; title=&quot;MVC&quot;&gt;&lt;/a&gt;MVC&lt;/h2&gt;
-    
-    </summary>
-    
-    
-      <category term="JS" scheme="https://wangpansheng.github.io/tags/JS/"/>
-    
-      <category term="Angular" scheme="https://wangpansheng.github.io/tags/Angular/"/>
     
   </entry>
   
