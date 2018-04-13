@@ -1,4 +1,296 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> ECMAScript发展史 · Pansheng`s Blog</title><meta name="description" content="ECMAScript发展史 - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">ECMAScript发展史</h1><div class="post-info">2016年3月18日</div><div class="post-content"><ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="baidu-site-verification" content="L6Lm9d5Crl"/>
+  
+  
+  
+  
+  <title>ECMAScript发展史 | Pansheng`s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会）通过ECMA-262标准化的脚本程序设计语言。这种语言在万维网上应用广泛，它往往被称为JavaScript或JScript，但实际上后两者是ECMA-262标准的实现和扩展。目录   历史 版本 方言 对应版本 参考文献 参见 外部链接1.    历史  1995年12月，升阳公司与网景公司公司一起引入了JavaScript[">
+<meta name="keywords" content="ECMA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMAScript发展史">
+<meta property="og:url" content="https://wangpansheng.github.io/2016/03/18/ECMAScript发展史/index.html">
+<meta property="og:site_name" content="Pansheng`s Blog">
+<meta property="og:description" content="ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会）通过ECMA-262标准化的脚本程序设计语言。这种语言在万维网上应用广泛，它往往被称为JavaScript或JScript，但实际上后两者是ECMA-262标准的实现和扩展。目录   历史 版本 方言 对应版本 参考文献 参见 外部链接1.    历史  1995年12月，升阳公司与网景公司公司一起引入了JavaScript[">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-01-31T12:42:33.003Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMAScript发展史">
+<meta name="twitter:description" content="ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会）通过ECMA-262标准化的脚本程序设计语言。这种语言在万维网上应用广泛，它往往被称为JavaScript或JScript，但实际上后两者是ECMA-262标准的实现和扩展。目录   历史 版本 方言 对应版本 参考文献 参见 外部链接1.    历史  1995年12月，升阳公司与网景公司公司一起引入了JavaScript[">
+  
+    <link rel="alternative" href="/atom.xml" title="Pansheng`s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/favicon.jpg">
+  
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+      <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  
+  <!-- 加载特效 -->
+    <script src="/js/pace.js"></script>
+    <link href="/css/pace/pace-theme-flash.css" rel="stylesheet" />
+  <script>
+      var yiliaConfig = {
+          fancybox: true,
+          animate: true,
+          isHome: false,
+          isPost: true,
+          isArchive: false,
+          isTag: false,
+          isCategory: false,
+          open_in_new: true
+      }
+  </script>
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+    <header id="header" class="inner">
+        
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+        <a href="/" class="profilepic">
+            
+            <img lazy-src="/images/favicon.jpg" class="js-avatar">
+            
+        </a>
+        <hgroup>
+          <h1 class="header-author"><a href="/">Pansheng</a></h1>
+        </hgroup>
+        
+        <p class="header-subtitle">不积跬步，无以至千里！</p>
+        
+        
+            <form>
+                <input type="text" class="st-default-search-input search" id="local-search-input" placeholder="搜索一下" autocomplete="off">
+            </form>
+            <div id="local-search-result"></div>
+        
+        
+            <script type="text/javascript">
+                (function() {
+                    'use strict';
+                    function getMatchData(keyword, data) {
+                        var matchData = [];
+                        for(var i =0;i<data.length;i++){
+                            if(data[i].title.toLowerCase().indexOf(keyword)>=0) 
+                                matchData.push(data[i])
+                        }
+                        return matchData;
+                    }
+                    var $input = $('#local-search-input');
+                    var $resultContent = $('#local-search-result');
+                    $input.keyup(function(){
+                        $.ajax({
+                            url: '/search.json',
+                            dataType: "json",
+                            success: function( json ) {
+                                var str='<ul class=\"search-result-list\">';                
+                                var keyword = $input.val().trim().toLowerCase();
+                                $resultContent.innerHTML = "";
+                                if ($input.val().trim().length <= 0) {
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                }
+                                var results = getMatchData(keyword, json);
+                                if(results.length === 0){
+                                    $resultContent.empty();
+                                    $('#switch-area').show();
+                                    return;
+                                } 
+                                for(var i =0; i<results.length; i++){
+                                    str += "<li><a href='"+ results[i].url +"' class='search-result-title'>"+ results[i].title +"</a></li>";
+                                }
+                                str += "</ul>";
+                                $resultContent.empty();
+                                $resultContent.append(str);
+                                $('#switch-area').hide();
+                            }
+                        });
+                    });
+                })();
+            </script>
+        
+        
+            <div id="switch-btn" class="switch-btn">
+                <div class="icon">
+                    <div class="icon-ctn">
+                        <div class="icon-wrap icon-house" data-idx="0">
+                            <div class="birdhouse"></div>
+                            <div class="birdhouse_holes"></div>
+                        </div>
+                        <div class="icon-wrap icon-ribbon hide" data-idx="1">
+                            <div class="ribbon"></div>
+                        </div>
+                        
+                        
+                        <div class="icon-wrap icon-me hide" data-idx="3">
+                            <div class="user"></div>
+                            <div class="shoulder"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="tips-box hide">
+                    <div class="tips-arrow"></div>
+                    <ul class="tips-inner">
+                        <li>菜单</li>
+                        <li>标签</li>
+                        
+                        
+                        <li>关于我</li>
+                        
+                    </ul>
+                </div>
+            </div>
+        
+        <div id="switch-area" class="switch-area">
+            <div class="switch-wrap">
+                <section class="switch-part switch-part1">
+                    <nav class="header-menu">
+                        <ul>
+                        
+                            <li><a  href="/archives/">所有文章</a></li>
+                        
+                            <li><a  href="/about/">关于我</a></li>
+                        
+                            <li><a  href="/tags">静心阅读</a></li>
+                        
+                        </ul>
+                    </nav>
+                    <nav class="header-nav">
+                        <ul class="social">
+                            
+                                <a class="fl github"  target="_blank" href="https://github.com/wangpansheng" title="github">github</a>
+                            
+                                <a class="fl weibo"  target="_blank" href="http://weibo.com/u/5598490525" title="weibo">weibo</a>
+                            
+                                <a class="fl rss"  target="_blank" href="/atom.xml" title="rss">rss</a>
+                            
+                        </ul>
+                    </nav>
+                </section>
+                
+                <section class="switch-part switch-part2">
+                    <div class="widget tagcloud" id="js-tagcloud">
+                        <a href="/tags/Angular/" style="font-size: 10px;">Angular</a> <a href="/tags/Canvas/" style="font-size: 10px;">Canvas</a> <a href="/tags/ECMA/" style="font-size: 10px;">ECMA</a> <a href="/tags/JS/" style="font-size: 17.5px;">JS</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/MongoDB/" style="font-size: 10px;">MongoDB</a> <a href="/tags/NodeJS/" style="font-size: 10px;">NodeJS</a> <a href="/tags/NodeJS-express/" style="font-size: 10px;">NodeJS express</a> <a href="/tags/SSH/" style="font-size: 10px;">SSH</a> <a href="/tags/ajax/" style="font-size: 15px;">ajax</a> <a href="/tags/bash/" style="font-size: 10px;">bash</a> <a href="/tags/canvas/" style="font-size: 10px;">canvas</a> <a href="/tags/centos/" style="font-size: 10px;">centos</a> <a href="/tags/css3/" style="font-size: 10px;">css3</a> <a href="/tags/git/" style="font-size: 20px;">git</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hexo-ubuntu/" style="font-size: 10px;">hexo ubuntu</a> <a href="/tags/http/" style="font-size: 10px;">http</a> <a href="/tags/i5ting-toc/" style="font-size: 10px;">i5ting_toc</a> <a href="/tags/js/" style="font-size: 12.5px;">js</a> <a href="/tags/js，jquery/" style="font-size: 10px;">js，jquery</a> <a href="/tags/linux/" style="font-size: 15px;">linux</a> <a href="/tags/markdown/" style="font-size: 12.5px;">markdown</a> <a href="/tags/rime/" style="font-size: 10px;">rime</a> <a href="/tags/shell/" style="font-size: 10px;">shell</a> <a href="/tags/ubuntu/" style="font-size: 15px;">ubuntu</a> <a href="/tags/vi/" style="font-size: 10px;">vi</a> <a href="/tags/vim/" style="font-size: 10px;">vim</a> <a href="/tags/个人博客/" style="font-size: 10px;">个人博客</a> <a href="/tags/函数/" style="font-size: 12.5px;">函数</a> <a href="/tags/原型/" style="font-size: 10px;">原型</a> <a href="/tags/原型链/" style="font-size: 10px;">原型链</a> <a href="/tags/原生js实现jq/" style="font-size: 10px;">原生js实现jq</a> <a href="/tags/原生js实现jq，原生框架封装/" style="font-size: 10px;">原生js实现jq，原生框架封装</a> <a href="/tags/原生框架/" style="font-size: 10px;">原生框架</a> <a href="/tags/原生框架封装/" style="font-size: 12.5px;">原生框架封装</a> <a href="/tags/基本功/" style="font-size: 10px;">基本功</a> <a href="/tags/实例方法/" style="font-size: 10px;">实例方法</a> <a href="/tags/工具/" style="font-size: 15px;">工具</a> <a href="/tags/常用命令操作/" style="font-size: 10px;">常用命令操作</a> <a href="/tags/技术分享/" style="font-size: 10px;">技术分享</a> <a href="/tags/数组，js基础/" style="font-size: 10px;">数组，js基础</a> <a href="/tags/服务端渲染/" style="font-size: 10px;">服务端渲染</a> <a href="/tags/框架封装，ajax/" style="font-size: 10px;">框架封装，ajax</a> <a href="/tags/版本控制/" style="font-size: 12.5px;">版本控制</a> <a href="/tags/画布/" style="font-size: 12.5px;">画布</a> <a href="/tags/语法/" style="font-size: 10px;">语法</a> <a href="/tags/转换，html/" style="font-size: 10px;">转换，html</a> <a href="/tags/静态方法/" style="font-size: 10px;">静态方法</a>
+                    </div>
+                </section>
+                
+                
+                
+                
+                <section class="switch-part switch-part3">
+                
+                    <div id="js-aboutme">爱动漫,爱游戏,爱编程,爱运动,爱的太多了!</div>
+                </section>
+                
+            </div>
+        </div>
+    </header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+      <div class="overlay">
+          <div class="slider-trigger"></div>
+          <h1 class="header-author js-mobile-header hide"><a href="/" title="回到主页">Pansheng</a></h1>
+      </div>
+    <div class="intrude-less">
+        <header id="header" class="inner">
+            <a href="/" class="profilepic">
+                
+                    <img lazy-src="/images/favicon.jpg" class="js-avatar">
+                
+            </a>
+            <hgroup>
+              <h1 class="header-author"><a href="/" title="回到主页">Pansheng</a></h1>
+            </hgroup>
+            
+            <p class="header-subtitle">不积跬步，无以至千里！</p>
+            
+            <nav class="header-menu">
+                <ul>
+                
+                    <li><a href="/archives/">所有文章</a></li>
+                
+                    <li><a href="/about/">关于我</a></li>
+                
+                    <li><a href="/tags">静心阅读</a></li>
+                
+                <div class="clearfix"></div>
+                </ul>
+            </nav>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                        <a class="github" target="_blank" href="https://github.com/wangpansheng" title="github">github</a>
+                    
+                        <a class="weibo" target="_blank" href="http://weibo.com/u/5598490525" title="weibo">weibo</a>
+                    
+                        <a class="rss" target="_blank" href="/atom.xml" title="rss">rss</a>
+                    
+                </div>
+            </nav>
+        </header>
+    </div>
+</nav>
+      <div class="body-wrap"><article id="post-ECMAScript发展史" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a  href="/2016/03/18/ECMAScript发展史/" class="article-date">
+      <time datetime="2016-03-18T01:59:57.000Z" itemprop="datePublished">2016-03-18</time>
+</a>
+
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ECMAScript发展史
+    </h1>
+  
+
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+
+        
+    <div class="article-tag tagcloud">
+        <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ECMA/">ECMA</a></li></ul>
+    </div>
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <ul>
 <li>ECMAScript是一种由Ecma国际（前身为欧洲计算机制造商协会）通过ECMA-262标准化的脚本程序设计语言。这种语言在万维网上应用广泛，它往往被称为JavaScript或JScript，但实际上后两者是ECMA-262标准的实现和扩展。<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3></li>
 </ul>
 <ol>
@@ -24,4 +316,289 @@
 <li>6    |    2015年6月        |    多个新的概念和语言特性。ECMAScript Harmony将会以“ECMAScript 6”发布。|</li>
 <li>7    |    2016年6月[9]    |    多个新的概念和语言特性<br>|        |                  |      2004年6月Ecma组织发表了ECMA-357标准，它是ECMAScript的一个扩延，也被称为E4X（ECMAScript for XML）。|</li>
 </ul>
-</div></article></div></main><footer><div class="paginator"><a href="/2016/04/24/hexo搭建博客常见问题/" class="prev">PREV</a><a href="/2016/03/14/AJAX应用之HTTP/" class="next">NEXT</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>
+
+      
+    </div>
+    
+  </div>
+  
+    
+    <div class="copyright">
+        <p><span>本文标题:</span><a  href="/2016/03/18/ECMAScript发展史/">ECMAScript发展史</a></p>
+        <p><span>文章作者:</span><a  href="/" title="访问 Pansheng 的个人博客">Pansheng</a></p>
+        <p><span>发布时间:</span>2016年03月18日 - 09时59分</p>
+        <p><span>最后更新:</span>2018年01月31日 - 20时42分</p>
+        <p>
+            <span>原始链接:</span><a class="post-url" href="/2016/03/18/ECMAScript发展史/" title="ECMAScript发展史">https://wangpansheng.github.io/2016/03/18/ECMAScript发展史/</a>
+            <span class="copy-path" data-clipboard-text="原文: https://wangpansheng.github.io/2016/03/18/ECMAScript发展史/　　作者: Pansheng" title=""></span>
+        </p>
+        <p>
+            <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/cn/" title="中国大陆 (CC BY-NC-SA 3.0 CN)" target = "_blank">"署名-非商用-相同方式共享 3.0"</a> 转载请保留原文链接及作者。
+        </p>
+    </div>
+
+
+
+<nav id="article-nav">
+  
+    <a  href="/2016/04/24/hexo搭建博客常见问题/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          hexo搭建博客常见问题
+        
+      </div>
+    </a>
+  
+  
+    <a  href="/2016/03/14/AJAX应用之HTTP/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">AJAX应用之HTTP</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+
+  
+</article>
+
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#目录"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-历史"><span class="toc-number">2.</span> <span class="toc-text">1.    历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-版本"><span class="toc-number">3.</span> <span class="toc-text">3.    版本</span></a></li></ol>
+</div>
+<style>
+    .left-col .switch-btn {
+        display: none;
+    }
+    .left-col .switch-area {
+        display: none;
+    }
+</style>
+<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script>
+    var valueHide = "隐藏目录";
+    var valueShow = "显示目录";
+    if ($(".left-col").is(":hidden")) {
+        $("#tocButton").attr("value", valueShow);
+    }
+    $("#tocButton").click(function() {
+        if ($("#toc").is(":hidden")) {
+            $("#tocButton").attr("value", valueHide);
+            $("#toc").slideDown(320);
+            $(".switch-btn, .switch-area").fadeOut(300);
+        }
+        else {
+            $("#tocButton").attr("value", valueShow);
+            $("#toc").slideUp(350);
+            $(".switch-btn, .switch-area").fadeIn(500);
+        }
+    })
+    if ($(".toc").length < 1) {
+        $("#toc, #tocButton").hide();
+        $(".switch-btn, .switch-area").show();
+    }
+</script>
+
+
+
+
+<div class="bdsharebuttonbox">
+	<a href="#" class="fx fa-weibo bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="fx fa-weixin bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="fx fa-qq bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+	<a href="#" class="fx fa-facebook-official bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="fx fa-twitter bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="fx fa-linkedin bds_linkedin" data-cmd="linkedin" title="分享到linkedin"></a>
+	<a href="#" class="fx fa-files-o bds_copy" data-cmd="copy" title="分享到复制网址"></a>
+</div>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"2","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+
+
+
+    
+        <section class="changyan" id="comments">
+  <!--<div id="uyan_frame"></div>-->
+  <div id="SOHUCS"></div>
+  <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+  <script type="text/javascript">
+    window.changyan.api.config({
+      appid: 'xxxx',
+      conf: 'xxxxxxxxx'
+    });
+  </script>
+</section>
+    
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a  href="/2016/04/24/hexo搭建博客常见问题/" title="上一篇: hexo搭建博客常见问题">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+        
+            <a  href="/2016/03/14/AJAX应用之HTTP/" title="下一篇: AJAX应用之HTTP">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2018/04/13/ubuntu安装rime输入法/">ubuntu安装rime输入法</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/03/23/快速上手快应用/">快速上手快应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/31/手摸手搭建科学上网去服务/">科学上网</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/10/09/MongoDB简单学习/">MongoDB数据库配合NodeJS简单使用</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/07/11/css变形/">css变形</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/05/14/前后端渲染的对比/">前后端渲染的对比</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/ubuntu常见问题/">ubuntu常见问题处理</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/04/02/ubuntu常用软件部署/">ubuntu常用软件部署</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/03/03/centos-01/">centos-01</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/01/10/nodeJS构建express框架开发简单应用/">NodeJS构建express框架开发简单应用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/26/数组方法梳理/">数组方法梳理</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/20/原生框架封装之插件开发/">原生框架封装之插件开发</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/18/框架封装练习3/">jqeury框架封装练习3</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/17/框架封装之Ajax/">框架封装之Ajax</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/17/原生框架封装练习2/">原生框架封装练习02</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/11/15/原生框架封装练习01/">jquery框架封装练习01</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/10/10/js原型/">JS原型链总结</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/11/canvas入门2/">canvas入门2</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/09/10/canvas入门1/">Canvas入门1</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/08/15/关于js中的静态方法和实例方法/">关于js中的静态方法和实例方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/20/AngularJS系列之模块化介绍/">AngularJS系列之模块化介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/07/11/AngularJS介绍/">AngularJS系列之简单介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/06/13/git应用之git工作原理/">git应用之git基本工作流程</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/20/git应用之版本控制/">git应用之版本控制工具</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/15/git应用之git和github/">git应用之git和github</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/14/git应用之vi编辑器/">git应用之vi编辑器</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/AJAX学习之基本功/">AJAX应用之基本功</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/git应用之git常用操作/">git应用之git常用操作</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/13/git快速入门之bash/">git应用之认识bash</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/05/10/git应用之认识SSH/">git应用之认识SSH</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/24/ajax是什么/">什么是ajax</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/04/24/hexo搭建博客常见问题/">hexo搭建博客常见问题</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/18/ECMAScript发展史/">ECMAScript发展史</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/14/AJAX应用之HTTP/">AJAX应用之HTTP</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/03/10/hexo配置个人博客站点/">快速搭建hexo个人博客站点</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/14/markdown基本语法/">markdown基本语法</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/01/13/markdown2html/">把markdown文件转换为html文件</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/08/14/PHP简单入门/">PHP简单入门</a></li></ul>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+    <script>
+        $(".post-list").addClass("toc-article");
+        // $(".post-list-item a").attr("target","_blank");
+        $("#post-nav-button > a:nth-child(2)").click(function() {
+            $(".fa-bars, .fa-times").toggle();
+            $(".post-list").toggle(300);
+            if ($(".toc").length > 0) {
+                $("#toc, #tocButton").toggle(200, function() {
+                    if ($(".switch-area").is(":visible")) {
+                        $("#toc, .switch-btn, .switch-area").toggle();
+                        $("#tocButton").attr("value", valueHide);
+                        }
+                    })
+            }
+            else {
+                $(".switch-btn, .switch-area").fadeToggle(300);
+            }
+        })
+    </script>
+
+
+
+
+    <script>
+        
+    </script>
+
+</div>
+      <footer id="footer">
+    <div class="outer">
+        <div id="footer-info">
+            <div class="footer-left">
+                &copy; 2018 Pansheng
+            </div>
+            <div class="footer-right">
+                <a href="http://hexo.io/" target="_blank">Hexo &nbsp;&nbsp;</a><a href="https://github.com/maochunguang" target="_blank">Blog</a> by tommy
+            </div>
+        </div>
+        
+            <div class="visit">
+                
+                    <span id="busuanzi_container_site_pv" style='display:none'>
+                        <span id="site-visit" >极客到访数: 
+                            <span id="busuanzi_value_site_uv"></span>
+                        </span>
+                    </span>
+                
+                
+                    <span>, </span>
+                
+                
+                    <span id="busuanzi_container_page_pv" style='display:none'>
+                        <span id="page-visit">本页阅读量: 
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+    
+<script src="https://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            var backgroundnum = 1;
+            var backgroundimg = "url(/background/bg-x.jpg)".replace(/x/gi, Math.ceil(Math.random() * backgroundnum));
+            $("#mobile-nav").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+            $(".left-col").css({"background-image": backgroundimg,"background-size": "cover","background-position": "center"});
+        })
+    </script>
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-113348763-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?wangpansheng";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+
+
+<div class="scroll" id="scroll">
+    <a href="#"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer"><i class="fa fa-arrow-down"></i></a>
+</div>
+<script>
+    $(document).ready(function() {
+        if ($("#comments").length < 1) {
+            $("#scroll > a:nth-child(2)").hide();
+        };
+    })
+</script>
+
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js">
+</script>
+
+  <script language="javascript">
+    $(function() {
+        $("a[title]").each(function() {
+            var a = $(this);
+            var title = a.attr('title');
+            if (title == undefined || title == "") return;
+            a.data('title', title).removeAttr('title').hover(
+            function() {
+                var offset = a.offset();
+                $("<div id=\"anchortitlecontainer\"></div>").appendTo($("body")).html(title).css({
+                    top: offset.top - a.outerHeight() - 15,
+                    left: offset.left + a.outerWidth()/2 + 1
+                }).fadeIn(function() {
+                    var pop = $(this);
+                    setTimeout(function() {
+                        pop.remove();
+                    }, pop.text().length * 800);
+                });
+            }, function() {
+                $("#anchortitlecontainer").remove();
+            });
+        });
+    });
+</script>
+
+
+  </div>
+</body>
+</html>
