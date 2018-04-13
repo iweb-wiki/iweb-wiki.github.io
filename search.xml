@@ -280,9 +280,9 @@
             
             <tag> JS </tag>
             
-            <tag> Canvas </tag>
-            
             <tag> 画布 </tag>
+            
+            <tag> Canvas </tag>
             
         </tags>
       
@@ -299,9 +299,9 @@
             
             <tag> JS </tag>
             
-            <tag> 画布 </tag>
-            
             <tag> canvas </tag>
+            
+            <tag> 画布 </tag>
             
         </tags>
       
@@ -346,9 +346,9 @@
       
         <tags>
             
-            <tag> JS </tag>
-            
             <tag> Angular </tag>
+            
+            <tag> JS </tag>
             
         </tags>
       
@@ -623,16 +623,16 @@
     
     <entry>
       <title></title>
-      <link href="/404.html"/>
-      <url>/404.html</url>
-      <content type="html"><![CDATA[layout: false title: "My Blog Name | 404" ---<!DOCTYPE HTML><html><head>    <meta http-equiv="content-type" content="text/html;charset=utf-8;">    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    <meta name="robots" content="all">    <meta name="robots" content="index,follow">    <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css"></head><body>    <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">    </script>    <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>    <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script></body></html>]]></content>
+      <link href="/person.html"/>
+      <url>/person.html</url>
+      <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">    <title>Document</title></head><body>    <div>        啊是分开时间段放假啦    </div></body></html>]]></content>
     </entry>
     
     <entry>
       <title></title>
-      <link href="/person.html"/>
-      <url>/person.html</url>
-      <content type="html"><![CDATA[<!DOCTYPE html><html lang="en"><head>    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="ie=edge">    <title>Document</title></head><body>    <div>        啊是分开时间段放假啦    </div></body></html>]]></content>
+      <link href="/404.html"/>
+      <url>/404.html</url>
+      <content type="html"><![CDATA[layout: false title: "My Blog Name | 404" ---<!DOCTYPE HTML><html><head>    <meta http-equiv="content-type" content="text/html;charset=utf-8;">    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">    <meta name="robots" content="all">    <meta name="robots" content="index,follow">    <link rel="stylesheet" type="text/css" href="https://qzone.qq.com/gy/404/style/404style.css"></head><body>    <script type="text/plain" src="http://www.qq.com/404/search_children.js" charset="utf-8" homepageurl="/" homepagename="回到我的主页">    </script>    <script src="https://qzone.qq.com/gy/404/data.js" charset="utf-8"></script>    <script src="https://qzone.qq.com/gy/404/page.js" charset="utf-8"></script></body></html>]]></content>
     </entry>
     
     <entry>
@@ -650,17 +650,17 @@
     </entry>
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
-      <content type="html"><![CDATA[]]></content>
-    </entry>
-    
-    <entry>
       <title>王攀升</title>
       <link href="/me/index.html"/>
       <url>/me/index.html</url>
       <content type="html"><![CDATA[<!--##    加速建设中。。。。。--><!--<iframe src="../person.html" width="600px" height="800px"></iframe>--><style>    #person {        width: 800px;        height: 500px;        border: 1px solid #ccc;}</style><div id="person"></div>]]></content>
+    </entry>
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
+      <content type="html"><![CDATA[]]></content>
     </entry>
     
     <entry>
