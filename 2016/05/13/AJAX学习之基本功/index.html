@@ -1,0 +1,86 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> AJAX应用之基本功 · Pansheng`s Blog</title><meta name="description" content="AJAX应用之基本功 - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/images/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/images/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">AJAX应用之基本功</h1><div class="post-info">2016年5月13日</div><div class="post-content"><h1 id="静态资源和动态资源"><a href="#静态资源和动态资源" class="headerlink" title="静态资源和动态资源"></a>静态资源和动态资源</h1><blockquote>
+<p>我们把开发好的html css js部署到服务器上，然后就可以访问了，我们称这些服务器上的文件为资源。</p>
+</blockquote>
+<h2 id="我们把资源分为两类："><a href="#我们把资源分为两类：" class="headerlink" title="我们把资源分为两类："></a>我们把资源分为两类：</h2><blockquote>
+<p>实际上，我们开发都是在开发资源，开发好了部署到服务器上，然后客户端就可访问我的资源了。</p>
+</blockquote>
+<ul>
+<li><p>资源分为两类</p>
+<ol>
+<li>静态资源</li>
+</ol>
+</li>
+</ul>
+<blockquote>
+<p>   可以通过浏览器直接打开，直接解析的我们称为静态资源。html,js,css.inage 我们可以理解为静态资源</p>
+</blockquote>
+<ol start="2">
+<li>动态资源</li>
+</ol>
+<blockquote>
+<p>   php，jsp，asp 我们可以理解为动态资源</p>
+</blockquote>
+<h2 id="动态资源和静态资源的区别"><a href="#动态资源和静态资源的区别" class="headerlink" title="动态资源和静态资源的区别"></a>动态资源和静态资源的区别</h2><ul>
+<li><p>浏览器只认识静态资源。</p>
+</li>
+<li><p>我的浏览器通过输入地址区访问呢服务器，实际上是去访问服务器上的资源。</p>
+</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>服务器上有静态资源，也有动态资源。</li>
+<li>如果我的浏览器访问的是服务器上的动态资源，服务器会把动态资源转换称静态资源，然后在传给客户端浏览器。</li>
+<li>如果我的浏览器访问的是服务器上的静态资源，那么服务器会直接把静态资源传送给浏览器解析。</li>
+<li>动态资源是在服务端运行的，静态资源是在客户端运行的。</li>
+</ul>
+<ul>
+<li>php 就是在服务端运行的，用来处理服务端逻辑的。</li>
+</ul>
+<h1 id="客户端与服务端进行交互"><a href="#客户端与服务端进行交互" class="headerlink" title="客户端与服务端进行交互"></a>客户端与服务端进行交互</h1><h2 id="客户端发送请求有几种方式："><a href="#客户端发送请求有几种方式：" class="headerlink" title="客户端发送请求有几种方式："></a>客户端发送请求有几种方式：</h2><ol>
+<li><p>在地址栏输入地址发送请求</p>
+</li>
+<li><p>点击一个超链接，发送请求</p>
+</li>
+<li><p>表单提交也是属于发送请求</p>
+</li>
+</ol>
+<ul>
+<li>发送请求是给服务器端进行提交，提交数据到服务器</li>
+<li>提交有两种常见的方式，一个是get，一个是post</li>
+</ul>
+<h2 id="1-什么是get提交"><a href="#1-什么是get提交" class="headerlink" title="1. 什么是get提交"></a>1. 什么是get提交</h2><blockquote>
+<p>   在地址栏输入地址发送请求，点击超链接也属于get提交<br> 表单提交，<code>&lt;form action=&quot;&quot; method=&quot;get&quot;&gt;&lt;/form&gt;</code>默认是get方式提交。<br> ?paraName=value&amp;paraName=value&amp;paraName=value</p>
+</blockquote>
+<h2 id="2-什么是post提交呢？"><a href="#2-什么是post提交呢？" class="headerlink" title="2. 什么是post提交呢？"></a>2. 什么是post提交呢？</h2><blockquote>
+<p>   表单提交，可以设置称post方式提交， 会自动把数据发送到服务器</p>
+</blockquote>
+<h2 id="3-服务端"><a href="#3-服务端" class="headerlink" title="3.  服务端"></a>3.  服务端</h2><ol>
+<li>接收请求<br>$_GET $POST这两个变量得到的值是一个关联数组，<br>客户端的数据放在关联数组里面，需要根据key去获取里边的值</li>
+<li>处理请求<br>连接数据库，增删改查</li>
+<li>响应数据<br>echo根据处理请求的逻辑，给客户端不同的响应结果</li>
+</ol>
+<h2 id="服务端接收到客户端的请求，一般要做那些处理？"><a href="#服务端接收到客户端的请求，一般要做那些处理？" class="headerlink" title="服务端接收到客户端的请求，一般要做那些处理？"></a>服务端接收到客户端的请求，一般要做那些处理？</h2><h4 id="1-用户登录"><a href="#1-用户登录" class="headerlink" title="1.用户登录"></a>1.用户登录</h4><ol>
+<li>接收请求，接收用户名以及密码</li>
+<li>对接收到的用户名密码进行判断，<ul>
+<li>如果正确，则进行连接数据</li>
+<li>如果不正确就提示错误</li>
+</ul>
+</li>
+</ol>
+<h4 id="2-文件上传"><a href="#2-文件上传" class="headerlink" title="2.文件上传"></a>2.文件上传</h4><ul>
+<li><p>客户端：</p>
+<ol>
+<li>必须是表单提交的</li>
+<li>表单提交里面必须有一个 input type=“file”</li>
+<li>必须是post方式提交的</li>
+<li>必须给表单设置一个属性，<code>enctype=&quot;multipart/form-data</code></li>
+</ol>
+</li>
+<li><p>服务端（php）</p>
+<ol>
+<li>要接收客户端的数据， $_GET, $_POST ,不能接收文件上传的数据，文件上传的数据，我们应该用$_FILES 的变量去接收，接收的数据也是一个关联数组</li>
+<li>接收到这个数据之后，需要把这些数据保存到服务端硬盘上面。</li>
+</ol>
+</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/05/14/git应用之vi编辑器/" class="prev">上一篇</a><a href="/2016/05/13/git应用之git常用操作/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>

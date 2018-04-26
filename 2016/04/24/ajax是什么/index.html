@@ -1,0 +1,55 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 什么是ajax · Pansheng`s Blog</title><meta name="description" content="什么是ajax - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/images/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/images/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">什么是ajax</h1><div class="post-info">2016年4月24日</div><div class="post-content"><blockquote>
+<p> 什么是ajax</p>
+</blockquote>
+<h2 id="1-同步交互"><a href="#1-同步交互" class="headerlink" title="1. 同步交互"></a>1. 同步交互</h2><p>   客户端请求服务器，服务器接收到请求，处理请求，然后给客户端一个响应，<br>响应的数据会把原来的页面给覆盖。我们把这种交互成为同步交互.</p>
+<h2 id="2-异步交互"><a href="#2-异步交互" class="headerlink" title="2.  异步交互"></a>2.  异步交互</h2><pre><code>客户端请求服务器,服务器接收到请求，处理请求，然后给客户端一个响应，
+</code></pre><p>响应的数据不会把原来的页面给覆盖。我们把这种交互成为异步交互.</p>
+<p><strong>异步交互实际上就是页面不刷新，就可以动态的去获取服务端的数据</strong></p>
+<p>它是怎么做到的，为什么能够去获取到服务端的数据，它的原理是什么.<br>通过XMLHttpRequest 对象去发送http 请求.</p>
+<h3 id="XMLHttpRequest-交互的几个步骤"><a href="#XMLHttpRequest-交互的几个步骤" class="headerlink" title="XMLHttpRequest 交互的几个步骤"></a>XMLHttpRequest 交互的几个步骤</h3><ol>
+<li>创建这样的一个对象</li>
+<li>我要跟服务端建立一个连接</li>
+<li>我要在连接上面发送数据</li>
+<li>接收服务端返回的数据</li>
+</ol>
+<p>页面不刷新，就完成了跟服务器端的数据交互.</p>
+<h4 id="我假设以后我们做登录是同步交互，还是做异步交互"><a href="#我假设以后我们做登录是同步交互，还是做异步交互" class="headerlink" title="我假设以后我们做登录是同步交互，还是做异步交互."></a>我假设以后我们做登录是同步交互，还是做异步交互.</h4><form action="login.php"><br>    昵称：<input type="text" name="username" id="username"><br>    <span id="message"></span><br>    <br><br><br>    密码：<input type="password" name="password"><br><br><br>    <input type="submit" value="登录"><br></form>
+
+<ul>
+<li>如果我是做同步登录</li>
+</ul>
+<p>肯定是服务器得到我的请求，决定给我输出什么样的数据。</p>
+<ul>
+<li>如果是做异步登录</li>
+</ul>
+<a id="more"></a>
+<p>给登录按钮添加点击事件，然后获取到用户名，以及密码<br>然后通过XMLHttpRequest 对象发送请求给服务器，服务器返回数据<br>返回了数据之后，然后接收到数据，<br>我肯定是登陆成功，还是失败，然后由客户端来完成跳转<br>window.location.href=””;</p>
+<h2 id="ajax运行过程"><a href="#ajax运行过程" class="headerlink" title="ajax运行过程"></a>ajax运行过程</h2><p>我们做ajax 开发，客户端发送一个请求给服务器，服务器返回数据。<br>返回了数据之后，我通过js 得到数据，得到了数据之后，我把这个数据渲染到页面上面.</p>
+<h2 id="xml和json"><a href="#xml和json" class="headerlink" title="xml和json"></a>xml和json</h2><p>如果跟服务器进行交互，如果传递的数据格式非常大，非常多的情况下，我们一般给传递是数据规定一个格式.</p>
+<p>这个格式有两种，目前市场上面，一种是xml 的数据格式，还有一种是json 的数据格式.<br>xml 跟这个json 都是数据格式。</p>
+<h4 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h4><blockquote>
+<p>  xml 到底是什么样的数据格式</p>
+</blockquote>
+<p>xml 是 <strong>可扩展的标记语言</strong>，html是<strong>超文本标记语言</strong>，都是由<strong>标记</strong>，<strong>标签</strong>组成，</p>
+<ul>
+<li>xml <ul>
+<li>它里面的标签是自定义的，<person></person></li>
+<li>主要是用来做软件的配置文件，用来做数据的传输，xml 一般自己写解析</li>
+</ul>
+</li>
+<li>xml 里面的标记的语法：<ul>
+<li>第一：第一行必须是文档申明  &lt;?xml version=”1.0” encoding=”utf-8” ?&gt;</li>
+<li>第二：必须有且仅有一个根元素</li>
+<li>第三：标签可以嵌套，不能交叉嵌套   <code>&lt;persons&gt;&lt;person&gt;&lt;/person&gt;&lt;/persons&gt;</code></li>
+</ul>
+</li>
+<li><p>html </p>
+<ul>
+<li>里面的标记 是w3c 指定的需要按照w3c 指定的规范去编写</li>
+<li>主要是用来做界面显示的，浏览器解析.</li>
+</ul>
+</li>
+<li><p>一般每一门语言对xml，以及json 都有解决方案</p>
+</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/05/10/git应用之认识SSH/" class="prev">上一篇</a><a href="/2016/04/24/hexo搭建博客常见问题/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>

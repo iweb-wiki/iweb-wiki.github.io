@@ -1,0 +1,69 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> git应用之认识bash · Pansheng`s Blog</title><meta name="description" content="git应用之认识bash - Pansheng"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/images/favicon.jpg"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="https://wangpansheng.github.io/atom.xml" title="Pansheng`s Blog"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/images/favicon.jpg" alt="logo"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">BLOG</a></li><li class="nav-list-item"><a href="http://weibo.com/u/5598490525" target="_blank" class="nav-list-link">WEIBO</a></li><li class="nav-list-item"><a href="https://github.com/wangpansheng" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="http://www.jianshu.com/u/75f67b3d06e9" target="_blank" class="nav-list-link">JIANSHU</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">git应用之认识bash</h1><div class="post-info">2016年5月13日</div><div class="post-content"><h2 id="什么是shell"><a href="#什么是shell" class="headerlink" title="什么是shell"></a>什么是shell</h2><p>Shell俗称壳，是指”提供使用者使用界面”的软件，接收用户命令，然后调用相应的应用程序。</p>
+<h3 id="shell分类"><a href="#shell分类" class="headerlink" title="shell分类"></a>shell分类</h3><h4 id="图形化shell"><a href="#图形化shell" class="headerlink" title="图形化shell"></a>图形化shell</h4><p>通过友好的可视化界面，调用相应应用程序，如windows系类操作系统，类Unix，Linux系统上的图形化应用程序Gnome，Kde等。</p>
+<h4 id="命令行shell"><a href="#命令行shell" class="headerlink" title="命令行shell"></a>命令行shell</h4><p>通过输入特定命令调用相应的应用程序。如window系统的cmd，Windows PowerShell；Linux系统的bash。</p>
+<h3 id="认识bash"><a href="#认识bash" class="headerlink" title="认识bash"></a>认识bash</h3><ul>
+<li><p>在window下使用bash，需要一个软件，这个软件模拟集成了bash大部分命令，</p>
+</li>
+<li><p>各个shell的功能都差不多，linux默认使用bash，所以主要学习bash。</p>
+</li>
+</ul>
+<h4 id="bash常用命令"><a href="#bash常用命令" class="headerlink" title="bash常用命令"></a>bash常用命令</h4><ul>
+<li><p>pwd(Print Working Directory) 查看当前目录;</p>
+</li>
+<li><p>cd(Change Directory) 切换目录，如cd etc,cd ..返回上一层目录;</p>
+</li>
+<li><p>ls(List) 查看当前目录下内容，如ls-al;</p>
+</li>
+<li>ls -l 以列表形式产看当前目录内容</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>mkdir(Make Directory) 创建目录，可以指定路径创建目录，如mkdir blog;</p>
+</li>
+<li><p>touch    创建文件，</p>
+</li>
+<li><p>cat 查看文件全部内容，cat ./路径/文件名</p>
+</li>
+<li><p>more(unix支持) less(linux支持) 分页查看文件，空格翻页，q退出。</p>
+</li>
+<li><p>rm(remove) 删除文件，如rm 文件名</p>
+</li>
+<li><p>rm -rf 强制删除目录内所有文件，-r(recursion)是递归删除，-f强制删除</p>
+</li>
+<li><p>rmdir(Remove Directory)   删除文件夹，只能删除空文件夹</p>
+</li>
+<li><p>mv(move) 移动文件或重命名,mv index.html ./00/00/index.html</p>
+</li>
+<li><p>cp(copy) 复制文件 </p>
+</li>
+<li><p>head    查看文件前几行，如 head -g index.html</p>
+</li>
+<li><p>tail    查看文件后几行， -n-f,</p>
+</li>
+<li><p>tab    自动补全，连续按两次会将所有匹配内容显示出来</p>
+</li>
+<li><p>history    查看操作历史</p>
+</li>
+<li><p>ssh    远程免密码登录，如ssh <a href="mailto:root@gitlab.study.com" target="_blank" rel="noopener">root@gitlab.study.com</a></p>
+</li>
+<li><blockquote>
+<p>和 &gt;&gt;    重定向，&gt;覆盖，&gt;&gt;追加，如cat index.html &gt; log.txt;</p>
+</blockquote>
+</li>
+<li><p>clear 清空当前窗口</p>
+</li>
+<li><p>curl    网络请求，</p>
+</li>
+<li><p>whoami    查看当前用户</p>
+</li>
+<li><p>以下在winodw集成环境不支持</p>
+</li>
+<li><p>weget    下载</p>
+</li>
+<li><p>tar    解压缩</p>
+</li>
+<li><p>管道符可以将多个命令来连接在一起，上一次命令的执行结果当成下一次命令的参数。</p>
+</li>
+<li>grep    匹配内容，一般结合管道符使用。</li>
+</ul>
+</div></article></div></main><footer><div class="paginator"><a href="/2016/05/13/git应用之git常用操作/" class="prev">上一篇</a><a href="/2016/05/10/git应用之认识SSH/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2018 <a href="https://wangpansheng.github.io">Pansheng</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-113348763-1",'auto');ga('send','pageview');</script></body></html>
